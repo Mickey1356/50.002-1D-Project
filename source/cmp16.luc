@@ -1,0 +1,21 @@
+module cmp16 (
+    input alufn[6],  // OPCODE
+    input z,
+    input v,
+    input n,
+    output compOUT[16] // output 
+  ) {
+
+  always {
+    case(alufn[2:1]) {
+      b01: // CMPEQ 6b110011
+        compOUT = c{15b0, z};
+      b10: // CMPLT 6b110101
+        compOUT = c{15b0, v ^ n};
+      b11: // CMPLE 6b110111
+        compOUT = c{15b0, z | (v ^ n)};
+      default:
+        compOUT = 0;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+module alu (
+    input a[16],
+    input b[16],
+    input alufn[6],
+    output z,
+    output v,
+    output n,
+    output out[16]
+  ) {
+  
+  adder16 adder16;
+  bool16 bool16;
+  shift16 shift16;
+  cmp16 cmp16;
+  muldiv16 muldiv16;
+
+  always {
+    adder16.alufn = alufn;
+    adder16.a = a;
+    adder16.b = b;
+    
+    z = adder16.z;
+    v = adder16.v;
+    n = adder16.n;
+    
+    bool16.alufn = alufn;
+    bool16.a = a;
+    bool16.b = b;
+    
+    shift16.alufn = alufn;
+    shift16.a = a;
+    shift16.b = b;
+    
+    cmp16.alufn = alufn;
+    cmp16.z = adder16.z;
+    cmp16.v = adder16.v;
+    cmp16.n = adder16.n;
+    
+    muldiv16.alufn = alufn;
+    muldiv16.a = a;
+    muldiv16.b = b;
+
+    out = 0;
+    
+    case (alufn[5:4]) {
+      b00:
+        if (alufn[2:1] == 00) {
+          out = adder16.addOUT;
+        } else {
+          out = muldiv16.muldivOUT;
+          z = muldiv16.z;
+          v = muldiv16.v;
+          n = muldiv16.n;
+        }
+      b01:
+        out = bool16.boolOUT;
+      b10:
+        out = shift16.shiftOUT;
+      b11:
+        out = cmp16.compOUT;
+    }
+  }
+}

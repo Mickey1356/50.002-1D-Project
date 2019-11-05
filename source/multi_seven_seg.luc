@@ -1,0 +1,33 @@
+// Since all 4 of the seven segment displays are connected to the same pins, if we want to display different digits on different displays,
+// we need to cycle through which digit is displayed at any one time. If we do this fast enough, our eyes shouldn't be able to tell the
+// difference and we will see it as though all the digits are displayed at the same time.
+// DIV is the parameter that affects how fast the digits are cycled through. (Default is 16, meaning that the display is switched once
+// every 2^16 clock cycles. The Mojo FPGA runs at 50MHz, so the display switches once every 0.0013 seconds.)
+module multi_seven_seg #(
+    DIGITS = 4 : DIGITS > 0,
+    DIV = 16 : DIV >= 0) (
+    input clk,  // clock
+    input rst,  // reset
+    input values [DIGITS][5], // values to show (fed in as an array from right to left}
+    output seg[8], // LED segments of the 7-segment display
+    output sel[DIGITS] // Digit selector
+  ) {
+  
+  // number of bits to store DIGITS-1
+  const DIGIT_BITS = $clog2(DIGITS);
+
+  .clk(clk), .rst(rst) {
+    counter ctr (#DIV(DIV), #SIZE(DIGIT_BITS), #TOP(DIGITS-1));
+  }
+  
+  seven_seg seg_dec;
+  decoder digit_dec (#WIDTH(DIGIT_BITS));
+  
+  always {
+    seg_dec.char = values[ctr.value];
+    seg = seg_dec.segs;
+    
+    digit_dec.in = ctr.value;
+    sel = digit_dec.out;
+  }
+}

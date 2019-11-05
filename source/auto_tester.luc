@@ -1,0 +1,699 @@
+module auto_tester (
+    input clk,  // clock
+    input rst,  // reset
+    input next, // input to proceed to the next stage
+    output seg[8],
+    output sel[4],
+    output leds[16]
+  ) {
+  
+  .clk(clk) {
+  
+    .rst(rst) {
+    
+      dff ctr[5]; // add a small delay before ALU checks
+    
+      multi_seven_seg mss;
+      
+      dff adder_test_ctr[5]; // 17 test cases + 1 pass state
+      dff muldiv_test_ctr[5]; // 19 test cases + 1 pass state
+      dff bool_test_ctr[4]; // 8 test cases + 1 pass state
+      dff shift_test_ctr[3]; // 4 test cases + 1 pass state
+      dff cmp_test_ctr[3]; // 6 test cases + 1 pass state
+      
+      fsm tester = {IDLE, ADD, MULDIV, BOOL, SHIFT, CMP, ADDF, MULDIVF, BOOLF, SHIFTF, CMPF, DONE};
+    }
+  }
+  
+  alu alu;
+  
+  always {
+  
+    ctr.d = ctr.q + 1;
+    
+    leds = 0;
+    
+    alu.alufn = Inst.ADD;
+    alu.a = 0;
+    alu.b = 0;
+  
+    mss.values = {5d19, 5d10, 5d5, 5d5}; // print PA55
+    
+    seg = ~mss.seg;
+    sel = ~mss.sel;
+    
+    case (tester.q) {
+      tester.IDLE:
+        // print GO to the 7 seg display
+        mss.values = {5d31, 5d31, 5d16, 5d0};
+        // just wait for the positive input
+        if (next) {
+          ctr.d = 1;
+          tester.d = tester.ADD;
+        }
+      tester.ADD:
+        case (adder_test_ctr.q) {
+          5d0:
+            alu.alufn = Inst.ADD;
+            alu.a = 16b0000000000010101;
+            alu.b = 16b0000000000000100;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000011001 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d1:
+            alu.alufn = Inst.ADD;
+            alu.a = 16b0000000000000000;
+            alu.b = 16b0000000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d2:
+            alu.alufn = Inst.ADD;
+            alu.a = 16b0100000000000000;
+            alu.b = 16b0100000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b1000000000000000 && alu.z == 0 && alu.v == 1 && alu.n == 1) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d3:
+            alu.alufn = Inst.ADD;
+            alu.a = 16b0000000000010101;
+            alu.b = 16b1111111111101011;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d4:
+            alu.alufn = Inst.ADD;
+            alu.a = 16b0000000000000001;
+            alu.b = 16b1111111111111100;
+            if (ctr.q == 0) {
+              if (alu.out == 16b1111111111111101 && alu.z == 0 && alu.v == 0 && alu.n == 1) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d5:
+            alu.alufn = Inst.ADD;
+            alu.a = 16b0000000000000101;
+            alu.b = 16b1111111111111100;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000001 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d6:
+            alu.alufn = Inst.ADD;
+            alu.a = 16b1111111111111111;
+            alu.b = 16b1111111111111111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b1111111111111110 && alu.z == 0 && alu.v == 0 && alu.n == 1) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d7:
+            alu.alufn = Inst.ADD;
+            alu.a = 16b1000000000000000;
+            alu.b = 16b1000000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 1 && alu.n == 0) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d8:
+            alu.alufn = Inst.SUB;
+            alu.a = 16b0000000000010101;
+            alu.b = 16b0000000000010101;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d9:
+            alu.alufn = Inst.SUB;
+            alu.a = 16b0000000000010101;
+            alu.b = 16b0000000000000100;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000010001 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d10:
+            alu.alufn = Inst.SUB;
+            alu.a = 16b1111111111111100;
+            alu.b = 16b1111111111111100;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d11:
+            alu.alufn = Inst.SUB;
+            alu.a = 16b1111111111111100;
+            alu.b = 16b1111111111111011;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000001 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d12:
+            alu.alufn = Inst.SUB;
+            alu.a = 16b0100000000000000;
+            alu.b = 16b1000000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b1100000000000000 && alu.z == 0 && alu.v == 1 && alu.n == 1) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d13:
+            alu.alufn = Inst.SUB;
+            alu.a = 16b0000000000000001;
+            alu.b = 16b1111111111101011;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000010110 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d14:
+            alu.alufn = Inst.SUB;
+            alu.a = 16b1000000000000000;
+            alu.b = 16b0100000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0100000000000000 && alu.z == 0 && alu.v == 1 && alu.n == 0) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d15:
+            alu.alufn = Inst.SUB;
+            alu.a = 16b1111111111111100;
+            alu.b = 16b0000000000000101;
+            if (ctr.q == 0) {
+              if (alu.out == 16b1111111111110111 && alu.z == 0 && alu.v == 0 && alu.n == 1) {
+                ctr.d = 1;
+                adder_test_ctr.d = adder_test_ctr.q + 1;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+          5d16:
+            alu.alufn = Inst.SUB;
+            alu.a = 16b0000000000000000;
+            alu.b = 16b0000000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                tester.d = tester.MULDIV;
+              } else {
+                tester.d = tester.ADDF;
+              }
+            }
+        }
+        
+      tester.MULDIV:
+        case(muldiv_test_ctr.q) {
+          5d0:
+            alu.alufn = Inst.MUL;
+            alu.a = 16b0000000000000001;
+            alu.b = 16b0000000000000101;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000101 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+               tester.d = tester.MULDIVF;
+              }
+            }
+          5d1:
+            alu.alufn = Inst.MUL;
+            alu.a = 16b0100000000000000;
+            alu.b = 16b0000000000000100;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 1 && alu.n == 0) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d2:
+            alu.alufn = Inst.MUL;
+            alu.a = 16b1111111111111111;
+            alu.b = 16b1111111111111111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000001 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+               tester.d = tester.MULDIVF;
+              }
+            }
+          5d3:
+            alu.alufn = Inst.MUL;
+            alu.a = 16b1100000000000000;
+            alu.b = 16b1111111111111100;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 1 && alu.n == 0) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d4:
+            alu.alufn = Inst.MUL;
+            alu.a = 16b1111111111111011;
+            alu.b = 16b0000000000000111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b1111111111011101 && alu.z == 0 && alu.v == 0 && alu.n == 1) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d5:
+            alu.alufn = Inst.MUL;
+            alu.a = 16b1100000000000000;
+            alu.b = 16b0000000000000100;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 1 && alu.n == 1) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d6:
+            alu.alufn = Inst.MUL;
+            alu.a = 16b0100000000000000;
+            alu.b = 16b0000000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d7:
+            alu.alufn = Inst.DIV;
+            alu.a = 16b0000000000000100;
+            alu.b = 16b0000000000000010;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000010 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d8:
+            alu.alufn = Inst.DIV;
+            alu.a = 16b1111111111111100;
+            alu.b = 16b1111111111111110;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000010 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d9:
+            alu.alufn = Inst.DIV;
+            alu.a = 16b0000000000000100;
+            alu.b = 16b1111111111111110;
+            if (ctr.q == 0) {
+              if (alu.out == 16b1111111111111110 && alu.z == 0 && alu.v == 0 && alu.n == 1) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d10:
+            alu.alufn = Inst.DIV;
+            alu.a = 16b1111111111111100;
+            alu.b = 16b0000000000000010;
+            if (ctr.q == 0) {
+              if (alu.out == 16b1111111111111110 && alu.z == 0 && alu.v == 0 && alu.n == 1) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d11:
+            alu.alufn = Inst.DIV;
+            alu.a = 16b0000000000000000;
+            alu.b = 16b0100000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d12:
+            alu.alufn = Inst.DIV;
+            alu.a = 16b0000000000000100;
+            alu.b = 16b0000000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d13:
+            alu.alufn = Inst.MOD;
+            alu.a = 16b0000000000000101;
+            alu.b = 16b0000000000000100;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000001 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d14:
+            alu.alufn = Inst.MOD;
+            alu.a = 16b0000000000000000;
+            alu.b = 16b0000000000000101;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 1 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                muldiv_test_ctr.d = muldiv_test_ctr.q + 1;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+          5d15:
+            alu.alufn = Inst.MOD;
+            alu.a = 16b0000000000000100;
+            alu.b = 16b0000000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000 && alu.z == 0 && alu.v == 0 && alu.n == 0) {
+                ctr.d = 1;
+                tester.d = tester.DONE;
+              } else {
+                tester.d = tester.MULDIVF;
+              }
+            }
+        }
+      tester.BOOL:
+        case(bool_test_ctr.q) {
+          4d0:
+            alu.alufn = Inst.XOR;
+            alu.a = 16b0101010101010101;
+            alu.b = 16b0111111111111111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0010101010101010) {
+                ctr.d = 1;
+                bool_test_ctr.d = bool_test_ctr.q + 1;
+              } else {
+                tester.d = tester.BOOLF;
+              }
+            }
+          4d1:
+            alu.alufn = Inst.XOR;
+            alu.a = 16b0101010101010101;
+            alu.b = 16b0000000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0101010101010101) {
+                ctr.d = 1;
+                bool_test_ctr.d = bool_test_ctr.q + 1;
+              } else {
+                tester.d = tester.BOOLF;
+              }
+            }
+          4d2:
+            alu.alufn = Inst.AND;
+            alu.a = 16b0101010101010101;
+            alu.b = 16b0111111111111111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0101010101010101) {
+                ctr.d = 1;
+                bool_test_ctr.d = bool_test_ctr.q + 1;
+              } else {
+                tester.d = tester.BOOLF;
+              }
+            }
+          4d3:
+            alu.alufn = Inst.AND;
+            alu.a = 16b0000000011110000;
+            alu.b = 16b0111111110101111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000010100000) {
+                ctr.d = 1;
+                bool_test_ctr.d = bool_test_ctr.q + 1;
+              } else {
+                tester.d = tester.BOOLF;
+              }
+            }
+          4d4:
+            alu.alufn = Inst.ASEL;
+            alu.a = 16b0101010101010101;
+            alu.b = 16b1111111111111111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0101010101010101) {
+                ctr.d = 1;
+                bool_test_ctr.d = bool_test_ctr.q + 1;
+              } else {
+                tester.d = tester.BOOLF;
+              }
+            }
+          4d5:
+            alu.alufn = Inst.ASEL;
+            alu.a = 16b0101010101010101;
+            alu.b = 16b0000000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0101010101010101) {
+                ctr.d = 1;
+                bool_test_ctr.d = bool_test_ctr.q + 1;
+              } else {
+                tester.d = tester.BOOLF;
+              }
+            }
+          4d6:
+            alu.alufn = Inst.OR;
+            alu.a = 16b0000000011111111;
+            alu.b = 16b0111111100000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0111111111111111) {
+                ctr.d = 1;
+                bool_test_ctr.d = bool_test_ctr.q + 1;
+              } else {
+                tester.d = tester.BOOLF;
+              }
+            }
+          4d7:
+            alu.alufn = Inst.OR;
+            alu.a = 16b0000000011110000;
+            alu.b = 16b0000000011111111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000011111111) {
+                ctr.d = 1;
+                tester.d = tester.SHIFT;
+              } else {
+                tester.d = tester.BOOLF;
+              }
+            }
+        }
+      tester.SHIFT:
+        case (shift_test_ctr.q) {
+          3d0:
+            alu.alufn = Inst.SHL;
+            alu.a = 16b0101010101010101;
+            alu.b = 16b0000000000000011;
+            if (ctr.q == 0) {
+              if (alu.out == 16b1010101010101000) {
+                ctr.d = 1;
+                shift_test_ctr.d = shift_test_ctr.q + 1;
+              } else {
+                tester.d = tester.SHIFTF;
+              }
+            }
+          3d1:
+            alu.alufn = Inst.SHR;
+            alu.a = 16b0101010101010101;
+            alu.b = 16b0000000000000101;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000001010101010) {
+                ctr.d = 1;
+                shift_test_ctr.d = shift_test_ctr.q + 1;
+              } else {
+                tester.d = tester.SHIFTF;
+              }
+            }
+          3d2:
+            alu.alufn = Inst.SRA;
+            alu.a = 16b1010101010101010;
+            alu.b = 16b0000000000000111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b1111111101010101) {
+                ctr.d = 1;
+                shift_test_ctr.d = shift_test_ctr.q + 1;
+              } else {
+                tester.d = tester.SHIFTF;
+              }
+            }
+          3d3:
+            alu.alufn = Inst.SRA;
+            alu.a = 16b0101010101010101;
+            alu.b = 16b0000000000001001;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000101010) {
+                ctr.d = 1;
+                tester.d = tester.CMP;
+              } else {
+                tester.d = tester.SHIFTF;
+              }
+            }
+        }
+      tester.CMP:
+        case (cmp_test_ctr.q) {
+          3d0:
+            alu.alufn = Inst.CMPEQ;
+            alu.a = 16b0111111100000000;
+            alu.b = 16b0111111100000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000001) {
+                ctr.d = 1;
+                cmp_test_ctr.d = cmp_test_ctr.q + 1;
+              } else {
+                tester.d = tester.CMPF;
+              }
+            }
+          3d1:
+            alu.alufn = Inst.CMPEQ;
+            alu.a = 16b0101010101010101;
+            alu.b = 16b0111111111111111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000) {
+                ctr.d = 1;
+                cmp_test_ctr.d = cmp_test_ctr.q + 1;
+              } else {
+                tester.d = tester.CMPF;
+              }
+            }
+          3d2:
+            alu.alufn = Inst.CMPLT;
+            alu.a = 16b0111111100000000;
+            alu.b = 16b0111111111111111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000001) {
+                ctr.d = 1;
+                cmp_test_ctr.d = cmp_test_ctr.q + 1;
+              } else {
+                tester.d = tester.CMPF;
+              }
+            }
+          3d3:
+            alu.alufn = Inst.CMPLT;
+            alu.a = 16b0111111110101111;
+            alu.b = 16b0111111100000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000) {
+                ctr.d = 1;
+                cmp_test_ctr.d = cmp_test_ctr.q + 1;
+              } else {
+                tester.d = tester.CMPF;
+              }
+            }
+          3d4:
+            alu.alufn = Inst.CMPLE;
+            alu.a = 16b0111111110101111;
+            alu.b = 16b0111111111111111;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000001) {
+                ctr.d = 1;
+                cmp_test_ctr.d = cmp_test_ctr.q + 1;
+              } else {
+                tester.d = tester.CMPF;
+              }
+            }
+          3d5:
+            alu.alufn = Inst.CMPLE;
+            alu.a = 16b1100000000000001;
+            alu.b = 16b1100000000000000;
+            if (ctr.q == 0) {
+              if (alu.out == 16b0000000000000000) {
+                ctr.d = 1;
+                tester.d = tester.DONE;
+              } else {
+                tester.d = tester.CMPF;
+              }
+            }
+
+        }
+      tester.ADDF:
+        // print F1 TC (1 for first test state)
+        mss.values = {5d15, 5d1, 5d31, adder_test_ctr.q};
+      tester.MULDIVF:
+        // print F2_TC (2 for second test state)
+        mss.values = {5d15, 5d2, 5d31, muldiv_test_ctr.q};
+      tester.BOOLF:
+        // third test state (bool)
+        mss.values = {5d15, 5d3, 5d31, c{1b0, bool_test_ctr.q}};
+      tester.SHIFTF:
+        // fourth test state (shift)
+        mss.values = {5d15, 5d4, 5d31, c{2b0, shift_test_ctr.q}};
+      tester.CMPF:
+        // fifth test state (cmp)
+        mss.values = {5d15, 5d5, 5d31, c{2b0, cmp_test_ctr.q}};
+    }
+  }
+}

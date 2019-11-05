@@ -1,0 +1,78 @@
+global Inst {
+  const ADD = 6h00; // 00 0000
+  const SUB = 6h01; // 00 0001
+  const MUL = 6h02; // 00 0010
+  const DIV = 6h04; // 00 0100
+  const MOD = 6h06; // 00 0110
+  
+  const AND = 6h18;
+  const OR = 6h1E;
+  const XOR = 6h16;
+  const ASEL = 6h1A;
+  
+  const SHL = 6h20;
+  const SHR = 6h21;
+  const SRA = 6h23;
+  
+  const CMPEQ = 6h33; // 11 0011
+  const CMPLT = 6h35; // 11 0101
+  const CMPLE = 6h37; // 11 0111
+}
+
+module alu_tester (
+    input clk,  // clock
+    input rst,  // reset
+    input auto_sel, // input to proceed to the automated testing
+    input auto_next,
+    input man_sel, // input to proceed to manual testing (input A)
+    input man_next, // input for manual testing (input B)
+    input switches[24], // inputs for A, B and ALUFN
+    output seg[8],
+    output sel[4],
+    output leds[24]
+  ) {
+  
+  .clk(clk) {
+  
+    .rst(rst) {
+    
+      multi_seven_seg mss;
+    
+      fsm test_state = {IDLE, AUTO, MAN};
+      
+      auto_tester auto_tester;
+      manual_tester manual_tester;
+    }
+  }
+    
+  always {
+    auto_tester.next = auto_next;
+    
+    manual_tester.man_next = man_next;
+    manual_tester.switches = switches;
+    
+    mss.values = {5d31, 5d31, 5d31, 5d31};
+    seg = ~mss.seg;
+    sel = ~mss.sel;
+    leds = 0;
+    
+    case (test_state.q) {
+      test_state.IDLE:
+        // print "   r" to show that its ready
+        mss.values = {5d31, 5d31, 5d31, 5d21};
+        if (auto_sel) {
+          test_state.d = test_state.AUTO;
+        } else if (man_sel) {
+          test_state.d = test_state.MAN;
+        }
+      test_state.AUTO:
+        seg = auto_tester.seg;
+        sel = auto_tester.sel;
+      test_state.MAN:
+        leds = manual_tester.leds;
+        seg = manual_tester.segs;
+        sel = manual_tester.sel;
+    }
+
+  }
+}

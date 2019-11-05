@@ -1,0 +1,61 @@
+module muldiv16 (
+    input alufn[6],
+    input a[16],
+    input b[16],
+    output z,
+    output v,
+    output n,
+    output muldivOUT[16]
+  ) {
+  
+  sig out[32]; // set larger bits and take the LSB for multiply and divide
+
+  always {
+    case(alufn[2:1]) {
+      b01: // multiplication
+        out = $signed(a) * $signed(b);
+        // manually set z, v, n bits
+        z = ~|(out[15:0]);
+        // overflow handling
+        if (a != 0 && $signed(out[15:0]) / $signed(a) != $signed(b)) {
+          v = 1;
+        } else {
+          v = 0;
+        }
+        n = a[15] ^ b[15]; // if the signs of the two numbers are different, then result is negative
+      b10: // division
+        // check if division by 0 (def. behaviour: set everything to 0)
+        if (b == 0) {
+          out = 0;
+          z = 0;
+          v = 0;
+          n = 0;
+        } else {
+          out = $signed(a) / $signed(b);
+          z = ~|(out[15:0]);
+          n = a[15] ^ b[15]; // if the signs of the two numbers are different, then result is negative
+          v = 0; // no overflow can occur in division
+        }
+      b11: // modulo
+        // check if division by 0 (def. behaviour: set everything to 0)
+        if (b == 0) {
+          out = 0;
+          z = 0;
+          v = 0;
+          n = 0;
+        } else {
+          out = a - (a / b * b);
+          z = ~|(out[15:0]);
+          n = out[15]; // if the signs of the two numbers are different, then result is negative
+          v = 0; // no overflow can occur in modulo;
+        }
+      default:
+        out = 0;
+        z = 0;
+        v = 0;
+        n = 0;
+    }
+    
+    muldivOUT = out[15:0];
+  }
+}

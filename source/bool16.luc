@@ -1,0 +1,25 @@
+module bool16 (
+    input alufn[6],
+    input a[16],
+    input b[16],
+    output boolOUT[16]
+  ) {
+
+  always {
+  	  // select 6 bits starting from 5 to 4 to 3 to 2 to 1
+    // bits 5:4 are the alufn selector for boolean
+    // bits 3:0 are the alufn for the individual logic gates
+    case(alufn[3:0]) {
+    		b0110:
+        boolOUT = a ^ b;   // xor gate  01 0110
+    		b1000:
+        boolOUT = a & b;   // and gate  01 1000
+    		b1010:
+        boolOUT = a;       // a sel     01 1010
+    		b1110:
+        boolOUT = a | b;   // or gate   01 1110
+      default:
+        boolOUT = 0;
+    	}
+  }
+}
