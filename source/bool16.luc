@@ -6,7 +6,7 @@ module bool16 (
   ) {
 
   always {
-  	  // select 6 bits starting from 5 to 4 to 3 to 2 to 1
+  	  // select 6 bits starting from 5 to 4 to 3 to 2 to 1 to 0
     // bits 5:4 are the alufn selector for boolean
     // bits 3:0 are the alufn for the individual logic gates
     case(alufn[3:0]) {

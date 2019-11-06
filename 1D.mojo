@@ -3,6 +3,7 @@
   <files>
     <src>alu.luc</src>
     <src top="true">mojo_top.v</src>
+    <src>square.v</src>
     <src>cmp16.luc</src>
     <src>alu_tester.luc</src>
     <src>manual_tester.luc</src>

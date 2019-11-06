@@ -8,11 +8,11 @@ module cmp16 (
 
   always {
     case(alufn[2:1]) {
-      b01: // CMPEQ 6b110011
+      b01: // CMPEQ 6b110 01 1
         compOUT = c{15b0, z};
-      b10: // CMPLT 6b110101
+      b10: // CMPLT 6b110 10 1
         compOUT = c{15b0, v ^ n};
-      b11: // CMPLE 6b110111
+      b11: // CMPLE 6b110 11 1
         compOUT = c{15b0, z | (v ^ n)};
       default:
         compOUT = 0;

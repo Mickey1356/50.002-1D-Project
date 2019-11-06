@@ -59,7 +59,11 @@ module mojo_top_0 (
   
   wire [23:0] ioled;
   
-  vga_1 vga(
+  wire [9:0] sq1_xl, sq1_xr, sq1_yt, sq1_yb;
+  wire [9:0] sq2_xl, sq2_xr, sq2_yt, sq2_yb;
+  wire [9:0] sq3_xl, sq3_xr, sq3_yt, sq3_yb;
+    
+  vga_1 vga (
     .clk(clk),
     .rst(rst),
     .x(x[9:0]),
@@ -68,16 +72,51 @@ module mojo_top_0 (
     .hsync(hsync),
     .vsync(vsync),
     .newframe(newframe),
-    .newline(newline)
+    .newline(newline),
+    .pixclk(pixclk)
   );
   
-  alu_tester_2 tester(
+  square_2 #(.IX(10'd160), .IY(10'd120), .H_SIZE(10'd60), .X_DIR(1), .Y_DIR(1)) square1 (
+    .clk(clk),
+    .rst(rst),
+    .pixclk(pixclk),
+    .animate(newframe),
+    .o_xl(sq1_xl),
+    .o_xr(sq1_xr),
+    .o_yt(sq1_yt),
+    .o_yb(sq1_yb)
+  );
+  
+  square_3 #(.IX(10'd400), .IY(10'd240), .H_SIZE(10'd80), .X_DIR(0), .Y_DIR(1)) square2 (
+    .clk(clk),
+    .rst(rst),
+    .pixclk(pixclk),
+    .animate(newframe),
+    .o_xl(sq2_xl),
+    .o_xr(sq2_xr),
+    .o_yt(sq2_yt),
+    .o_yb(sq2_yb)
+  );
+  
+  square_4 #(.IX(10'd300), .IY(10'd320), .H_SIZE(10'd40), .X_DIR(1), .Y_DIR(0)) square3 (
+    .clk(clk),
+    .rst(rst),
+    .pixclk(pixclk),
+    .animate(newframe),
+    .o_xl(sq3_xl),
+    .o_xr(sq3_xr),
+    .o_yt(sq3_yt),
+    .o_yb(sq3_yb)
+  );
+  
+  alu_tester_5 tester (
     .clk(clk),
     .rst(rst),
     .auto_sel(io_button[2]), // down button
     .auto_next(io_button[1]), // middle button
     .man_sel(io_button[0]), // up button
     .man_next(io_button[4]), // right button
+    .man_out(io_button[3]), // left button
     .switches(io_dip[23:0]),
     .seg(iseg[7:0]),
     .sel(isel[3:0]),
@@ -93,9 +132,12 @@ module mojo_top_0 (
     bval = 0;
     
     if (valid) begin
-      rval = (x < 320);
-      bval = (x < 160 || (x < 480 && x > 320));
-      gval = (x < 80 || (x < 240 && x > 160) || (x < 400 && x > 320) || (x < 560 && x > 480));
+      //rval = (x < 320);
+      //bval = (x < 160 || (x < 480 && x > 320));
+      //gval = (x < 80 || (x < 240 && x > 160) || (x < 400 && x > 320) || (x < 560 && x > 480));
+      rval = ((x > sq1_xl) & (x < sq1_xr) & (y > sq1_yt) & (y < sq1_yb));
+      bval = ((x > sq2_xl) & (x < sq2_xr) & (y > sq2_yt) & (y < sq2_yb));
+      gval = ((x > sq3_xl) & (x < sq3_xr) & (y > sq3_yt) & (y < sq3_yb));
     end
   end
   

@@ -2,6 +2,7 @@ module auto_tester (
     input clk,  // clock
     input rst,  // reset
     input next, // input to proceed to the next stage
+    input fail,
     output seg[8],
     output sel[4],
     output leds[16]
@@ -36,6 +37,7 @@ module auto_tester (
     alu.alufn = Inst.ADD;
     alu.a = 0;
     alu.b = 0;
+    alu.fail = fail;
   
     mss.values = {5d19, 5d10, 5d5, 5d5}; // print PA55
     

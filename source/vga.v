@@ -1,13 +1,14 @@
 module vga (
     input clk,  // clock
     input rst,  // reset
-    output reg[9:0] x,
-    output reg[9:0] y,
+    output reg [9:0] x,
+    output reg [9:0] y,
     output valid,
     output hsync,
     output vsync,
     output reg newframe,
-    output reg newline
+    output reg newline,
+    output reg pixclk
   );
   
   reg clk25;
@@ -19,15 +20,18 @@ module vga (
   always @(posedge clk) begin
     newframe <= 0;
     newline <= 0;
+    pixclk <= 0;
     if (rst) begin
       x <= 10'b0;
       y <= 10'b0;
       clk25 <= 1'b0;
       newframe <= 1;
       newline <= 1;
+      pixclk <= 1;
     end else begin
       clk25 <= ~clk25;
       if (clk25 == 1) begin
+        pixclk <= 1;
         if (x < 10'd799) begin
           x <= x + 1'b1;
         end else begin

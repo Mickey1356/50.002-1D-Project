@@ -2,6 +2,7 @@ module alu (
     input a[16],
     input b[16],
     input alufn[6],
+    input fail,
     output z,
     output v,
     output n,
@@ -13,6 +14,8 @@ module alu (
   shift16 shift16;
   cmp16 cmp16;
   muldiv16 muldiv16;
+  
+  sig outT[16];
 
   always {
     adder16.alufn = alufn;
@@ -39,25 +42,26 @@ module alu (
     muldiv16.alufn = alufn;
     muldiv16.a = a;
     muldiv16.b = b;
-
-    out = 0;
     
     case (alufn[5:4]) {
       b00:
-        if (alufn[2:1] == 00) {
-          out = adder16.addOUT;
+        if (alufn[2:1] == 2b00) {
+          outT = adder16.addOUT;
         } else {
-          out = muldiv16.muldivOUT;
+          outT = muldiv16.muldivOUT;
           z = muldiv16.z;
           v = muldiv16.v;
           n = muldiv16.n;
         }
       b01:
-        out = bool16.boolOUT;
+        outT = bool16.boolOUT;
       b10:
-        out = shift16.shiftOUT;
+        outT = shift16.shiftOUT;
       b11:
-        out = cmp16.compOUT;
+        outT = cmp16.compOUT;
     }
+    
+    // flips the last bit if a fail signal is being sent
+    out = outT ^ fail;
   }
 }

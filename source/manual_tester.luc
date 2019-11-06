@@ -3,58 +3,73 @@ module manual_tester (
     input rst,  // reset
     input switches[24],
     input man_next,
+    input man_out,
     output leds[24],
     output segs[8],
     output sel[4]
   ) {
   
+  // From "r": up button goes to manual testing mode (input a mode)
+  // then right button goes to input b mode
+  // then left button goes to output + input alufn mode
+  
   .clk(clk) {
     .rst(rst) {
       multi_seven_seg mss;
       dff a[16];
-      fsm state = {INA, INB};
+      dff b[16];
+      fsm state = {INA, INB, OUT};
     }
   }
-    
-  sig b[16];
-  sig alufn[6];
-  
+      
   alu alu;
 
   always {
     alu.alufn = 0;
     alu.a = 0;
     alu.b = 0;
+    alu.fail = switches[16];
     
     segs = ~mss.seg;
     sel = ~mss.sel;
     
     mss.values = {5d31, 5d31, 5d31, 5d31};
     
-    alufn = switches[23:18];
+    alu.alufn = switches[23:18];
     leds = 0;
+    
     case (state.q) {
       state.INA:
-        // print "A   "
-        mss.values = {5d10, 5d31, 5d31, 5d31};
+        // print "in A"
+        mss.values = {5d18, 5d22, 5d31, 5d10};
         a.d = switches[15:0];
-        if (man_next) {
+        if (man_next) { // right button
           state.d = state.INB;
         }
       state.INB:
-        // print "B   "
-        mss.values = {5d11, 5d31, 5d31, 5d31};
+        // print "in B"
+        mss.values = {5d18, 5d22, 5d31, 5d11};
         
-        b = switches[15:0];
-        alu.alufn = alufn;
+        // leds display A
+        leds[15:0] = a.q;
+        
+        b.d = switches[15:0];
+        if (man_out) { // left button
+          state.d = state.OUT;
+        }
+      state.OUT:
+        // print "  OP"
+        mss.values = {5d31, 5d31, 5d0, 5d19};
+      
+        alu.alufn = switches[5:0];
         alu.a = a.q;
-        alu.b = b;
+        alu.b = b.q;
+        
         leds[15:0] = alu.out;
         
         leds[23] = alu.z;
         leds[22] = alu.v;
         leds[21] = alu.n;
-        
     }
   }
 }

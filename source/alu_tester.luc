@@ -5,14 +5,14 @@ global Inst {
   const DIV = 6h04; // 00 0100
   const MOD = 6h06; // 00 0110
   
-  const AND = 6h18;
-  const OR = 6h1E;
-  const XOR = 6h16;
-  const ASEL = 6h1A;
+  const AND = 6h18; // 01 1000
+  const OR = 6h1E;  // 01 1110 
+  const XOR = 6h16; // 01 0110
+  const ASEL = 6h1A;// 01 1010
   
-  const SHL = 6h20;
-  const SHR = 6h21;
-  const SRA = 6h23;
+  const SHL = 6h20; // 10 0000
+  const SHR = 6h21; // 10 0001
+  const SRA = 6h23; // 10 0011
   
   const CMPEQ = 6h33; // 11 0011
   const CMPLT = 6h35; // 11 0101
@@ -26,6 +26,7 @@ module alu_tester (
     input auto_next,
     input man_sel, // input to proceed to manual testing (input A)
     input man_next, // input for manual testing (input B)
+    input man_out,
     input switches[24], // inputs for A, B and ALUFN
     output seg[8],
     output sel[4],
@@ -46,9 +47,11 @@ module alu_tester (
   }
     
   always {
+    auto_tester.fail = switches[16];
     auto_tester.next = auto_next;
     
     manual_tester.man_next = man_next;
+    manual_tester.man_out = man_out;
     manual_tester.switches = switches;
     
     mss.values = {5d31, 5d31, 5d31, 5d31};
@@ -60,9 +63,9 @@ module alu_tester (
       test_state.IDLE:
         // print "   r" to show that its ready
         mss.values = {5d31, 5d31, 5d31, 5d21};
-        if (auto_sel) {
+        if (auto_sel) { // down btn
           test_state.d = test_state.AUTO;
-        } else if (man_sel) {
+        } else if (man_sel) { // up btn
           test_state.d = test_state.MAN;
         }
       test_state.AUTO:

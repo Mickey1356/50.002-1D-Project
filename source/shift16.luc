@@ -12,7 +12,7 @@ module shift16 (
       b01: //SHR 6b100001
         shiftOUT = a >> b;
       b11: //SRA 6b100011
-        shiftOUT = $signed(a) >>> b;
+        shiftOUT = a >>> b;
       default:
         shiftOUT = a;
     }
