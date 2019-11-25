@@ -1,0 +1,22 @@
+module state_counter #(
+  DIV = 24 : DIV >= 0) (
+    input clk,  // clock
+    input rst,  // reset
+    output out
+  ) {
+  
+  // the state counter is used to add a delay between input checks so movement can be done in "tiles"
+  // 23 : 0.1s
+  // 24 : 0.3s
+  // 25 : 0.6s
+  // 26 : 1.3s
+  dff counter[DIV](.clk(clk), .rst(rst));
+
+  always {
+    out = counter.q[DIV - 1];
+    counter.d = counter.q + 1;
+    if (counter.q[DIV - 1] == 1) {
+      counter.d[DIV - 1] = 0;
+    }
+  }
+}

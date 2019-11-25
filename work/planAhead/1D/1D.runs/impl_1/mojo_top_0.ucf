@@ -64,17 +64,7 @@ NET "avr_rx_busy" IOSTANDARD = LVTTL;
 # Constraints from file : 'vga.ucf'
 ####################################################################################
 
-NET "r" LOC = P51;
-NET "r" IOSTANDARD = LVTTL;
-NET "g" LOC = P41;
-NET "g" IOSTANDARD = LVTTL;
-NET "b" LOC = P35;
-NET "b" IOSTANDARD = LVTTL;
 
-NET "vs" LOC = P57;
-NET "vs" IOSTANDARD = LVTTL;
-NET "hs" LOC = P66;
-NET "hs" IOSTANDARD = LVTTL;
 
 
 ####################################################################################
@@ -132,31 +122,7 @@ NET "io_led[22]" IOSTANDARD = LVTTL;
 NET "io_led[23]" LOC = P26;
 NET "io_led[23]" IOSTANDARD = LVTTL;
 
-NET "io_seg[0]" LOC = P5;
-NET "io_seg[0]" IOSTANDARD = LVTTL;
-NET "io_seg[1]" LOC = P8;
-NET "io_seg[1]" IOSTANDARD = LVTTL;
-NET "io_seg[2]" LOC = P144;
-NET "io_seg[2]" IOSTANDARD = LVTTL;
-NET "io_seg[3]" LOC = P143;
-NET "io_seg[3]" IOSTANDARD = LVTTL;
-NET "io_seg[4]" LOC = P2;
-NET "io_seg[4]" IOSTANDARD = LVTTL;
-NET "io_seg[5]" LOC = P6;
-NET "io_seg[5]" IOSTANDARD = LVTTL;
-NET "io_seg[6]" LOC = P1;
-NET "io_seg[6]" IOSTANDARD = LVTTL;
-NET "io_seg[7]" LOC = P141;
-NET "io_seg[7]" IOSTANDARD = LVTTL;
 
-NET "io_sel[0]" LOC = P9;
-NET "io_sel[0]" IOSTANDARD = LVTTL;
-NET "io_sel[1]" LOC = P10;
-NET "io_sel[1]" IOSTANDARD = LVTTL;
-NET "io_sel[2]" LOC = P7;
-NET "io_sel[2]" IOSTANDARD = LVTTL;
-NET "io_sel[3]" LOC = P12;
-NET "io_sel[3]" IOSTANDARD = LVTTL;
 
 # PULLDOWN is needed to prevent floating inputs
 NET "io_button[0]" LOC = P137;
@@ -175,11 +141,13 @@ NET "io_button[4]" LOC = P138;
 NET "io_button[4]" IOSTANDARD = LVTTL;
 NET "io_button[4]" PULLDOWN;
 
+NET "io_dip[23]" LOC = P57;
 NET "io_dip[23]" IOSTANDARD = LVTTL;
 NET "io_dip[23]" PULLDOWN;
 NET "io_dip[22]" LOC = P58;
 NET "io_dip[22]" IOSTANDARD = LVTTL;
 NET "io_dip[22]" PULLDOWN;
+NET "io_dip[21]" LOC = P66;
 NET "io_dip[21]" IOSTANDARD = LVTTL;
 NET "io_dip[21]" PULLDOWN;
 NET "io_dip[20]" LOC = P67;

@@ -1,0 +1,19 @@
+module led_flasher #(DIV = 25 : DIV >= 0) (
+    input clk,  // clock
+    input rst,  // reset
+    output out
+  ) {
+  
+  // the led flasher is used to flash leds (turn them on and off)
+  // 23 : 0.1s
+  // 24 : 0.3s
+  // 25 : 0.6s
+  // 26 : 1.3s
+  
+  dff counter[DIV](.clk(clk), .rst(rst));
+
+  always {
+    out = counter.q[DIV - 1];
+    counter.d = counter.q + 1;
+  }
+}

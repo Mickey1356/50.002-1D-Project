@@ -1,0 +1,184 @@
+module game_controller (
+    input clk,  // clock
+    input rst,  // reset
+    
+    input up,
+    input down,
+    input left,
+    input right,
+    // input reset,
+    
+    input level_state[3],
+    
+    output win,
+    output lose,
+    
+    output tiles_g[28],
+    output tiles_p[28]
+    
+  ) {
+  
+  // 0   1   2   3   4   5   6
+  // 7   8   9   10  11  12  13
+  // 14  15  16  17  18  19  20
+  // 21  22  23  24  25  26  27
+  
+  .clk(clk) {
+    .rst(rst) {
+      state_counter sc; // initialise a state counter to "delay" the inputs
+      
+      dff player_pos[5]; // 2^5 = 32 > 28 diff positions
+      
+      dff tiles_type [28][2];
+      
+      dff step_counter[5]; // a way to store how many steps have been taken
+      dff req_steps[5];
+      
+      // dffs for button conditioner (so you can't hold button down)
+      dff up_cond[1];
+      dff down_cond[1];
+      dff left_cond[1];
+      dff right_cond[1];
+      
+      // toggle for initial set up
+      dff init_toggle[1];
+      
+      // dff for win/loss
+      dff win_toggle[1];
+      dff lose_toggle[1];
+      
+      // initialise all 28 tiles
+      tile_led tiles[28]; // can use an array to store 28 tiles
+    }
+  }
+
+  always {    
+    // tiles.type = 28x{{2d0}};
+        
+    // tiles_type.d[27:21] = 7x{{2d2}};
+    
+    case (level_state) {
+      1: // obstacles 16, 4
+        tiles_type.d[27:21] = 7x{{2d2}}; // set the boundaries
+        tiles_type.d[1:0] = 2x{{2d2}};
+        tiles_type.d[8:7] = 2x{{2d2}};
+        tiles_type.d[16:14] = 3x{{2d2}}; // include the actual level obstacles
+        tiles_type.d[6:4] = 3x{{2d2}}; // include the actual level obstacles
+        tiles_type.d[13:12] = 2x{{2d2}};
+        tiles_type.d[20:19] = 2x{{2d2}};
+        
+        // starting loc is 17, ending loc is 3, req. steps = 6
+        if (init_toggle.q == 0) {
+          tiles_type.d[18:16] = 3x{{2d0}};
+          tiles_type.d[11:9] = 3x{{2d0}};
+          tiles_type.d[4:2] = 3x{{2d0}};
+          player_pos.d = 17;
+          step_counter.d = 0; // reset step counter
+          tiles_type.d[17] = 2d3;
+          win_toggle.d = 0;
+          lose_toggle.d = 0;
+          init_toggle.d = 1;
+        }
+        req_steps.d = 6;
+      default:
+        tiles_type.d = 28x{{2d0}}; // set everything to be unexplored cell first
+        init_toggle.d = 0;
+    }
+    
+    if (up & sc.out & up_cond.q == 0) {
+      up_cond.d = 1;
+      if (player_pos.q > 6) { // ie. not the top row
+        if (tiles_type.q[player_pos.q - 7] == 2d0) {
+          step_counter.d = step_counter.q + 1;
+          tiles_type.d[player_pos.q] = 2d1; // set to explored (1)
+          tiles_type.d[player_pos.q - 7] = 2d3;
+          player_pos.d = player_pos.q - 7;
+          //tiles_type.d[player_pos.q] = 2d3;
+        } else if (tiles_type.q[player_pos.q - 7] == 2d1) {
+          // game supposed to end here
+          win_toggle.d = 0;
+          lose_toggle.d = 1;
+        }
+      }
+    }
+    if (!up & sc.out) {
+      up_cond.d = 0;
+    }
+    
+    if (down & sc.out & down_cond.q == 0) {
+      down_cond.d = 1;
+      if (player_pos.q < 21) { // ie. not the bottom row
+        if (tiles_type.q[player_pos.q + 7] == 2d0) {
+          step_counter.d = step_counter.q + 1;
+          tiles_type.d[player_pos.q] = 2d1;
+          tiles_type.d[player_pos.q + 7] = 2d3;
+          player_pos.d = player_pos.q + 7;
+          //tiles_type.d[player_pos.q] = 2d3;
+        } else if (tiles_type.q[player_pos.q + 7] == 2d1) {
+          // end the game
+          win_toggle.d = 0;
+          lose_toggle.d = 1;
+        }
+      }
+    }
+    if (!down & sc.out) {
+      down_cond.d = 0;
+    }
+    
+    if (left & sc.out & left_cond.q == 0) {
+      left_cond.d = 1;
+      if (player_pos.q != 0 & player_pos.q != 7 & player_pos.q != 14 & player_pos.q != 21) { // ie. not the left most row
+        if (tiles_type.q[player_pos.q - 1] == 2d0) {
+          step_counter.d = step_counter.q + 1;
+          tiles_type.d[player_pos.q] = 2d1;
+          tiles_type.d[player_pos.q - 1] = 2d3;
+          player_pos.d = player_pos.q - 1;
+          //tiles_type.d[player_pos.q] = 2d3;
+        } else if (tiles_type.q[player_pos.q - 1] == 2d1) {
+          // end the game
+          win_toggle.d = 0;
+          lose_toggle.d = 1;
+        }
+      }
+    }
+    if (!left & sc.out) {
+      left_cond.d = 0;
+    }
+    
+    if (right & sc.out & right_cond.q == 0) {
+      right_cond.d = 1;
+      if (player_pos.q != 6 & player_pos.q != 13 & player_pos.q != 20 & player_pos.q != 27) { // ie. not the left most row
+        if (tiles_type.q[player_pos.q + 1] == 2d0) {
+          step_counter.d = step_counter.q + 1;
+          tiles_type.d[player_pos.q] = 2d1;
+          tiles_type.d[player_pos.q + 1] = 2d3;
+          player_pos.d = player_pos.q + 1;
+          //tiles_type.d[player_pos.q] = 2d3;
+        } else if (tiles_type.q[player_pos.q + 1] == 2d1) {
+          // end the game
+          win_toggle.d = 0;
+          lose_toggle.d = 1;
+        }
+      }
+    }
+    if (!right & sc.out) {
+      right_cond.d = 0;
+    }
+    
+    if (player_pos.q == 3 & sc.out & step_counter.q == req_steps.q) { // check to see if game has been won
+      // win the game
+      win_toggle.d = 1;
+      lose_toggle.d = 0;
+    }
+
+    // tiles_type.d[player_pos.q] = 2d3; // always set player pos to type 3
+    
+    tiles.type = tiles_type.q;
+    
+    tiles_g = tiles.led_g;
+    tiles_p = tiles.led_p;
+    
+    win = win_toggle.q;
+    lose = lose_toggle.q;
+  }
+}
