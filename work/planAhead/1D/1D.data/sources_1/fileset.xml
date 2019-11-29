@@ -2,19 +2,10 @@
 <DARoots Version="1" Minor="26">
   <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/imports/verilog/led_flasher_6.v">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/led_flasher_6.v"/>
-        <Attr Name="ImportTime" Val="1574612888"/>
-        <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInImplementation" Val="1"/>
-        <Attr Name="UsedInSimulation" Val="1"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/verilog/led_flasher_5.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/led_flasher_5.v"/>
-        <Attr Name="ImportTime" Val="1574612888"/>
+        <Attr Name="ImportTime" Val="1574836218"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
@@ -23,7 +14,7 @@
     <File Path="$PSRCDIR/sources_1/imports/verilog/tile_led_4.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/tile_led_4.v"/>
-        <Attr Name="ImportTime" Val="1574612888"/>
+        <Attr Name="ImportTime" Val="1574836218"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
@@ -32,7 +23,7 @@
     <File Path="$PSRCDIR/sources_1/imports/verilog/state_counter_2.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/state_counter_2.v"/>
-        <Attr Name="ImportTime" Val="1574612888"/>
+        <Attr Name="ImportTime" Val="1574836218"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
@@ -41,7 +32,7 @@
     <File Path="$PSRCDIR/sources_1/imports/verilog/game_controller_3.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/game_controller_3.v"/>
-        <Attr Name="ImportTime" Val="1574612888"/>
+        <Attr Name="ImportTime" Val="1574836218"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
@@ -50,7 +41,7 @@
     <File Path="$PSRCDIR/sources_1/imports/verilog/game_loop_1.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/game_loop_1.v"/>
-        <Attr Name="ImportTime" Val="1574612888"/>
+        <Attr Name="ImportTime" Val="1574836218"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
@@ -59,7 +50,7 @@
     <File Path="$PSRCDIR/sources_1/imports/verilog/mojo_top_0.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/mojo_top_0.v"/>
-        <Attr Name="ImportTime" Val="1574612888"/>
+        <Attr Name="ImportTime" Val="1574836218"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>

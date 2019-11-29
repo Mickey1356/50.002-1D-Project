@@ -19,17 +19,21 @@ module mojo_top (
     output avr_rx, // AVR Rx => FPGA Tx
     input avr_rx_busy,      // AVR RX buffer full
     
-    output [23:0] io_led,   // LEDs on IO Shield
+//    output [23:0] io_led,   // LEDs on IO Shield
 //    output [7:0] io_seg,      // 7-segment LEDs on IO Shield
 //    output [3:0] io_sel,      // Digit select on IO Shield
     input [5:0] io_button,    // 5 buttons on IO Shield
-    input [23:0] io_dip     // DIP switches on IO Shield
+//    input [23:0] io_dip     // DIP switches on IO Shield
+
+    output [27:0] led_p,
+    output [27:0] led_g,
     
     //output r,
     //output g,
     //output b,
     //output vs,
     //output hs
+    output power
   );
 
   wire rst = ~rst_n; // make reset active high
@@ -40,6 +44,10 @@ module mojo_top (
   assign spi_channel = 4'bzzzz;
   
   assign led = 8'b0;
+  assign power = 1;
+  
+  assign led_p = tiles_p;
+  assign led_g = tiles_g;
   //assign io_led[23:1] = 23'b0;
   
   //assign r = rval;
@@ -138,8 +146,8 @@ module mojo_top (
       .tiles_p(tiles_p[27:0])
     );
         
-    assign io_led[20:0] = tiles_g[20:0];
-    assign io_led[23:21] = 2'b000;
+//    assign io_led[20:0] = tiles_g[20:0];
+//    assign io_led[23:21] = 2'b000;
 
 //  tiles tiles (
 //    .clk(clk),

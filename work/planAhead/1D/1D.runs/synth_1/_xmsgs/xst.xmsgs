@@ -5,16 +5,10 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 138: Assignment to <arg fmt="%s" index="1">tiles_p</arg> ignored, since the identifier is never used
-</msg>
-
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">io_button&lt;1:1&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">io_button&lt;5:5&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">io_dip</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">cclk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -35,101 +29,93 @@
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">avr_rx_busy</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">130</arg>: Output port &lt;<arg fmt="%s" index="3">tiles_p</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">gl</arg>&gt; is unconnected or connected to loadless signal.
-</msg>
-
 <msg type="info" file="Xst" num="3231" delta="new" >The small RAM &lt;<arg fmt="%s" index="1">Mram_led_p</arg>&gt; will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
 </msg>
 
-<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">M_req_steps_q_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_controller_3</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
+<msg type="info" file="Xst" num="2146" delta="new" >In block &lt;<arg fmt="%s" index="1">game_controller_3</arg>&gt;, <arg fmt="%s" index="2">Counter</arg> &lt;<arg fmt="%s" index="3">tiles_gen_0[0].tiles/lf/M_counter_q</arg>&gt; </msg>
 
-<msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_req_steps_q_3</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_controller_3</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">M_req_steps_q_3</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_controller_3</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="1896" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">M_req_steps_q_4</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">game_controller_3</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2146" delta="new" >In block &lt;<arg fmt="%s" index="1">game_controller_3</arg>&gt;, <arg fmt="%s" index="2">Counter</arg> &lt;<arg fmt="%s" index="3">tiles_gen_0[0].tiles/lf/M_counter_q</arg>&gt; </msg>
-
-<msg type="info" file="Xst" num="2146" delta="new" >In block &lt;<arg fmt="%s" index="1">game_controller_3</arg>&gt;, <arg fmt="%s" index="2">Counter</arg> &lt;<arg fmt="%s" index="3">tiles_gen_0[0].tiles/lf2/M_counter_q</arg>&gt; </msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_0&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_0&gt; &lt;gl/gc/sc/M_counter_q_0&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_req_steps_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_controller_3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_req_steps_q_1&gt; &lt;M_req_steps_q_2&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_1&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_1&gt; &lt;gl/gc/sc/M_counter_q_1&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_0&gt; &lt;gl/gc/sc/M_counter_q_0&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_2&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_2&gt; &lt;gl/gc/sc/M_counter_q_2&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_1&gt; &lt;gl/gc/sc/M_counter_q_1&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_3&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_3&gt; &lt;gl/gc/sc/M_counter_q_3&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_2&gt; &lt;gl/gc/sc/M_counter_q_2&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_4&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_4&gt; &lt;gl/gc/sc/M_counter_q_4&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_3&gt; &lt;gl/gc/sc/M_counter_q_3&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_5&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_5&gt; &lt;gl/gc/sc/M_counter_q_5&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_4&gt; &lt;gl/gc/sc/M_counter_q_4&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_6&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_6&gt; &lt;gl/gc/sc/M_counter_q_6&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_5&gt; &lt;gl/gc/sc/M_counter_q_5&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_7&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_7&gt; &lt;gl/gc/sc/M_counter_q_7&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_6&gt; &lt;gl/gc/sc/M_counter_q_6&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_8&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_8&gt; &lt;gl/gc/sc/M_counter_q_8&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_7&gt; &lt;gl/gc/sc/M_counter_q_7&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_9&gt; &lt;gl/gc/sc/M_counter_q_9&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_8&gt; &lt;gl/gc/sc/M_counter_q_8&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_23</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_23&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/sc/M_counter_q_9&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/gc/M_req_steps_q_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/M_req_steps_q_1&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/gc/M_step_counter_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/M_player_pos_q_0&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_10</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_10&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_10&gt; &lt;gl/gc/sc/M_counter_q_10&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_10</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_10&gt; &lt;gl/gc/sc/M_counter_q_10&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_11</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_11&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_11&gt; &lt;gl/gc/sc/M_counter_q_11&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_11</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_11&gt; &lt;gl/gc/sc/M_counter_q_11&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_12&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_12&gt; &lt;gl/gc/sc/M_counter_q_12&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_12&gt; &lt;gl/gc/sc/M_counter_q_12&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_13&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_13&gt; &lt;gl/gc/sc/M_counter_q_13&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_13&gt; &lt;gl/gc/sc/M_counter_q_13&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_14&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_14&gt; &lt;gl/gc/sc/M_counter_q_14&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_14&gt; &lt;gl/gc/sc/M_counter_q_14&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_20</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_20&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_20&gt; &lt;gl/gc/sc/M_counter_q_20&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_20</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_20&gt; &lt;gl/gc/sc/M_counter_q_20&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_15&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_15&gt; &lt;gl/gc/sc/M_counter_q_15&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_15&gt; &lt;gl/gc/sc/M_counter_q_15&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_21</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_21&gt; &lt;gl/gc/sc/M_counter_q_21&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_21</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/sc/M_counter_q_21&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_16&gt; &lt;gl/gc/sc/M_counter_q_16&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/sc/M_counter_q_16&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_22</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_22&gt; &lt;gl/gc/sc/M_counter_q_22&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_22</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/sc/M_counter_q_22&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_17</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_17&gt; &lt;gl/gc/sc/M_counter_q_17&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_17</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/sc/M_counter_q_17&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_18</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_18&gt; &lt;gl/gc/sc/M_counter_q_18&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_18</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/sc/M_counter_q_18&gt; </arg>
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_23</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/sc/M_counter_q_23&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_19</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_19&gt; &lt;gl/gc/sc/M_counter_q_19&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_19</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/sc/M_counter_q_19&gt; </arg>
 </msg>
 
 </messages>

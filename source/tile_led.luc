@@ -11,7 +11,7 @@ module tile_led (
     .rst(rst) {
       led_flasher lf (#DIV(26)); // this lf is used to create the blinking effect (one flash every ~0.6s)
       
-      led_flasher lf2 (#DIV(24));
+      // led_flasher lf2 (#DIV(24));
       
       // dff type_reg[2];
     }
@@ -31,7 +31,7 @@ module tile_led (
         led_g = 0;
       3: // player pos (purple)
         led_p = 1;
-        led_g = lf2.out;
+        led_g = 0;
       default:
         led_p = 0;
         led_g = 0;

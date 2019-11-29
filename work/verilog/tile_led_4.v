@@ -20,12 +20,6 @@ module tile_led_4 (
     .rst(rst),
     .out(M_lf_out)
   );
-  wire [1-1:0] M_lf2_out;
-  led_flasher_6 lf2 (
-    .clk(clk),
-    .rst(rst),
-    .out(M_lf2_out)
-  );
   
   always @* begin
     
@@ -44,7 +38,7 @@ module tile_led_4 (
       end
       2'h3: begin
         led_p = 1'h1;
-        led_g = M_lf2_out;
+        led_g = 1'h0;
       end
       default: begin
         led_p = 1'h0;

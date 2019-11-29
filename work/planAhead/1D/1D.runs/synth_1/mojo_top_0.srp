@@ -53,8 +53,6 @@ Netlist Hierarchy                  : rebuilt
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/led_flasher_6.v" into library work
-Parsing module <led_flasher_6>.
 Analyzing Verilog file "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/led_flasher_5.v" into library work
 Parsing module <led_flasher_5>.
 Analyzing Verilog file "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/tile_led_4.v" into library work
@@ -84,9 +82,6 @@ Elaborating module <tile_led_4>.
 
 Elaborating module <led_flasher_5>.
 
-Elaborating module <led_flasher_6>.
-WARNING:HDLCompiler:1127 - "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 138: Assignment to tiles_p ignored, since the identifier is never used
-
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
@@ -95,20 +90,18 @@ Synthesizing Unit <mojo_top_0>.
     Related source file is "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/mojo_top_0.v".
 WARNING:Xst:647 - Input <io_button<1:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <io_button<5:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <io_dip> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <cclk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_ss> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_mosi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_sck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_tx> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/mojo_top_0.v" line 130: Output port <tiles_p> of the instance <gl> is unconnected or connected to loadless signal.
-    Found 1-bit tristate buffer for signal <spi_miso> created at line 38
-    Found 1-bit tristate buffer for signal <avr_rx> created at line 39
-    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 40
-    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 40
-    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 40
-    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 40
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 42
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 43
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 44
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 44
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 44
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 44
     Summary:
 	inferred   6 Tristate(s).
 Unit <mojo_top_0> synthesized.
@@ -157,40 +150,39 @@ Synthesizing Unit <game_controller_3>.
     Found 1-bit register for signal <M_win_toggle_q>.
     Found 1-bit register for signal <M_lose_toggle_q>.
     Found 5-bit register for signal <M_player_pos_q>.
-    Found 6-bit subtractor for signal <GND_10_o_GND_10_o_sub_74_OUT> created at line 104.
-    Found 5-bit subtractor for signal <M_player_pos_q[4]_GND_10_o_sub_132_OUT> created at line 105.
-    Found 6-bit subtractor for signal <GND_10_o_GND_10_o_sub_349_OUT> created at line 142.
-    Found 5-bit subtractor for signal <M_player_pos_q[4]_GND_10_o_sub_407_OUT> created at line 143.
-    Found 5-bit adder for signal <M_step_counter_q[4]_GND_10_o_add_15_OUT> created at line 102.
-    Found 6-bit adder for signal <M_player_pos_q[4]_GND_10_o_add_16_OUT> created at line 103.
-    Found 32-bit adder for signal <n0733> created at line 104.
-    Found 6-bit adder for signal <n1636[5:0]> created at line 123.
-    Found 7-bit adder for signal <n0857> created at line 123.
-    Found 32-bit adder for signal <n0980> created at line 142.
-    Found 6-bit adder for signal <n1642[5:0]> created at line 161.
-    Found 7-bit adder for signal <n1104> created at line 161.
-    Found 111-bit shifter logical right for signal <n0673> created at line 101
-    Found 111-bit shifter logical right for signal <n0800> created at line 120
-    Found 111-bit shifter logical right for signal <n0923> created at line 139
-    Found 111-bit shifter logical right for signal <n1047> created at line 158
-    Found 5-bit comparator greater for signal <GND_10_o_M_player_pos_q[4]_LessThan_11_o> created at line 100
-    Found 5-bit comparator greater for signal <M_player_pos_q[4]_PWR_4_o_LessThan_147_o> created at line 119
-    Found 5-bit comparator equal for signal <M_step_counter_q[4]_M_req_steps_q[4]_equal_561_o> created at line 174
+    Found 6-bit subtractor for signal <GND_10_o_GND_10_o_sub_87_OUT> created at line 152.
+    Found 5-bit subtractor for signal <M_player_pos_q[4]_GND_10_o_sub_145_OUT> created at line 153.
+    Found 6-bit subtractor for signal <GND_10_o_GND_10_o_sub_362_OUT> created at line 190.
+    Found 5-bit subtractor for signal <M_player_pos_q[4]_GND_10_o_sub_420_OUT> created at line 191.
+    Found 5-bit adder for signal <M_step_counter_q[4]_GND_10_o_add_28_OUT> created at line 150.
+    Found 6-bit adder for signal <M_player_pos_q[4]_GND_10_o_add_29_OUT> created at line 151.
+    Found 32-bit adder for signal <n0788> created at line 152.
+    Found 6-bit adder for signal <n1694[5:0]> created at line 171.
+    Found 7-bit adder for signal <n0912> created at line 171.
+    Found 32-bit adder for signal <n1035> created at line 190.
+    Found 6-bit adder for signal <n1700[5:0]> created at line 209.
+    Found 7-bit adder for signal <n1159> created at line 209.
+    Found 111-bit shifter logical right for signal <n0728> created at line 149
+    Found 111-bit shifter logical right for signal <n0855> created at line 168
+    Found 111-bit shifter logical right for signal <n0978> created at line 187
+    Found 111-bit shifter logical right for signal <n1102> created at line 206
+    Found 56-bit 4-to-1 multiplexer for signal <_n1729> created at line 71.
+    Found 5-bit comparator greater for signal <GND_10_o_M_player_pos_q[4]_LessThan_24_o> created at line 148
+    Found 5-bit comparator greater for signal <M_player_pos_q[4]_PWR_4_o_LessThan_160_o> created at line 167
+    Found 5-bit comparator equal for signal <M_step_counter_q[4]_M_req_steps_q[4]_equal_574_o> created at line 222
     Summary:
 	inferred  12 Adder/Subtractor(s).
 	inferred  78 D-type flip-flop(s).
 	inferred   3 Comparator(s).
-	inferred 914 Multiplexer(s).
+	inferred 1044 Multiplexer(s).
 	inferred   4 Combinational logic shifter(s).
 Unit <game_controller_3> synthesized.
 
 Synthesizing Unit <tile_led_4>.
     Related source file is "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/tile_led_4.v".
     Found 4x1-bit Read Only RAM for signal <led_p>
-    Found 1-bit 4-to-1 multiplexer for signal <led_g> created at line 32.
     Summary:
 	inferred   1 RAM(s).
-	inferred   1 Multiplexer(s).
 Unit <tile_led_4> synthesized.
 
 Synthesizing Unit <led_flasher_5>.
@@ -202,23 +194,14 @@ Synthesizing Unit <led_flasher_5>.
 	inferred  26 D-type flip-flop(s).
 Unit <led_flasher_5> synthesized.
 
-Synthesizing Unit <led_flasher_6>.
-    Related source file is "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/led_flasher_6.v".
-    Found 24-bit register for signal <M_counter_q>.
-    Found 24-bit adder for signal <M_counter_d> created at line 26.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred  24 D-type flip-flop(s).
-Unit <led_flasher_6> synthesized.
-
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
 # RAMs                                                 : 28
  4x1-bit single-port Read Only RAM                     : 28
-# Adders/Subtractors                                   : 70
- 24-bit adder                                          : 30
+# Adders/Subtractors                                   : 42
+ 24-bit adder                                          : 2
  26-bit adder                                          : 28
  32-bit adder                                          : 2
  5-bit adder                                           : 1
@@ -226,21 +209,21 @@ Macro Statistics
  6-bit adder                                           : 3
  6-bit subtractor                                      : 2
  7-bit adder                                           : 2
-# Registers                                            : 69
+# Registers                                            : 41
  1-bit register                                        : 7
- 24-bit register                                       : 30
+ 24-bit register                                       : 2
  26-bit register                                       : 28
  5-bit register                                        : 3
  56-bit register                                       : 1
 # Comparators                                          : 3
  5-bit comparator equal                                : 1
  5-bit comparator greater                              : 2
-# Multiplexers                                         : 944
- 1-bit 2-to-1 multiplexer                              : 222
- 1-bit 4-to-1 multiplexer                              : 28
+# Multiplexers                                         : 1046
+ 1-bit 2-to-1 multiplexer                              : 268
  2-bit 2-to-1 multiplexer                              : 440
- 5-bit 2-to-1 multiplexer                              : 240
- 56-bit 2-to-1 multiplexer                             : 14
+ 5-bit 2-to-1 multiplexer                              : 322
+ 56-bit 2-to-1 multiplexer                             : 15
+ 56-bit 4-to-1 multiplexer                             : 1
 # Logic shifters                                       : 4
  111-bit shifter logical right                         : 4
 # Tristates                                            : 6
@@ -257,10 +240,6 @@ Macro Statistics
 Synthesizing (advanced) Unit <led_flasher_5>.
 The following registers are absorbed into counter <M_counter_q>: 1 register on signal <M_counter_q>.
 Unit <led_flasher_5> synthesized (advanced).
-
-Synthesizing (advanced) Unit <led_flasher_6>.
-The following registers are absorbed into counter <M_counter_q>: 1 register on signal <M_counter_q>.
-Unit <led_flasher_6> synthesized (advanced).
 
 Synthesizing (advanced) Unit <tile_led_4>.
 INFO:Xst:3231 - The small RAM <Mram_led_p> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
@@ -287,19 +266,19 @@ Macro Statistics
  5-bit adder                                           : 3
  5-bit subtractor                                      : 4
  6-bit adder                                           : 5
-# Counters                                             : 56
- 24-bit up counter                                     : 28
+# Counters                                             : 28
  26-bit up counter                                     : 28
 # Registers                                            : 126
  Flip-Flops                                            : 126
 # Comparators                                          : 3
  5-bit comparator equal                                : 1
  5-bit comparator greater                              : 2
-# Multiplexers                                         : 914
- 1-bit 2-to-1 multiplexer                              : 220
+# Multiplexers                                         : 1044
+ 1-bit 2-to-1 multiplexer                              : 266
  2-bit 2-to-1 multiplexer                              : 440
- 5-bit 2-to-1 multiplexer                              : 240
- 56-bit 2-to-1 multiplexer                             : 14
+ 5-bit 2-to-1 multiplexer                              : 322
+ 56-bit 2-to-1 multiplexer                             : 15
+ 56-bit 4-to-1 multiplexer                             : 1
 # Logic shifters                                       : 4
  111-bit shifter logical right                         : 4
 # FSMs                                                 : 1
@@ -309,9 +288,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1293 - FF/Latch <M_req_steps_q_0> has a constant value of 0 in block <game_controller_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_req_steps_q_3> has a constant value of 0 in block <game_controller_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_req_steps_q_4> has a constant value of 0 in block <game_controller_3>. This FF/Latch will be trimmed during the optimization process.
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <FSM_0> on signal <M_game_states_q[1:2]> with sequential encoding.
 -------------------
@@ -321,47 +297,47 @@ Optimizing FSM <FSM_0> on signal <M_game_states_q[1:2]> with sequential encoding
  001   | 01
  010   | 10
 -------------------
-INFO:Xst:2146 - In block <game_controller_3>, Counter <tiles_gen_0[0].tiles/lf/M_counter_q> <tiles_gen_0[1].tiles/lf/M_counter_q> <tiles_gen_0[2].tiles/lf/M_counter_q> <tiles_gen_0[3].tiles/lf/M_counter_q> <tiles_gen_0[4].tiles/lf/M_counter_q> <tiles_gen_0[5].tiles/lf/M_counter_q> <tiles_gen_0[6].tiles/lf/M_counter_q> <tiles_gen_0[7].tiles/lf/M_counter_q> <tiles_gen_0[8].tiles/lf/M_counter_q> <tiles_gen_0[9].tiles/lf/M_counter_q> <tiles_gen_0[10].tiles/lf/M_counter_q> <tiles_gen_0[11].tiles/lf/M_counter_q> <tiles_gen_0[12].tiles/lf/M_counter_q> <tiles_gen_0[13].tiles/lf/M_counter_q> <tiles_gen_0[14].tiles/lf/M_counter_q> <tiles_gen_0[15].tiles/lf/M_counter_q> <tiles_gen_0[16].tiles/lf/M_counter_q> <tiles_gen_0[17].tiles/lf/M_counter_q> <tiles_gen_0[18].tiles/lf/M_counter_q> <tiles_gen_0[19].tiles/lf/M_counter_q> <tiles_gen_0[20].tiles/lf/M_counter_q> <tiles_gen_0[21].tiles/lf/M_counter_q> <tiles_gen_0[22].tiles/lf/M_counter_q> <tiles_gen_0[23].tiles/lf/M_counter_q> <tiles_gen_0[24].tiles/lf/M_counter_q> <tiles_gen_0[25].tiles/lf/M_counter_q> <tiles_gen_0[26].tiles/lf/M_counter_q> <tiles_gen_0[27].tiles/lf/M_counter_q> are equivalent, XST will keep only <tiles_gen_0[0].tiles/lf/M_counter_q>.
-INFO:Xst:2146 - In block <game_controller_3>, Counter <tiles_gen_0[0].tiles/lf2/M_counter_q> <tiles_gen_0[1].tiles/lf2/M_counter_q> <tiles_gen_0[2].tiles/lf2/M_counter_q> <tiles_gen_0[3].tiles/lf2/M_counter_q> <tiles_gen_0[4].tiles/lf2/M_counter_q> <tiles_gen_0[5].tiles/lf2/M_counter_q> <tiles_gen_0[6].tiles/lf2/M_counter_q> <tiles_gen_0[7].tiles/lf2/M_counter_q> <tiles_gen_0[8].tiles/lf2/M_counter_q> <tiles_gen_0[9].tiles/lf2/M_counter_q> <tiles_gen_0[10].tiles/lf2/M_counter_q> <tiles_gen_0[11].tiles/lf2/M_counter_q> <tiles_gen_0[12].tiles/lf2/M_counter_q> <tiles_gen_0[13].tiles/lf2/M_counter_q> <tiles_gen_0[14].tiles/lf2/M_counter_q> <tiles_gen_0[15].tiles/lf2/M_counter_q> <tiles_gen_0[16].tiles/lf2/M_counter_q> <tiles_gen_0[17].tiles/lf2/M_counter_q> <tiles_gen_0[18].tiles/lf2/M_counter_q> <tiles_gen_0[19].tiles/lf2/M_counter_q> <tiles_gen_0[20].tiles/lf2/M_counter_q> <tiles_gen_0[21].tiles/lf2/M_counter_q> <tiles_gen_0[22].tiles/lf2/M_counter_q> <tiles_gen_0[23].tiles/lf2/M_counter_q> <tiles_gen_0[24].tiles/lf2/M_counter_q> <tiles_gen_0[27].tiles/lf2/M_counter_q> <tiles_gen_0[25].tiles/lf2/M_counter_q> <tiles_gen_0[26].tiles/lf2/M_counter_q> are equivalent, XST will keep only <tiles_gen_0[0].tiles/lf2/M_counter_q>.
+INFO:Xst:2146 - In block <game_controller_3>, Counter <tiles_gen_0[0].tiles/lf/M_counter_q> <tiles_gen_0[1].tiles/lf/M_counter_q> <tiles_gen_0[4].tiles/lf/M_counter_q> <tiles_gen_0[2].tiles/lf/M_counter_q> <tiles_gen_0[3].tiles/lf/M_counter_q> <tiles_gen_0[5].tiles/lf/M_counter_q> <tiles_gen_0[6].tiles/lf/M_counter_q> <tiles_gen_0[7].tiles/lf/M_counter_q> <tiles_gen_0[8].tiles/lf/M_counter_q> <tiles_gen_0[9].tiles/lf/M_counter_q> <tiles_gen_0[10].tiles/lf/M_counter_q> <tiles_gen_0[13].tiles/lf/M_counter_q> <tiles_gen_0[11].tiles/lf/M_counter_q> <tiles_gen_0[12].tiles/lf/M_counter_q> <tiles_gen_0[14].tiles/lf/M_counter_q> <tiles_gen_0[15].tiles/lf/M_counter_q> <tiles_gen_0[16].tiles/lf/M_counter_q> <tiles_gen_0[17].tiles/lf/M_counter_q> <tiles_gen_0[18].tiles/lf/M_counter_q> <tiles_gen_0[19].tiles/lf/M_counter_q> <tiles_gen_0[20].tiles/lf/M_counter_q> <tiles_gen_0[21].tiles/lf/M_counter_q> <tiles_gen_0[22].tiles/lf/M_counter_q> <tiles_gen_0[23].tiles/lf/M_counter_q> <tiles_gen_0[24].tiles/lf/M_counter_q> <tiles_gen_0[25].tiles/lf/M_counter_q> <tiles_gen_0[26].tiles/lf/M_counter_q> <tiles_gen_0[27].tiles/lf/M_counter_q> are equivalent, XST will keep only <tiles_gen_0[0].tiles/lf/M_counter_q>.
+WARNING:Xst:1293 - FF/Latch <M_req_steps_q_3> has a constant value of 0 in block <game_controller_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <M_req_steps_q_4> has a constant value of 0 in block <game_controller_3>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <M_req_steps_q_0> in Unit <game_controller_3> is equivalent to the following 2 FFs/Latches, which will be removed : <M_req_steps_q_1> <M_req_steps_q_2> 
 
 Optimizing unit <mojo_top_0> ...
 
 Optimizing unit <game_controller_3> ...
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_0> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_0> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_0> <gl/gc/sc/M_counter_q_0> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_1> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_1> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_1> <gl/gc/sc/M_counter_q_1> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_2> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_2> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_2> <gl/gc/sc/M_counter_q_2> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_3> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_3> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_3> <gl/gc/sc/M_counter_q_3> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_4> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_4> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_4> <gl/gc/sc/M_counter_q_4> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_5> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_5> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_5> <gl/gc/sc/M_counter_q_5> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_6> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_6> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_6> <gl/gc/sc/M_counter_q_6> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_7> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_7> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_7> <gl/gc/sc/M_counter_q_7> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_8> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_8> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_8> <gl/gc/sc/M_counter_q_8> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_9> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_9> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_9> <gl/gc/sc/M_counter_q_9> 
-INFO:Xst:2261 - The FF/Latch <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_23> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_23> 
-INFO:Xst:2261 - The FF/Latch <gl/gc/M_req_steps_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <gl/gc/M_req_steps_q_1> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_10> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_10> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_10> <gl/gc/sc/M_counter_q_10> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_11> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_11> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_11> <gl/gc/sc/M_counter_q_11> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_12> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_12> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_12> <gl/gc/sc/M_counter_q_12> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_13> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_13> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_13> <gl/gc/sc/M_counter_q_13> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_14> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_14> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_14> <gl/gc/sc/M_counter_q_14> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_20> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_20> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_20> <gl/gc/sc/M_counter_q_20> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_15> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_15> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_15> <gl/gc/sc/M_counter_q_15> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_21> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_21> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_21> <gl/gc/sc/M_counter_q_21> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_16> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_16> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_16> <gl/gc/sc/M_counter_q_16> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_22> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_22> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_22> <gl/gc/sc/M_counter_q_22> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_17> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_17> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_17> <gl/gc/sc/M_counter_q_17> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_18> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_18> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_18> <gl/gc/sc/M_counter_q_18> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_0> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_0> <gl/gc/sc/M_counter_q_0> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_1> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_1> <gl/gc/sc/M_counter_q_1> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_2> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_2> <gl/gc/sc/M_counter_q_2> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_3> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_3> <gl/gc/sc/M_counter_q_3> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_4> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_4> <gl/gc/sc/M_counter_q_4> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_5> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_5> <gl/gc/sc/M_counter_q_5> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_6> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_6> <gl/gc/sc/M_counter_q_6> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_7> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_7> <gl/gc/sc/M_counter_q_7> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_8> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_8> <gl/gc/sc/M_counter_q_8> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_9> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_9> <gl/gc/sc/M_counter_q_9> 
+INFO:Xst:2261 - The FF/Latch <gl/gc/M_step_counter_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <gl/gc/M_player_pos_q_0> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_10> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_10> <gl/gc/sc/M_counter_q_10> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_11> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_11> <gl/gc/sc/M_counter_q_11> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_12> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_12> <gl/gc/sc/M_counter_q_12> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_13> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_13> <gl/gc/sc/M_counter_q_13> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_14> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_14> <gl/gc/sc/M_counter_q_14> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_20> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_20> <gl/gc/sc/M_counter_q_20> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_15> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_15> <gl/gc/sc/M_counter_q_15> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_21> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_21> <gl/gc/sc/M_counter_q_21> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_16> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_16> <gl/gc/sc/M_counter_q_16> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_22> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_22> <gl/gc/sc/M_counter_q_22> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_17> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_17> <gl/gc/sc/M_counter_q_17> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_18> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_18> <gl/gc/sc/M_counter_q_18> 
 INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_23> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <gl/gc/sc/M_counter_q_23> 
-INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_19> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_19> <gl/gc/tiles_gen_0[0].tiles/lf2/M_counter_q_19> <gl/gc/sc/M_counter_q_19> 
+INFO:Xst:2261 - The FF/Latch <gl/sc/M_counter_q_19> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_19> <gl/gc/sc/M_counter_q_19> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 6.
-FlipFlop gl/gc/M_player_pos_q_0 has been replicated 3 time(s)
-FlipFlop gl/gc/M_player_pos_q_1 has been replicated 2 time(s)
-FlipFlop gl/gc/M_player_pos_q_2 has been replicated 2 time(s)
-FlipFlop gl/gc/M_player_pos_q_3 has been replicated 1 time(s)
-FlipFlop gl/gc/M_player_pos_q_4 has been replicated 3 time(s)
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 7.
+FlipFlop gl/gc/M_player_pos_q_1 has been replicated 1 time(s)
+FlipFlop gl/gc/M_player_pos_q_2 has been replicated 3 time(s)
+FlipFlop gl/gc/M_player_pos_q_4 has been replicated 1 time(s)
+FlipFlop gl/gc/M_step_counter_q_0 has been replicated 3 time(s)
 
 Final Macro Processing ...
 
@@ -369,8 +345,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 114
- Flip-Flops                                            : 114
+# Registers                                            : 110
+ Flip-Flops                                            : 110
 
 =========================================================================
 
@@ -393,27 +369,27 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 588
-#      GND                         : 4
+# BELS                             : 635
+#      GND                         : 3
 #      INV                         : 3
 #      LUT1                        : 48
-#      LUT2                        : 20
-#      LUT3                        : 40
-#      LUT4                        : 43
-#      LUT5                        : 103
-#      LUT6                        : 214
+#      LUT2                        : 46
+#      LUT3                        : 74
+#      LUT4                        : 29
+#      LUT5                        : 79
+#      LUT6                        : 245
 #      MUXCY                       : 48
-#      MUXF7                       : 34
+#      MUXF7                       : 29
 #      VCC                         : 4
 #      XORCY                       : 27
-# FlipFlops/Latches                : 114
-#      FDR                         : 93
-#      FDRE                        : 21
+# FlipFlops/Latches                : 110
+#      FDR                         : 92
+#      FDRE                        : 18
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 43
+# IO Buffers                       : 76
 #      IBUF                        : 5
-#      OBUF                        : 32
+#      OBUF                        : 65
 #      OBUFT                       : 6
 
 Device utilization summary:
@@ -423,20 +399,20 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             114  out of  11440     0%  
- Number of Slice LUTs:                  471  out of   5720     8%  
-    Number used as Logic:               471  out of   5720     8%  
+ Number of Slice Registers:             110  out of  11440     0%  
+ Number of Slice LUTs:                  524  out of   5720     9%  
+    Number used as Logic:               524  out of   5720     9%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    483
-   Number with an unused Flip Flop:     369  out of    483    76%  
-   Number with an unused LUT:            12  out of    483     2%  
-   Number of fully used LUT-FF pairs:   102  out of    483    21%  
-   Number of unique control sets:         5
+ Number of LUT Flip Flop pairs used:    534
+   Number with an unused Flip Flop:     424  out of    534    79%  
+   Number with an unused LUT:            10  out of    534     1%  
+   Number of fully used LUT-FF pairs:   100  out of    534    18%  
+   Number of unique control sets:         6
 
 IO Utilization: 
- Number of IOs:                          76
- Number of bonded IOBs:                  44  out of    102    43%  
+ Number of IOs:                          85
+ Number of bonded IOBs:                  77  out of    102    75%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -462,7 +438,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 114   |
+clk                                | BUFGP                  | 110   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -473,9 +449,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 9.042ns (Maximum Frequency: 110.595MHz)
-   Minimum input arrival time before clock: 7.930ns
-   Maximum output required time after clock: 5.915ns
+   Minimum period: 9.653ns (Maximum Frequency: 103.595MHz)
+   Minimum input arrival time before clock: 8.083ns
+   Maximum output required time after clock: 5.842ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -484,83 +460,82 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 9.042ns (frequency: 110.595MHz)
-  Total number of paths / destination ports: 67476 / 135
+  Clock period: 9.653ns (frequency: 103.595MHz)
+  Total number of paths / destination ports: 67276 / 127
 -------------------------------------------------------------------------
-Delay:               9.042ns (Levels of Logic = 6)
-  Source:            gl/gc/M_tiles_type_q_55 (FF)
+Delay:               9.653ns (Levels of Logic = 6)
+  Source:            gl/gc/M_step_counter_q_0_1 (FF)
   Destination:       gl/gc/M_step_counter_q_4 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: gl/gc/M_tiles_type_q_55 to gl/gc/M_step_counter_q_4
+  Data Path: gl/gc/M_step_counter_q_0_1 to gl/gc/M_step_counter_q_4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.525   1.156  M_tiles_type_q_55 (M_tiles_type_q_55)
-     LUT5:I0->O            1   0.254   0.910  Sh61011 (Sh61012)
-     LUT6:I3->O            4   0.235   0.804  Sh61013 (Sh6101)
-     LUT5:I4->O           10   0.254   1.008  Sh6104 (Sh610)
-     LUT5:I4->O            5   0.254   0.841  Mmux_M_tiles_type_d44151 (Mmux_M_tiles_type_d4415)
-     LUT6:I5->O            1   0.254   0.682  _n2923_inv11 (_n2923_inv1)
-     LUT6:I5->O           21   0.254   1.309  _n2923_inv1 (_n2923_inv)
+     FDRE:C->Q            17   0.525   1.209  M_step_counter_q_0_1 (M_step_counter_q_0_1)
+     LUT4:I3->O            1   0.254   1.137  Sh61013_SW1 (N52)
+     LUT6:I0->O           10   0.254   1.236  Sh61013 (Sh6101)
+     LUT5:I2->O           10   0.235   1.008  Sh6104 (Sh610)
+     LUT5:I4->O            5   0.254   0.841  Mmux_M_tiles_type_d44141 (Mmux_M_tiles_type_d4414)
+     LUT6:I5->O            1   0.254   0.682  _n2613_inv11 (_n2613_inv1)
+     LUT6:I5->O           17   0.254   1.208  _n2613_inv1 (_n2613_inv)
      FDRE:CE                   0.302          M_step_counter_q_0
     ----------------------------------------
-    Total                      9.042ns (2.332ns logic, 6.710ns route)
-                                       (25.8% logic, 74.2% route)
+    Total                      9.653ns (2.332ns logic, 7.321ns route)
+                                       (24.2% logic, 75.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 977 / 219
+  Total number of paths / destination ports: 780 / 207
 -------------------------------------------------------------------------
-Offset:              7.930ns (Levels of Logic = 8)
-  Source:            io_button<3> (PAD)
-  Destination:       gl/gc/M_tiles_type_q_49 (FF)
+Offset:              8.083ns (Levels of Logic = 7)
+  Source:            io_button<0> (PAD)
+  Destination:       gl/gc/M_tiles_type_q_48 (FF)
   Destination Clock: clk rising
 
-  Data Path: io_button<3> to gl/gc/M_tiles_type_q_49
+  Data Path: io_button<0> to gl/gc/M_tiles_type_q_48
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             8   1.328   1.172  io_button_3_IBUF (io_button_3_IBUF)
-     begin scope: 'gl:left'
-     begin scope: 'gl/gc:left'
-     LUT3:I0->O            9   0.235   1.406  Mmux_M_step_counter_d4121 (Mmux_M_step_counter_d412)
-     LUT6:I1->O            4   0.254   0.912  Mmux_M_tiles_type_d26111_1 (Mmux_M_tiles_type_d26111)
-     LUT6:I4->O            1   0.250   0.000  Mmux_M_tiles_type_d8811_SW0_G (N377)
-     MUXF7:I1->O           2   0.175   0.834  Mmux_M_tiles_type_d8811_SW0 (N207)
-     LUT6:I4->O            1   0.250   0.790  Mmux_M_tiles_type_d88_SW0_SW0 (N336)
-     LUT6:I4->O            1   0.250   0.000  Mmux_M_tiles_type_d88 (M_tiles_type_d<49>)
-     FDR:D                     0.074          M_tiles_type_q_49
+     IBUF:I->O             8   1.328   1.172  io_button_0_IBUF (io_button_0_IBUF)
+     begin scope: 'gl:up'
+     begin scope: 'gl/gc:up'
+     LUT3:I0->O           20   0.235   1.562  _n176711 (_n17671)
+     LUT5:I1->O           66   0.254   2.053  M_player_pos_q[4]_Decoder_30_OUT<15>11 (M_player_pos_q[4]_Decoder_30_OUT<15>1)
+     LUT6:I4->O            1   0.250   0.000  Mmux_M_tiles_type_d8621_G (N431)
+     MUXF7:I1->O           2   0.175   0.726  Mmux_M_tiles_type_d8621 (Mmux_M_tiles_type_d862)
+     LUT6:I5->O            1   0.254   0.000  Mmux_M_tiles_type_d863 (M_tiles_type_d<48>)
+     FDR:D                     0.074          M_tiles_type_q_48
     ----------------------------------------
-    Total                      7.930ns (2.816ns logic, 5.114ns route)
-                                       (35.5% logic, 64.5% route)
+    Total                      8.083ns (2.570ns logic, 5.513ns route)
+                                       (31.8% logic, 68.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 84 / 21
+  Total number of paths / destination ports: 140 / 56
 -------------------------------------------------------------------------
-Offset:              5.915ns (Levels of Logic = 5)
+Offset:              5.842ns (Levels of Logic = 5)
   Source:            gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_25 (FF)
-  Destination:       io_led<20> (PAD)
+  Destination:       led_g<27> (PAD)
   Source Clock:      clk rising
 
-  Data Path: gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_25 to io_led<20>
+  Data Path: gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_25 to led_g<27>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             22   0.525   1.562  M_counter_q_25 (M_counter_q_25)
+     FDR:C->Q             29   0.525   1.470  M_counter_q_25 (M_counter_q_25)
      end scope: 'gl/gc/tiles_gen_0[0].tiles/lf:out'
      end scope: 'gl/gc/tiles_gen_0[0].tiles:M_counter_q_25'
-     begin scope: 'gl/gc/tiles_gen_0[17].tiles:M_counter_q_25'
-     LUT4:I1->O            1   0.235   0.681  Mmux_led_g11 (led_g)
-     end scope: 'gl/gc/tiles_gen_0[17].tiles:led_g'
-     end scope: 'gl/gc:tiles_g<17>'
-     end scope: 'gl:tiles_g<17>'
-     OBUF:I->O                 2.912          io_led_17_OBUF (io_led<17>)
+     begin scope: 'gl/gc/tiles_gen_0[27].tiles:M_counter_q_25'
+     LUT3:I2->O            1   0.254   0.681  led_g1 (led_g)
+     end scope: 'gl/gc/tiles_gen_0[27].tiles:led_g'
+     end scope: 'gl/gc:tiles_g<27>'
+     end scope: 'gl:tiles_g<27>'
+     OBUF:I->O                 2.912          led_g_27_OBUF (led_g<27>)
     ----------------------------------------
-    Total                      5.915ns (3.672ns logic, 2.243ns route)
-                                       (62.1% logic, 37.9% route)
+    Total                      5.842ns (3.691ns logic, 2.151ns route)
+                                       (63.2% logic, 36.8% route)
 
 =========================================================================
 
@@ -572,20 +547,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    9.042|         |         |         |
+clk            |    9.653|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 16.00 secs
-Total CPU time to Xst completion: 16.64 secs
+Total CPU time to Xst completion: 16.49 secs
  
 --> 
 
-Total memory usage is 258016 kilobytes
+Total memory usage is 257996 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   13 (   0 filtered)
-Number of infos    :   30 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :   28 (   0 filtered)
 

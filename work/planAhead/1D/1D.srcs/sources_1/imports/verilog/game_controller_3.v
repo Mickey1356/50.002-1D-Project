@@ -70,25 +70,73 @@ module game_controller_3 (
     
     case (level_state)
       1'h1: begin
-        M_tiles_type_d[42+13-:14] = 14'h2aaa;
-        M_tiles_type_d[0+3-:4] = 4'ha;
-        M_tiles_type_d[14+3-:4] = 4'ha;
-        M_tiles_type_d[28+5-:6] = 6'h2a;
+        M_tiles_type_d[0+5-:6] = 6'h2a;
+        M_tiles_type_d[14+5-:6] = 6'h2a;
+        M_tiles_type_d[28+3-:4] = 4'ha;
+        M_tiles_type_d[42+3-:4] = 4'ha;
         M_tiles_type_d[8+5-:6] = 6'h2a;
         M_tiles_type_d[24+3-:4] = 4'ha;
         M_tiles_type_d[38+3-:4] = 4'ha;
+        M_tiles_type_d[50+5-:6] = 6'h2a;
         if (M_init_toggle_q == 1'h0) begin
+          M_tiles_type_d[46+3-:4] = 4'h0;
           M_tiles_type_d[32+5-:6] = 6'h00;
-          M_tiles_type_d[18+5-:6] = 6'h00;
-          M_tiles_type_d[4+5-:6] = 6'h00;
-          M_player_pos_d = 5'h11;
+          M_tiles_type_d[20+3-:4] = 4'h0;
+          M_tiles_type_d[6+1-:2] = 2'h0;
+          M_player_pos_d = 5'h18;
           M_step_counter_d = 1'h0;
-          M_tiles_type_d[34+1-:2] = 2'h3;
+          M_tiles_type_d[48+1-:2] = 2'h3;
           M_win_toggle_d = 1'h0;
           M_lose_toggle_d = 1'h0;
           M_init_toggle_d = 1'h1;
         end
-        M_req_steps_d = 3'h6;
+        M_req_steps_d = 3'h7;
+      end
+      2'h2: begin
+        M_tiles_type_d[0+1-:2] = 2'h2;
+        M_tiles_type_d[14+1-:2] = 2'h2;
+        M_tiles_type_d[28+1-:2] = 2'h2;
+        M_tiles_type_d[42+3-:4] = 4'ha;
+        M_tiles_type_d[8+5-:6] = 6'h2a;
+        M_tiles_type_d[26+1-:2] = 2'h2;
+        M_tiles_type_d[40+1-:2] = 2'h2;
+        M_tiles_type_d[54+1-:2] = 2'h2;
+        M_tiles_type_d[50+1-:2] = 2'h2;
+        if (M_init_toggle_q == 1'h0) begin
+          M_tiles_type_d[46+3-:4] = 4'h0;
+          M_tiles_type_d[30+9-:10] = 10'h000;
+          M_tiles_type_d[16+9-:10] = 10'h000;
+          M_tiles_type_d[2+5-:6] = 6'h00;
+          M_player_pos_d = 5'h1a;
+          M_step_counter_d = 1'h0;
+          M_tiles_type_d[52+1-:2] = 2'h3;
+          M_win_toggle_d = 1'h0;
+          M_lose_toggle_d = 1'h0;
+          M_init_toggle_d = 1'h1;
+        end
+        M_req_steps_d = 4'hf;
+      end
+      2'h3: begin
+        M_tiles_type_d[4+1-:2] = 2'h2;
+        M_tiles_type_d[8+1-:2] = 2'h2;
+        M_tiles_type_d[22+1-:2] = 2'h2;
+        M_tiles_type_d[42+1-:2] = 2'h2;
+        if (M_init_toggle_q == 1'h0) begin
+          M_tiles_type_d[46+9-:10] = 10'h000;
+          M_tiles_type_d[28+13-:14] = 14'h0000;
+          M_tiles_type_d[14+7-:8] = 8'h00;
+          M_tiles_type_d[24+3-:4] = 4'h0;
+          M_tiles_type_d[10+3-:4] = 4'h0;
+          M_tiles_type_d[6+1-:2] = 2'h0;
+          M_tiles_type_d[0+3-:4] = 4'h0;
+          M_player_pos_d = 5'h17;
+          M_step_counter_d = 1'h0;
+          M_tiles_type_d[46+1-:2] = 2'h3;
+          M_win_toggle_d = 1'h0;
+          M_lose_toggle_d = 1'h0;
+          M_init_toggle_d = 1'h1;
+        end
+        M_req_steps_d = 5'h17;
       end
       default: begin
         M_tiles_type_d = 56'h00000000000000;

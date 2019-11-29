@@ -17,12 +17,7 @@ module game_controller (
     output tiles_p[28]
     
   ) {
-  
-  // 0   1   2   3   4   5   6
-  // 7   8   9   10  11  12  13
-  // 14  15  16  17  18  19  20
-  // 21  22  23  24  25  26  27
-  
+    
   .clk(clk) {
     .rst(rst) {
       state_counter sc; // initialise a state counter to "delay" the inputs
@@ -52,36 +47,112 @@ module game_controller (
     }
   }
 
+  // 0   1   2   3   4   5   6
+  // 7   8   9   10  11  12  13
+  // 14  15  16  17  18  19  20
+  // 21  22  23  24  25  26  27
+  
   always {    
     // tiles.type = 28x{{2d0}};
         
     // tiles_type.d[27:21] = 7x{{2d2}};
     
     case (level_state) {
-      1: // obstacles 16, 4
-        tiles_type.d[27:21] = 7x{{2d2}}; // set the boundaries
-        tiles_type.d[1:0] = 2x{{2d2}};
-        tiles_type.d[8:7] = 2x{{2d2}};
-        tiles_type.d[16:14] = 3x{{2d2}}; // include the actual level obstacles
+      1: // obstacles 2,4,9,25
+        // set the boundaries
+        
+        tiles_type.d[2:0] = 3x{{2d2}};    // include the actual level obstacles
+        tiles_type.d[9:7] = 3x{{2d2}};    // include the actual level obstacles
+        tiles_type.d[15:14] = 2x{{2d2}}; 
+        tiles_type.d[22:21] = 2x{{2d2}};
+        
+        
         tiles_type.d[6:4] = 3x{{2d2}}; // include the actual level obstacles
         tiles_type.d[13:12] = 2x{{2d2}};
         tiles_type.d[20:19] = 2x{{2d2}};
+        tiles_type.d[27:25] = 3x{{2d2}}; // include the actual level obstacles
         
-        // starting loc is 17, ending loc is 3, req. steps = 6
+        // starting loc is 24, ending loc is 3, req. steps = 7
         if (init_toggle.q == 0) {
+          tiles_type.d[24:23] = 2x{{2d0}};
           tiles_type.d[18:16] = 3x{{2d0}};
-          tiles_type.d[11:9] = 3x{{2d0}};
-          tiles_type.d[4:2] = 3x{{2d0}};
-          player_pos.d = 17;
+          tiles_type.d[11:10] = 2x{{2d0}};
+          tiles_type.d[3] = 2d0;
+          
+          player_pos.d = 24;
           step_counter.d = 0; // reset step counter
-          tiles_type.d[17] = 2d3;
+          tiles_type.d[24] = 2d3; //where player is at
           win_toggle.d = 0;
           lose_toggle.d = 0;
           init_toggle.d = 1;
         }
-        req_steps.d = 6;
+        req_steps.d = 7;        
+        
+        
+      2: // obstacles 4,5,22,25
+        // set the boundaries
+        
+        tiles_type.d[0] = 2d2;    
+        tiles_type.d[7] = 2d2;  
+        tiles_type.d[14] = 2d2;
+        tiles_type.d[22:21] = 2x{{2d2}};  // include the actual level obstacles
+        
+        
+        tiles_type.d[6:4] = 3x{{2d2}};    // include the actual level obstacles
+        tiles_type.d[13] = 2d2;
+        tiles_type.d[20] = 2d2;
+        tiles_type.d[27] = 2d2; 
+        tiles_type.d[25] = 2d2; // include the actual level obstacles
+        
+        // starting loc is 26, ending loc is 3, req. steps = 15
+        if (init_toggle.q == 0) {
+          tiles_type.d[24:23] = 2x{{2d0}};
+          tiles_type.d[19:15] = 5x{{2d0}};
+          tiles_type.d[12:8] = 5x{{2d0}};
+          tiles_type.d[3:1] = 3x{{2d0}};
+          
+          player_pos.d = 26;
+          step_counter.d = 0; // reset step counter
+          tiles_type.d[26] = 2d3; //where player is at
+          win_toggle.d = 0;
+          lose_toggle.d = 0;
+          init_toggle.d = 1;
+        }
+        req_steps.d = 15;
+        
+        
+      3: // obstacles 2,4,11,21
+        // set the boundaries
+        
+        tiles_type.d[2] = 2d2;    
+        tiles_type.d[4] = 2d2;  
+        tiles_type.d[11] = 2d2;
+        tiles_type.d[21] = 2d2;  
+      
+        
+        // starting loc is 22, ending loc is 3, req. steps = 23
+        if (init_toggle.q == 0) {
+          tiles_type.d[27:23] = 5x{{2d0}};
+          
+          tiles_type.d[20:14] = 7x{{2d0}};
+          
+          tiles_type.d[10:7] = 4x{{2d0}};
+          tiles_type.d[13:12] = 2x{{2d0}};
+          
+          tiles_type.d[6:5] = 2x{{2d0}};
+          tiles_type.d[3] = 2d0;
+          tiles_type.d[1:0] = 2x{{2d0}};
+          
+          player_pos.d = 23;
+          step_counter.d = 0; // reset step counter
+          tiles_type.d[23] = 2d3; //where player is at
+          win_toggle.d = 0;
+          lose_toggle.d = 0;
+          init_toggle.d = 1;
+        }
+        req_steps.d = 23;
       default:
-        tiles_type.d = 28x{{2d0}}; // set everything to be unexplored cell first
+        tiles_type.d = 28x{{2d0}}; // set everything to be unexplored cell first (all green)
         init_toggle.d = 0;
     }
     

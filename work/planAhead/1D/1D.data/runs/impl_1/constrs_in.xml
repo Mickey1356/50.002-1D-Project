@@ -2,25 +2,17 @@
 <DARoots Version="1" Minor="26">
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PSRCDIR/constrs_1/imports/mojo.ucf">
+    <File Path="$PSRCDIR/constrs_1/imports/constraint/game.ucf">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../constraint/game.ucf"/>
+        <Attr Name="ImportTime" Val="1574836082"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/constrs_1/imports/constraint/mojo.ucf">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../constraint/mojo.ucf"/>
-        <Attr Name="ImportTime" Val="1477283388"/>
-        <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInImplementation" Val="1"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/constrs_1/imports/vga.ucf">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../constraint/vga.ucf"/>
-        <Attr Name="ImportTime" Val="1572446802"/>
-        <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInImplementation" Val="1"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/constrs_1/imports/Mojo IDE/library/components/io_shield.ucf">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../../../../../../../../Program Files/Mojo IDE/library/components/io_shield.ucf"/>
         <Attr Name="ImportTime" Val="1477283388"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInImplementation" Val="1"/>
