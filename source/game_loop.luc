@@ -17,7 +17,7 @@ module game_loop (
       
       game_controller gc;
       
-      fsm game_states = {START, EXPLORE1, EXPLORE1WIN, EXPLORE2, EXPLORE2WIN, EXPLORE3, EXPLORE3WIN, WINGAME};
+      fsm game_states = {START, EXPLORE1, EXPLORE1WIN, EXPLORE2, EXPLORE2WIN, EXPLORE3, EXPLORE3WIN, EXPLORE4, EXPLORE4WIN, EXPLORE5, WINGAME};
     }
   }
 
@@ -76,9 +76,30 @@ module game_loop (
       game_states.EXPLORE3WIN:
         gc.level_state = 7; // unused number
         if(up & sc.out) {
+          game_states.d = game_states.EXPLORE4;
+        }
+      game_states.EXPLORE4:
+        gc.level_state = 4;
+        if(gc.win & sc.out) {
+          game_states.d = game_states.EXPLORE4WIN;
+        }
+        if(gc.lose & sc.out) {
+          game_states.d = game_states.START;
+        }
+      game_states.EXPLORE4WIN:
+        gc.level_state=7;
+        if(up & sc.out) {
+          game_states.d = game_states.EXPLORE5;
+        }
+      game_states.EXPLORE5:
+        gc.level_state=5;
+        if(gc.win & sc.out) {
           game_states.d = game_states.WINGAME;
         }
-      game_states.WINGAME:
+        if(gc.lose & sc.out) {
+          game_states.d = game_states.START;
+        }
+       game_states.WINGAME:
         gc.level_state = 0;
         if(reset & sc.out) {
           game_states.d = game_states.START;
