@@ -24,7 +24,7 @@ module game_controller (
       
       dff player_pos[5]; // 2^5 = 32 > 28 diff positions
       
-      dff tiles_type [28][2];
+      dff tiles_type [28][3];
       
       dff step_counter[5]; // a way to store how many steps have been taken
       dff req_steps[5];
@@ -61,27 +61,27 @@ module game_controller (
       1: // obstacles 2,4,9,25
         // set the boundaries
         
-        tiles_type.d[2:0] = 3x{{2d2}};    // include the actual level obstacles
-        tiles_type.d[9:7] = 3x{{2d2}};    // include the actual level obstacles
-        tiles_type.d[15:14] = 2x{{2d2}}; 
-        tiles_type.d[22:21] = 2x{{2d2}};
+        tiles_type.d[2:0] = 3x{{3d2}};    // include the actual level obstacles
+        tiles_type.d[9:7] = 3x{{3d2}};    // include the actual level obstacles
+        tiles_type.d[15:14] = 2x{{3d2}}; 
+        tiles_type.d[22:21] = 2x{{3d2}};
         
         
-        tiles_type.d[6:4] = 3x{{2d2}}; // include the actual level obstacles
-        tiles_type.d[13:12] = 2x{{2d2}};
-        tiles_type.d[20:19] = 2x{{2d2}};
-        tiles_type.d[27:25] = 3x{{2d2}}; // include the actual level obstacles
+        tiles_type.d[6:4] = 3x{{3d2}}; // include the actual level obstacles
+        tiles_type.d[13:12] = 2x{{3d2}};
+        tiles_type.d[20:19] = 2x{{3d2}};
+        tiles_type.d[27:25] = 3x{{3d2}}; // include the actual level obstacles
         
         // starting loc is 24, ending loc is 3, req. steps = 7
         if (init_toggle.q == 0) {
-          tiles_type.d[24:23] = 2x{{2d0}};
-          tiles_type.d[18:16] = 3x{{2d0}};
-          tiles_type.d[11:10] = 2x{{2d0}};
-          tiles_type.d[3] = 2d0;
+          tiles_type.d[24:23] = 2x{{3d0}};
+          tiles_type.d[18:16] = 3x{{3d0}};
+          tiles_type.d[11:10] = 2x{{3d0}};
+          tiles_type.d[3] = 3d0;
           
           player_pos.d = 24;
           step_counter.d = 0; // reset step counter
-          tiles_type.d[24] = 2d3; //where player is at
+          tiles_type.d[24] = 3d3; //where player is at
           win_toggle.d = 0;
           lose_toggle.d = 0;
           init_toggle.d = 1;
@@ -92,28 +92,28 @@ module game_controller (
       2: // obstacles 4,5,22,25
         // set the boundaries
         
-        tiles_type.d[0] = 2d2;    
-        tiles_type.d[7] = 2d2;  
-        tiles_type.d[14] = 2d2;
-        tiles_type.d[22:21] = 2x{{2d2}};  // include the actual level obstacles
+        tiles_type.d[0] = 3d2;    
+        tiles_type.d[7] = 3d2;  
+        tiles_type.d[14] = 3d2;
+        tiles_type.d[22:21] = 2x{{3d2}};  // include the actual level obstacles
         
         
-        tiles_type.d[6:4] = 3x{{2d2}};    // include the actual level obstacles
-        tiles_type.d[13] = 2d2;
-        tiles_type.d[20] = 2d2;
-        tiles_type.d[27] = 2d2; 
-        tiles_type.d[25] = 2d2; // include the actual level obstacles
+        tiles_type.d[6:4] = 3x{{3d2}};    // include the actual level obstacles
+        tiles_type.d[13] = 3d2;
+        tiles_type.d[20] = 3d2;
+        tiles_type.d[27] = 3d2; 
+        tiles_type.d[25] = 3d2; // include the actual level obstacles
         
         // starting loc is 26, ending loc is 3, req. steps = 15
         if (init_toggle.q == 0) {
-          tiles_type.d[24:23] = 2x{{2d0}};
-          tiles_type.d[19:15] = 5x{{2d0}};
-          tiles_type.d[12:8] = 5x{{2d0}};
-          tiles_type.d[3:1] = 3x{{2d0}};
+          tiles_type.d[24:23] = 2x{{3d0}};
+          tiles_type.d[19:15] = 5x{{3d0}};
+          tiles_type.d[12:8] = 5x{{3d0}};
+          tiles_type.d[3:1] = 3x{{3d0}};
           
           player_pos.d = 26;
           step_counter.d = 0; // reset step counter
-          tiles_type.d[26] = 2d3; //where player is at
+          tiles_type.d[26] = 3d3; //where player is at
           win_toggle.d = 0;
           lose_toggle.d = 0;
           init_toggle.d = 1;
@@ -124,48 +124,48 @@ module game_controller (
       3: // obstacles 2,4,11,21
         // set the boundaries
         
-        tiles_type.d[2] = 2d2;    
-        tiles_type.d[4] = 2d2;  
-        tiles_type.d[11] = 2d2;
-        tiles_type.d[21] = 2d2;  
+        tiles_type.d[2] = 3d2;    
+        tiles_type.d[4] = 3d2;  
+        tiles_type.d[11] = 3d2;
+        tiles_type.d[21] = 3d2;  
       
         
         // starting loc is 22, ending loc is 3, req. steps = 23
         if (init_toggle.q == 0) {
-          tiles_type.d[27:23] = 5x{{2d0}};
+          tiles_type.d[27:23] = 5x{{3d0}};
           
-          tiles_type.d[20:14] = 7x{{2d0}};
+          tiles_type.d[20:14] = 7x{{3d0}};
           
-          tiles_type.d[10:7] = 4x{{2d0}};
-          tiles_type.d[13:12] = 2x{{2d0}};
+          tiles_type.d[10:7] = 4x{{3d0}};
+          tiles_type.d[13:12] = 2x{{3d0}};
           
-          tiles_type.d[6:5] = 2x{{2d0}};
-          tiles_type.d[3] = 2d0;
-          tiles_type.d[1:0] = 2x{{2d0}};
+          tiles_type.d[6:5] = 2x{{3d0}};
+          tiles_type.d[3] = 3d0;
+          tiles_type.d[1:0] = 2x{{3d0}};
           
           player_pos.d = 23;
           step_counter.d = 0; // reset step counter
-          tiles_type.d[23] = 2d3; //where player is at
+          tiles_type.d[23] = 3d3; //where player is at
           win_toggle.d = 0;
           lose_toggle.d = 0;
           init_toggle.d = 1;
         }
         req_steps.d = 23;
       default:
-        tiles_type.d = 28x{{2d0}}; // set everything to be unexplored cell first (all green)
+        tiles_type.d = 28x{{3d0}}; // set everything to be unexplored cell first (all green)
         init_toggle.d = 0;
     }
     
     if (up & sc.out & up_cond.q == 0) {
       up_cond.d = 1;
       if (player_pos.q > 6) { // ie. not the top row
-        if (tiles_type.q[player_pos.q - 7] == 2d0) {
+        if (tiles_type.q[player_pos.q - 7] == 3d0) {
           step_counter.d = step_counter.q + 1;
-          tiles_type.d[player_pos.q] = 2d1; // set to explored (1)
-          tiles_type.d[player_pos.q - 7] = 2d3;
+          tiles_type.d[player_pos.q] = 3d1; // set to explored (1)
+          tiles_type.d[player_pos.q - 7] = 3d3;
           player_pos.d = player_pos.q - 7;
           //tiles_type.d[player_pos.q] = 2d3;
-        } else if (tiles_type.q[player_pos.q - 7] == 2d1) {
+        } else if (tiles_type.q[player_pos.q - 7] == 3d1) {
           // game supposed to end here
           win_toggle.d = 0;
           lose_toggle.d = 1;
@@ -179,13 +179,13 @@ module game_controller (
     if (down & sc.out & down_cond.q == 0) {
       down_cond.d = 1;
       if (player_pos.q < 21) { // ie. not the bottom row
-        if (tiles_type.q[player_pos.q + 7] == 2d0) {
+        if (tiles_type.q[player_pos.q + 7] == 3d0) {
           step_counter.d = step_counter.q + 1;
-          tiles_type.d[player_pos.q] = 2d1;
-          tiles_type.d[player_pos.q + 7] = 2d3;
+          tiles_type.d[player_pos.q] = 3d1;
+          tiles_type.d[player_pos.q + 7] = 3d3;
           player_pos.d = player_pos.q + 7;
           //tiles_type.d[player_pos.q] = 2d3;
-        } else if (tiles_type.q[player_pos.q + 7] == 2d1) {
+        } else if (tiles_type.q[player_pos.q + 7] == 3d1) {
           // end the game
           win_toggle.d = 0;
           lose_toggle.d = 1;
@@ -199,13 +199,13 @@ module game_controller (
     if (left & sc.out & left_cond.q == 0) {
       left_cond.d = 1;
       if (player_pos.q != 0 & player_pos.q != 7 & player_pos.q != 14 & player_pos.q != 21) { // ie. not the left most row
-        if (tiles_type.q[player_pos.q - 1] == 2d0) {
+        if (tiles_type.q[player_pos.q - 1] == 3d0) {
           step_counter.d = step_counter.q + 1;
-          tiles_type.d[player_pos.q] = 2d1;
-          tiles_type.d[player_pos.q - 1] = 2d3;
+          tiles_type.d[player_pos.q] = 3d1;
+          tiles_type.d[player_pos.q - 1] = 3d3;
           player_pos.d = player_pos.q - 1;
           //tiles_type.d[player_pos.q] = 2d3;
-        } else if (tiles_type.q[player_pos.q - 1] == 2d1) {
+        } else if (tiles_type.q[player_pos.q - 1] == 3d1) {
           // end the game
           win_toggle.d = 0;
           lose_toggle.d = 1;
@@ -219,13 +219,13 @@ module game_controller (
     if (right & sc.out & right_cond.q == 0) {
       right_cond.d = 1;
       if (player_pos.q != 6 & player_pos.q != 13 & player_pos.q != 20 & player_pos.q != 27) { // ie. not the left most row
-        if (tiles_type.q[player_pos.q + 1] == 2d0) {
+        if (tiles_type.q[player_pos.q + 1] == 3d0) {
           step_counter.d = step_counter.q + 1;
-          tiles_type.d[player_pos.q] = 2d1;
-          tiles_type.d[player_pos.q + 1] = 2d3;
+          tiles_type.d[player_pos.q] = 3d1;
+          tiles_type.d[player_pos.q + 1] = 3d3;
           player_pos.d = player_pos.q + 1;
           //tiles_type.d[player_pos.q] = 2d3;
-        } else if (tiles_type.q[player_pos.q + 1] == 2d1) {
+        } else if (tiles_type.q[player_pos.q + 1] == 3d1) {
           // end the game
           win_toggle.d = 0;
           lose_toggle.d = 1;
