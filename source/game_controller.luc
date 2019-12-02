@@ -156,7 +156,7 @@ module game_controller (
         init_toggle.d = 0;
     }
 
-    if (up & sc.out & up_cond.q == 0) {
+    if (up & sc.out & up_cond.q == 0 & level_state != 4) {
       up_cond.d = 1;
       if (player_pos.q > 6) { // ie. not the top row
         if (tiles_type.q[player_pos.q - 7] == 3d0) {
@@ -165,6 +165,11 @@ module game_controller (
           tiles_type.d[player_pos.q - 7] = 3d3;
           player_pos.d = player_pos.q - 7;
           //tiles_type.d[player_pos.q] = 2d3;
+        } else if (tiles_type.q[player_pos.q - 7] == 3d5) {
+          step_counter.d = step_counter.q + 1;
+          tiles_type.d[player_pos.q] = 3d6; // set to invisible explored - level 4
+          tiles_type.d[player_pos.q - 7] = 3d3;
+          player_pos.d = player_pos.q - 7;
         } else if (tiles_type.q[player_pos.q - 7] == 3d4){
           if (level_state == 3) {
             if(player_pos.q == 15) {
@@ -187,7 +192,7 @@ module game_controller (
               step_counter.d = step_counter.q + 1;
             }
           }
-        } else if (tiles_type.q[player_pos.q - 7] == 3d1) {
+        } else if (tiles_type.q[player_pos.q - 7] == 3d1 | tiles_type.q[player_pos.q - 7] == 3d6) {
           // game supposed to end here
           win_toggle.d = 0;
           lose_toggle.d = 1;
@@ -198,7 +203,7 @@ module game_controller (
       up_cond.d = 0;
     }
 
-    if (down & sc.out & down_cond.q == 0) {
+    if (down & sc.out & down_cond.q == 0 & level_state != 4) {
       down_cond.d = 1;
       if (player_pos.q < 21) { // ie. not the bottom row
         if (tiles_type.q[player_pos.q + 7] == 3d0) {
@@ -207,6 +212,11 @@ module game_controller (
           tiles_type.d[player_pos.q + 7] = 3d3;
           player_pos.d = player_pos.q + 7;
           //tiles_type.d[player_pos.q] = 2d3;
+        } else if (tiles_type.q[player_pos.q + 7] == 3d5) {
+          step_counter.d = step_counter.q + 1;
+          tiles_type.d[player_pos.q] = 3d6; // set to invisible explored - level 4
+          tiles_type.d[player_pos.q + 7] = 3d3;
+          player_pos.d = player_pos.q + 7;
         } else if (tiles_type.q[player_pos.q + 7] == 3d4){
           if (level_state == 3) {
             if(player_pos.q == 1) {
@@ -219,7 +229,7 @@ module game_controller (
               step_counter.d = step_counter.q + 1;
             }
           }
-        } else if (tiles_type.q[player_pos.q + 7] == 3d1) {
+        } else if (tiles_type.q[player_pos.q + 7] == 3d1 | tiles_type.q[player_pos.q + 7] == 3d6) {
           // end the game
           win_toggle.d = 0;
           lose_toggle.d = 1;
@@ -230,7 +240,7 @@ module game_controller (
       down_cond.d = 0;
     }
 
-    if (left & sc.out & left_cond.q == 0) {
+    if (left & sc.out & left_cond.q == 0 & level_state != 4) {
       left_cond.d = 1;
       if (player_pos.q != 0 & player_pos.q != 7 & player_pos.q != 14 & player_pos.q != 21) { // ie. not the left most row
         if (tiles_type.q[player_pos.q - 1] == 3d0) {
@@ -239,6 +249,11 @@ module game_controller (
           tiles_type.d[player_pos.q - 1] = 3d3;
           player_pos.d = player_pos.q - 1;
           //tiles_type.d[player_pos.q] = 2d3;
+        } else if (tiles_type.q[player_pos.q - 1] == 3d5) {
+          step_counter.d = step_counter.q + 1;
+          tiles_type.d[player_pos.q] = 3d6; // set to invisible explored - level 4
+          tiles_type.d[player_pos.q - 1] = 3d3;
+          player_pos.d = player_pos.q - 1;
         } else if (tiles_type.q[player_pos.q - 1] == 3d4){
           if (level_state == 3) {
             if(player_pos.q == 9) {
@@ -261,7 +276,7 @@ module game_controller (
               step_counter.d = step_counter.q + 1;
             }
           }
-        } else if (tiles_type.q[player_pos.q - 1] == 3d1) {
+        } else if (tiles_type.q[player_pos.q - 1] == 3d1 | tiles_type.q[player_pos.q - 1] == 3d6) {
           // end the game
           win_toggle.d = 0;
           lose_toggle.d = 1;
@@ -272,7 +287,7 @@ module game_controller (
       left_cond.d = 0;
     }
 
-    if (right & sc.out & right_cond.q == 0) {
+    if (right & sc.out & right_cond.q == 0 & level_state != 4) {
       right_cond.d = 1;
       if (player_pos.q != 6 & player_pos.q != 13 & player_pos.q != 20 & player_pos.q != 27) { // ie. not the left most row
         if (tiles_type.q[player_pos.q + 1] == 3d0) {
@@ -281,6 +296,11 @@ module game_controller (
           tiles_type.d[player_pos.q + 1] = 3d3;
           player_pos.d = player_pos.q + 1;
           //tiles_type.d[player_pos.q] = 2d3;
+        } else if (tiles_type.q[player_pos.q + 1] == 3d5) {
+          step_counter.d = step_counter.q + 1;
+          tiles_type.d[player_pos.q] = 3d6; // set to invisible explored - level 4
+          tiles_type.d[player_pos.q + 1] = 3d3;
+          player_pos.d = player_pos.q + 1;
         } else if (tiles_type.q[player_pos.q + 1]== 3d4){
           if (level_state == 3) {
             if(player_pos.q == 7) {
@@ -303,7 +323,7 @@ module game_controller (
               step_counter.d = step_counter.q + 1;
             }
           }
-        } else if (tiles_type.q[player_pos.q + 1] == 3d1) {
+        } else if (tiles_type.q[player_pos.q + 1] == 3d1 | tiles_type.q[player_pos.q + 1] == 3d6) {
           // end the game
           win_toggle.d = 0;
           lose_toggle.d = 1;

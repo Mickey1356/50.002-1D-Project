@@ -15,9 +15,11 @@ module game_loop (
     .rst(rst) {
       state_counter sc; // add delay for inputs
       
+      state_counter sc2 (#DIV(28)); // timer for level 4 - about 5s
+      
       game_controller gc;
       
-      fsm game_states = {START, EXPLORE1, EXPLORE1WIN, EXPLORE2, EXPLORE2WIN, EXPLORE3, EXPLORE3WIN, EXPLORE4, EXPLORE4WIN, EXPLORE5, WINGAME};
+      fsm game_states = {START, EXPLORE1, EXPLORE1WIN, EXPLORE2, EXPLORE2WIN, EXPLORE3, EXPLORE3WIN, EXPLORE4FROZEN, EXPLORE4, EXPLORE4WIN, EXPLORE5, WINGAME};
     }
   }
 
@@ -76,33 +78,40 @@ module game_loop (
       game_states.EXPLORE3WIN:
         gc.level_state = 7; // unused number
         if(up & sc.out) {
+          game_states.d = game_states.EXPLORE4FROZEN;
+        }
+      game_states.EXPLORE4FROZEN:
+        gc.level_state = 4;
+        if(sc2.out == 1) {
           game_states.d = game_states.EXPLORE4;
         }
+        //insert timer input here
+        
       game_states.EXPLORE4:
-        gc.level_state = 4;
-        if(gc.win & sc.out) {
+        gc.level_state=5;
+         if(gc.win & sc.out) {
           game_states.d = game_states.EXPLORE4WIN;
         }
         if(gc.lose & sc.out) {
           game_states.d = game_states.START;
         }
       game_states.EXPLORE4WIN:
-        gc.level_state=7;
+        gc.level_state = 7; // unused number
         if(up & sc.out) {
           game_states.d = game_states.EXPLORE5;
         }
-      game_states.EXPLORE5:
-        gc.level_state=5;
-        if(gc.win & sc.out) {
+       game_states.EXPLORE5:
+        gc.level_state=6;
+         if(gc.win & sc.out) {
           game_states.d = game_states.WINGAME;
         }
         if(gc.lose & sc.out) {
           game_states.d = game_states.START;
         }
-       game_states.WINGAME:
-        gc.level_state = 0;
-        if(reset & sc.out) {
-          game_states.d = game_states.START;
+      game_states.WINGAME:
+        gc.level_state=0;
+        if(up & sc.out) {
+            game_states.d = game_states.START;
         }
     }
   }
