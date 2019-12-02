@@ -5,7 +5,7 @@ module game_loop (
     input down,
     input left,
     input right,
-    // input reset,
+    input reset,
         
     output tiles_g[28],
     output tiles_p[28]
@@ -45,6 +45,42 @@ module game_loop (
           game_states.d = game_states.EXPLORE1WIN;
         }
         if (gc.lose & sc.out) {
+          game_states.d = game_states.START;
+        }
+      game_states.EXPLORE1WIN:
+        gc.level_state = 7; // unused number
+        if(up & sc.out) {
+          game_states.d = game_states.EXPLORE2;
+        }
+      game_states.EXPLORE2:
+        gc.level_state = 2;
+        if(gc.win & sc.out) {
+          game_states.d = game_states.EXPLORE2WIN;
+        }
+        if(gc.lose & sc.out) {
+          game_states.d = game_states.START;
+        }
+      game_states.EXPLORE2WIN:
+        gc.level_state = 7; // unused number
+        if(up & sc.out) {
+          game_states.d = game_states.EXPLORE3;
+        }
+      game_states.EXPLORE3:
+        gc.level_state = 3;
+        if(gc.win & sc.out) {
+          game_states.d = game_states.EXPLORE3WIN;
+        }
+        if(gc.lose & sc.out) {
+          game_states.d = game_states.START;
+        }
+      game_states.EXPLORE3WIN:
+        gc.level_state = 7; // unused number
+        if(up & sc.out) {
+          game_states.d = game_states.WINGAME;
+        }
+      game_states.WINGAME:
+        gc.level_state = 0;
+        if(reset & sc.out) {
           game_states.d = game_states.START;
         }
     }

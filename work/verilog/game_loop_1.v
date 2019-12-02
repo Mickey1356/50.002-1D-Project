@@ -11,6 +11,7 @@ module game_loop_1 (
     input down,
     input left,
     input right,
+    input reset,
     output reg [27:0] tiles_g,
     output reg [27:0] tiles_p
   );
@@ -80,6 +81,48 @@ module game_loop_1 (
           M_game_states_d = EXPLORE1WIN_game_states;
         end
         if (M_gc_lose & M_sc_out) begin
+          M_game_states_d = START_game_states;
+        end
+      end
+      EXPLORE1WIN_game_states: begin
+        M_gc_level_state = 3'h7;
+        if (up & M_sc_out) begin
+          M_game_states_d = EXPLORE2_game_states;
+        end
+      end
+      EXPLORE2_game_states: begin
+        M_gc_level_state = 2'h2;
+        if (M_gc_win & M_sc_out) begin
+          M_game_states_d = EXPLORE2WIN_game_states;
+        end
+        if (M_gc_lose & M_sc_out) begin
+          M_game_states_d = START_game_states;
+        end
+      end
+      EXPLORE2WIN_game_states: begin
+        M_gc_level_state = 3'h7;
+        if (up & M_sc_out) begin
+          M_game_states_d = EXPLORE3_game_states;
+        end
+      end
+      EXPLORE3_game_states: begin
+        M_gc_level_state = 2'h3;
+        if (M_gc_win & M_sc_out) begin
+          M_game_states_d = EXPLORE3WIN_game_states;
+        end
+        if (M_gc_lose & M_sc_out) begin
+          M_game_states_d = START_game_states;
+        end
+      end
+      EXPLORE3WIN_game_states: begin
+        M_gc_level_state = 3'h7;
+        if (up & M_sc_out) begin
+          M_game_states_d = WINGAME_game_states;
+        end
+      end
+      WINGAME_game_states: begin
+        M_gc_level_state = 1'h0;
+        if (reset & M_sc_out) begin
           M_game_states_d = START_game_states;
         end
       end

@@ -13,16 +13,16 @@
     <src>multi_seven_seg.luc</src>
     <src>adder16.luc</src>
     <src>tiles.luc</src>
-    <src>vga.v</src>
     <src>tile_bitmap.v</src>
-    <src>bool16.luc</src>
-    <src>auto_tester.luc</src>
+    <src>vga.v</src>
     <src>state_counter.luc</src>
+    <src>auto_tester.luc</src>
+    <src>bool16.luc</src>
     <src>muldiv16.luc</src>
     <src>game_loop.luc</src>
     <src>seven_seg.luc</src>
-    <src>shift16.luc</src>
     <src>game_controller.luc</src>
+    <src>shift16.luc</src>
     <ucf>game.ucf</ucf>
     <ucf>mojo.ucf</ucf>
     <component>decoder.luc</component>
