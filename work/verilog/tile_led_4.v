@@ -4,10 +4,10 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module tile_led_5 (
+module tile_led_4 (
     input clk,
     input rst,
-    input [2:0] type,
+    input [1:0] type,
     output reg led_p,
     output reg led_g
   );
@@ -15,16 +15,10 @@ module tile_led_5 (
   
   
   wire [1-1:0] M_lf_out;
-  led_flasher_6 lf (
+  led_flasher_5 lf (
     .clk(clk),
     .rst(rst),
     .out(M_lf_out)
-  );
-  wire [1-1:0] M_lf2_out;
-  led_flasher_7 lf2 (
-    .clk(clk),
-    .rst(rst),
-    .out(M_lf2_out)
   );
   
   always @* begin
@@ -44,18 +38,6 @@ module tile_led_5 (
       end
       2'h3: begin
         led_p = 1'h1;
-        led_g = 1'h0;
-      end
-      3'h4: begin
-        led_p = M_lf2_out;
-        led_g = 1'h0;
-      end
-      3'h5: begin
-        led_p = 1'h0;
-        led_g = 1'h0;
-      end
-      3'h6: begin
-        led_p = 1'h0;
         led_g = 1'h0;
       end
       default: begin

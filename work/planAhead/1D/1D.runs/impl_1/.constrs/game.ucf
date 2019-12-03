@@ -26,170 +26,142 @@ NET "io_button[4]" LOC = P138;
 NET "io_button[4]" IOSTANDARD = LVTTL;
 NET "io_button[4]" PULLDOWN;
 
-//done
-NET "led_p[0]" LOC = P118;
+NET "led_p[0]" LOC = P51;
 NET "led_p[0]" IOSTANDARD = LVTTL;
-NET "led_g[0]" LOC = P120;
+NET "led_g[0]" LOC = P50;
 NET "led_g[0]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[1]" LOC = P114;
+NET "led_p[1]" LOC = P41;
 NET "led_p[1]" IOSTANDARD = LVTTL;
-NET "led_g[1]" LOC = P116;
+NET "led_g[1]" LOC = P40;
 NET "led_g[1]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[2]" LOC = P104;
+NET "led_p[2]" LOC = P35;
 NET "led_p[2]" IOSTANDARD = LVTTL;
-NET "led_g[2]" LOC = P111;
+NET "led_g[2]" LOC = P34;
 NET "led_g[2]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[3]" LOC = P99;
+NET "led_p[3]" LOC = P33;
 NET "led_p[3]" IOSTANDARD = LVTTL;
-NET "led_g[3]" LOC = P101;
+NET "led_g[3]" LOC = P32;
 NET "led_g[3]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[4]" LOC = P94;
+NET "led_p[4]" LOC = P30;
 NET "led_p[4]" IOSTANDARD = LVTTL;
-NET "led_g[4]" LOC = P97;
+NET "led_g[4]" LOC = P29;
 NET "led_g[4]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[5]" LOC = P87;
+NET "led_p[5]" LOC = P27;
 NET "led_p[5]" IOSTANDARD = LVTTL;
-NET "led_g[5]" LOC = P92;
+NET "led_g[5]" LOC = P26;
 NET "led_g[5]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[6]" LOC = P82;
+NET "led_p[6]" LOC = P24;
 NET "led_p[6]" IOSTANDARD = LVTTL;
-NET "led_g[6]" LOC = P84;
+NET "led_g[6]" LOC = P23;
 NET "led_g[6]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[7]" LOC = P119;
+NET "led_p[7]" LOC = P22;
 NET "led_p[7]" IOSTANDARD = LVTTL;
-NET "led_g[7]" LOC = P121;
+NET "led_g[7]" LOC = P21;
 NET "led_g[7]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[8]" LOC = P115;
+NET "led_p[8]" LOC = P17;
 NET "led_p[8]" IOSTANDARD = LVTTL;
-NET "led_g[8]" LOC = P117;
+NET "led_g[8]" LOC = P16;
 NET "led_g[8]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[9]" LOC = P105;
+NET "led_p[9]" LOC = P15;
 NET "led_p[9]" IOSTANDARD = LVTTL;
-NET "led_g[9]" LOC = P112;
+NET "led_g[9]" LOC = P14;
 NET "led_g[9]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[10]" LOC = P100;
+NET "led_p[10]" LOC = P12;
 NET "led_p[10]" IOSTANDARD = LVTTL;
-NET "led_g[10]" LOC = P102;
+NET "led_g[10]" LOC = P11;
 NET "led_g[10]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[11]" LOC = P95;
+NET "led_p[11]" LOC = P10;
 NET "led_p[11]" IOSTANDARD = LVTTL;
-NET "led_g[11]" LOC = P98;
+NET "led_g[11]" LOC = P9;
 NET "led_g[11]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[12]" LOC = P88;
+NET "led_p[12]" LOC = P8;
 NET "led_p[12]" IOSTANDARD = LVTTL;
-NET "led_g[12]" LOC = P93;
+NET "led_g[12]" LOC = P7;
 NET "led_g[12]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[13]" LOC = P83;
+NET "led_p[13]" LOC = P6;
 NET "led_p[13]" IOSTANDARD = LVTTL;
-NET "led_g[13]" LOC = P85;
+NET "led_g[13]" LOC = P5;
 NET "led_g[13]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[14]" LOC = P6;
+NET "led_p[14]" LOC = P2;
 NET "led_p[14]" IOSTANDARD = LVTTL;
-NET "led_g[14]" LOC = P2;
+NET "led_g[14]" LOC = P1;
 NET "led_g[14]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[15]" LOC = P10;
+NET "led_p[15]" LOC = P144;
 NET "led_p[15]" IOSTANDARD = LVTTL;
-NET "led_g[15]" LOC = P8;
+NET "led_g[15]" LOC = P143;
 NET "led_g[15]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[16]" LOC = P15;
+NET "led_p[16]" LOC = P134;
 NET "led_p[16]" IOSTANDARD = LVTTL;
-NET "led_g[16]" LOC = P12;
+NET "led_g[16]" LOC = P133;
 NET "led_g[16]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[17]" LOC = P22;
+NET "led_p[17]" LOC = P132;
 NET "led_p[17]" IOSTANDARD = LVTTL;
-NET "led_g[17]" LOC = P17;
+NET "led_g[17]" LOC = P131;
 NET "led_g[17]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[18]" LOC = P27;
+NET "led_p[18]" LOC = P127;
 NET "led_p[18]" IOSTANDARD = LVTTL;
-NET "led_g[18]" LOC = P24;
+NET "led_g[18]" LOC = P126;
 NET "led_g[18]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[19]" LOC = P33;
+NET "led_p[19]" LOC = P124;
 NET "led_p[19]" IOSTANDARD = LVTTL;
-NET "led_g[19]" LOC = P30;
+NET "led_g[19]" LOC = P123;
 NET "led_g[19]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[20]" LOC = P41;
+NET "led_p[20]" LOC = P67;
 NET "led_p[20]" IOSTANDARD = LVTTL;
-NET "led_g[20]" LOC = P35;
+NET "led_g[20]" LOC = P66;
 NET "led_g[20]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[21]" LOC = P5;
+NET "led_p[21]" LOC = P75;
 NET "led_p[21]" IOSTANDARD = LVTTL;
-NET "led_g[21]" LOC = P1;
+NET "led_g[21]" LOC = P74;
 NET "led_g[21]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[22]" LOC = P9;
+NET "led_p[22]" LOC = P79;
 NET "led_p[22]" IOSTANDARD = LVTTL;
-NET "led_g[22]" LOC = P7;
+NET "led_g[22]" LOC = P78;
 NET "led_g[22]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[23]" LOC = P14;
+NET "led_p[23]" LOC = P81;
 NET "led_p[23]" IOSTANDARD = LVTTL;
-NET "led_g[23]" LOC = P11;
+NET "led_g[23]" LOC = P80;
 NET "led_g[23]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[24]" LOC = P21;
+NET "led_p[24]" LOC = P85;
 NET "led_p[24]" IOSTANDARD = LVTTL;
-NET "led_g[24]" LOC = P16;
+NET "led_g[24]" LOC = P84;
 NET "led_g[24]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[25]" LOC = P26;
+NET "led_p[25]" LOC = P88;
 NET "led_p[25]" IOSTANDARD = LVTTL;
-NET "led_g[25]" LOC = P23;
+NET "led_g[25]" LOC = P87;
 NET "led_g[25]" IOSTANDARD = LVTTL;
 
-//done
-NET "led_p[26]" LOC = P32;
+NET "led_p[26]" LOC = P93;
 NET "led_p[26]" IOSTANDARD = LVTTL;
-NET "led_g[26]" LOC = P29;
+NET "led_g[26]" LOC = P92;
 NET "led_g[26]" IOSTANDARD = LVTTL;
 
-//done 
-NET "led_p[27]" LOC = P40;
+NET "led_p[27]" LOC = P95;
 NET "led_p[27]" IOSTANDARD = LVTTL;
-NET "led_g[27]" LOC = P34;
+NET "led_g[27]" LOC = P94;
 NET "led_g[27]" IOSTANDARD = LVTTL;
