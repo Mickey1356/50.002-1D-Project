@@ -164,7 +164,7 @@ module game_controller (
         req_steps.d = 23;
         
         
-      4: // obstacles 2,4,11,21
+      5: // obstacles 2,4,11,21
         // set the boundaries
         //without blackout yet
         
@@ -196,7 +196,7 @@ module game_controller (
         }
         req_steps.d = 23;
         
-      5: // obstacles 2,4,11,21
+      6: // obstacles 2,4,11,21
          // set the boundaries
          //with blackout 
         
@@ -228,7 +228,7 @@ module game_controller (
         }
         req_steps.d = 23;
         
-      6: // obstacles 6, 8
+      4: // obstacles 6, 8
          // teleport at 3,15
         // set the boundaries
         //with teleport
@@ -269,7 +269,7 @@ module game_controller (
         init_toggle.d = 0;
     }
 
-    if (up & sc.out & up_cond.q == 0 & level_state != 4) {
+    if (up & sc.out & up_cond.q == 0 & level_state != 5) {
       up_cond.d = 1;
       if (player_pos.q > 6) { // ie. not the top row
         if (tiles_type.q[player_pos.q - 7] == 3d0) {
@@ -316,7 +316,7 @@ module game_controller (
       up_cond.d = 0;
     }
 
-    if (down & sc.out & down_cond.q == 0 & level_state != 4) {
+    if (down & sc.out & down_cond.q == 0 & level_state != 5) {
       down_cond.d = 1;
       if (player_pos.q < 21) { // ie. not the bottom row
         if (tiles_type.q[player_pos.q + 7] == 3d0) {
@@ -353,7 +353,7 @@ module game_controller (
       down_cond.d = 0;
     }
 
-    if (left & sc.out & left_cond.q == 0 & level_state != 4) {
+    if (left & sc.out & left_cond.q == 0 & level_state != 5) {
       left_cond.d = 1;
       if (player_pos.q != 0 & player_pos.q != 7 & player_pos.q != 14 & player_pos.q != 21) { // ie. not the left most row
         if (tiles_type.q[player_pos.q - 1] == 3d0) {
@@ -400,7 +400,7 @@ module game_controller (
       left_cond.d = 0;
     }
 
-    if (right & sc.out & right_cond.q == 0 & level_state != 4) {
+    if (right & sc.out & right_cond.q == 0 & level_state != 5) {
       right_cond.d = 1;
       if (player_pos.q != 6 & player_pos.q != 13 & player_pos.q != 20 & player_pos.q != 27) { // ie. not the left most row
         if (tiles_type.q[player_pos.q + 1] == 3d0) {

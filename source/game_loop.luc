@@ -19,7 +19,7 @@ module game_loop (
       
       game_controller gc;
       
-      fsm game_states = {START, EXPLORE1, EXPLORE1WIN, EXPLORE2, EXPLORE2WIN, EXPLORE3, EXPLORE3WIN, EXPLORE4FROZEN, EXPLORE4, EXPLORE4WIN, EXPLORE5, WINGAME};
+      fsm game_states = {START, EXPLORE1, EXPLORE1WIN, EXPLORE2, EXPLORE2WIN, EXPLORE3, EXPLORE3WIN, EXPLORE4, EXPLORE4WIN, EXPLORE5FROZEN, EXPLORE5, WINGAME};
     }
   }
 
@@ -78,18 +78,11 @@ module game_loop (
       game_states.EXPLORE3WIN:
         gc.level_state = 7; // unused number
         if(up & sc.out) {
-          game_states.d = game_states.EXPLORE4FROZEN;
-        }
-      game_states.EXPLORE4FROZEN:
-        gc.level_state = 4;
-        if(sc2.out == 1) {
           game_states.d = game_states.EXPLORE4;
         }
-        //insert timer input here
-        
       game_states.EXPLORE4:
-        gc.level_state=5;
-         if(gc.win & sc.out) {
+        gc.level_state = 4;
+        if(gc.win & sc.out) {
           game_states.d = game_states.EXPLORE4WIN;
         }
         if(gc.lose & sc.out) {
@@ -98,11 +91,16 @@ module game_loop (
       game_states.EXPLORE4WIN:
         gc.level_state = 7; // unused number
         if(up & sc.out) {
+          game_states.d = game_states.EXPLORE5FROZEN;
+        }
+      game_states.EXPLORE5FROZEN:
+        gc.level_state = 5;
+        if(sc2.out == 1) {
           game_states.d = game_states.EXPLORE5;
         }
-       game_states.EXPLORE5:
-        gc.level_state=6;
-         if(gc.win & sc.out) {
+      game_states.EXPLORE5:
+        gc.level_state = 6;
+        if(gc.win & sc.out) {
           game_states.d = game_states.WINGAME;
         }
         if(gc.lose & sc.out) {
