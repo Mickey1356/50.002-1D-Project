@@ -50,14 +50,6 @@ module tile_led_5 (
         led_p = M_lf2_out;
         led_g = 1'h0;
       end
-      3'h5: begin
-        led_p = 1'h0;
-        led_g = 1'h0;
-      end
-      3'h6: begin
-        led_p = 1'h0;
-        led_g = 1'h0;
-      end
       default: begin
         led_p = 1'h0;
         led_g = 1'h0;

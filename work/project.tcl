@@ -1,13 +1,13 @@
-set projDir "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead"
+set projDir "H:/1D/work/planAhead"
 set projName "1D"
 set topName top
 set device xc6slx9-2tqg144
 if {[file exists "$projDir/$projName"]} { file delete -force "$projDir/$projName" }
 create_project $projName "$projDir/$projName" -part $device
 set_property design_mode RTL [get_filesets sources_1]
-set verilogSources [list "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/verilog/mojo_top_0.v" "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/verilog/game_loop_1.v" "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/verilog/state_counter_2.v" "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/verilog/state_counter_3.v" "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/verilog/game_controller_4.v" "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/verilog/tile_led_5.v" "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/verilog/led_flasher_6.v" "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/verilog/led_flasher_7.v"]
+set verilogSources [list "H:/1D/work/verilog/mojo_top_0.v" "H:/1D/work/verilog/game_loop_1.v" "H:/1D/work/verilog/state_counter_2.v" "H:/1D/work/verilog/state_counter_3.v" "H:/1D/work/verilog/game_controller_4.v" "H:/1D/work/verilog/tile_led_5.v" "H:/1D/work/verilog/led_flasher_6.v" "H:/1D/work/verilog/led_flasher_7.v"]
 import_files -fileset [get_filesets sources_1] -force -norecurse $verilogSources
-set ucfSources [list "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term\ 4/Computational\ Structures/Projects/1D/constraint/game.ucf" "C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term\ 4/Computational\ Structures/Projects/1D/constraint/mojo.ucf"]
+set ucfSources [list "H:/1D/constraint/game.ucf" "H:/1D/constraint/mojo.ucf"]
 import_files -fileset [get_filesets constrs_1] -force -norecurse $ucfSources
 set_property -name {steps.bitgen.args.More Options} -value {-g Binary:Yes -g Compress} -objects [get_runs impl_1]
 set_property steps.map.args.mt on [get_runs impl_1]

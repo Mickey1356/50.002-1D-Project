@@ -61,9 +61,7 @@ module game_loop_1 (
   localparam EXPLORE3WIN_game_states = 4'd6;
   localparam EXPLORE4_game_states = 4'd7;
   localparam EXPLORE4WIN_game_states = 4'd8;
-  localparam EXPLORE5FROZEN_game_states = 4'd9;
-  localparam EXPLORE5_game_states = 4'd10;
-  localparam WINGAME_game_states = 4'd11;
+  localparam WINGAME_game_states = 4'd9;
   
   reg [3:0] M_game_states_d, M_game_states_q = START_game_states;
   
@@ -143,21 +141,6 @@ module game_loop_1 (
         M_gc_level_state = 3'h7;
         if (up & M_sc_out) begin
           M_game_states_d = WINGAME_game_states;
-        end
-      end
-      EXPLORE5FROZEN_game_states: begin
-        M_gc_level_state = 3'h5;
-        if (M_sc2_out == 1'h1) begin
-          M_game_states_d = EXPLORE5_game_states;
-        end
-      end
-      EXPLORE5_game_states: begin
-        M_gc_level_state = 3'h6;
-        if (M_gc_win & M_sc_out) begin
-          M_game_states_d = WINGAME_game_states;
-        end
-        if (M_gc_lose & M_sc_out) begin
-          M_game_states_d = START_game_states;
         end
       end
       WINGAME_game_states: begin
