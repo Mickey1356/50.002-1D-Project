@@ -17,7 +17,7 @@ module tile_led (
     }
   }
 
-  always {
+  always { 
     // out_type = type;
     case(type) {
       0: // unexplored (green cell)
