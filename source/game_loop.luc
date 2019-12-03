@@ -91,7 +91,7 @@ module game_loop (
       game_states.EXPLORE4WIN:
         gc.level_state = 7; // unused number
         if(up & sc.out) {
-          game_states.d = game_states.EXPLORE5FROZEN;
+          game_states.d = game_states.WINGAME;
         }
       game_states.EXPLORE5FROZEN:
         gc.level_state = 5;

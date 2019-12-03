@@ -11,6 +11,7 @@ module game_loop_1 (
     input down,
     input left,
     input right,
+    input reset,
     output reg [27:0] tiles_g,
     output reg [27:0] tiles_p
   );
@@ -23,6 +24,12 @@ module game_loop_1 (
     .rst(rst),
     .out(M_sc_out)
   );
+  wire [1-1:0] M_sc2_out;
+  state_counter_3 sc2 (
+    .clk(clk),
+    .rst(rst),
+    .out(M_sc2_out)
+  );
   wire [1-1:0] M_gc_win;
   wire [1-1:0] M_gc_lose;
   wire [28-1:0] M_gc_tiles_g;
@@ -32,7 +39,7 @@ module game_loop_1 (
   reg [1-1:0] M_gc_left;
   reg [1-1:0] M_gc_right;
   reg [3-1:0] M_gc_level_state;
-  game_controller_3 gc (
+  game_controller_4 gc (
     .clk(clk),
     .rst(rst),
     .up(M_gc_up),
@@ -45,16 +52,20 @@ module game_loop_1 (
     .tiles_g(M_gc_tiles_g),
     .tiles_p(M_gc_tiles_p)
   );
-  localparam START_game_states = 3'd0;
-  localparam EXPLORE1_game_states = 3'd1;
-  localparam EXPLORE1WIN_game_states = 3'd2;
-  localparam EXPLORE2_game_states = 3'd3;
-  localparam EXPLORE2WIN_game_states = 3'd4;
-  localparam EXPLORE3_game_states = 3'd5;
-  localparam EXPLORE3WIN_game_states = 3'd6;
-  localparam WINGAME_game_states = 3'd7;
+  localparam START_game_states = 4'd0;
+  localparam EXPLORE1_game_states = 4'd1;
+  localparam EXPLORE1WIN_game_states = 4'd2;
+  localparam EXPLORE2_game_states = 4'd3;
+  localparam EXPLORE2WIN_game_states = 4'd4;
+  localparam EXPLORE3_game_states = 4'd5;
+  localparam EXPLORE3WIN_game_states = 4'd6;
+  localparam EXPLORE4_game_states = 4'd7;
+  localparam EXPLORE4WIN_game_states = 4'd8;
+  localparam EXPLORE5FROZEN_game_states = 4'd9;
+  localparam EXPLORE5_game_states = 4'd10;
+  localparam WINGAME_game_states = 4'd11;
   
-  reg [2:0] M_game_states_d, M_game_states_q = START_game_states;
+  reg [3:0] M_game_states_d, M_game_states_q = START_game_states;
   
   always @* begin
     M_game_states_d = M_game_states_q;
@@ -80,6 +91,78 @@ module game_loop_1 (
           M_game_states_d = EXPLORE1WIN_game_states;
         end
         if (M_gc_lose & M_sc_out) begin
+          M_game_states_d = START_game_states;
+        end
+      end
+      EXPLORE1WIN_game_states: begin
+        M_gc_level_state = 3'h7;
+        if (up & M_sc_out) begin
+          M_game_states_d = EXPLORE2_game_states;
+        end
+      end
+      EXPLORE2_game_states: begin
+        M_gc_level_state = 2'h2;
+        if (M_gc_win & M_sc_out) begin
+          M_game_states_d = EXPLORE2WIN_game_states;
+        end
+        if (M_gc_lose & M_sc_out) begin
+          M_game_states_d = START_game_states;
+        end
+      end
+      EXPLORE2WIN_game_states: begin
+        M_gc_level_state = 3'h7;
+        if (up & M_sc_out) begin
+          M_game_states_d = EXPLORE3_game_states;
+        end
+      end
+      EXPLORE3_game_states: begin
+        M_gc_level_state = 2'h3;
+        if (M_gc_win & M_sc_out) begin
+          M_game_states_d = EXPLORE3WIN_game_states;
+        end
+        if (M_gc_lose & M_sc_out) begin
+          M_game_states_d = START_game_states;
+        end
+      end
+      EXPLORE3WIN_game_states: begin
+        M_gc_level_state = 3'h7;
+        if (up & M_sc_out) begin
+          M_game_states_d = EXPLORE4_game_states;
+        end
+      end
+      EXPLORE4_game_states: begin
+        M_gc_level_state = 3'h4;
+        if (M_gc_win & M_sc_out) begin
+          M_game_states_d = EXPLORE4WIN_game_states;
+        end
+        if (M_gc_lose & M_sc_out) begin
+          M_game_states_d = START_game_states;
+        end
+      end
+      EXPLORE4WIN_game_states: begin
+        M_gc_level_state = 3'h7;
+        if (up & M_sc_out) begin
+          M_game_states_d = WINGAME_game_states;
+        end
+      end
+      EXPLORE5FROZEN_game_states: begin
+        M_gc_level_state = 3'h5;
+        if (M_sc2_out == 1'h1) begin
+          M_game_states_d = EXPLORE5_game_states;
+        end
+      end
+      EXPLORE5_game_states: begin
+        M_gc_level_state = 3'h6;
+        if (M_gc_win & M_sc_out) begin
+          M_game_states_d = WINGAME_game_states;
+        end
+        if (M_gc_lose & M_sc_out) begin
+          M_game_states_d = START_game_states;
+        end
+      end
+      WINGAME_game_states: begin
+        M_gc_level_state = 1'h0;
+        if (up & M_sc_out) begin
           M_game_states_d = START_game_states;
         end
       end

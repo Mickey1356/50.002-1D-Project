@@ -187,9 +187,9 @@ module game_controller (
           tiles_type.d[3] = 3d0;
           tiles_type.d[1:0] = 2x{{3d0}};
           
-          player_pos.d = 23;
+          player_pos.d = 22;
           step_counter.d = 0; // reset step counter
-          tiles_type.d[23] = 3d3; //where player is at
+          tiles_type.d[22] = 3d3; //where player is at
           win_toggle.d = 0;
           lose_toggle.d = 0;
           init_toggle.d = 1;

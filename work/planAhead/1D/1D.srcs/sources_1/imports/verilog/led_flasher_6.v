@@ -8,7 +8,7 @@
    Parameters:
      DIV = 26
 */
-module led_flasher_5 (
+module led_flasher_6 (
     input clk,
     input rst,
     output reg out
