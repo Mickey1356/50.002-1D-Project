@@ -1,5 +1,5 @@
 module state_counter #(
-  DIV = 24 : DIV >= 0) (
+  DIV = 22 : DIV >= 0) (
     input clk,  // clock
     input rst,  // reset
     output out

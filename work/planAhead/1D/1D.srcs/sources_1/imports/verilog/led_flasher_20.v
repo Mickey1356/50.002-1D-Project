@@ -8,7 +8,7 @@
    Parameters:
      DIV = 24
 */
-module state_counter_2 (
+module led_flasher_20 (
     input clk,
     input rst,
     output reg out
@@ -24,9 +24,6 @@ module state_counter_2 (
     
     out = M_counter_q[23+0-:1];
     M_counter_d = M_counter_q + 1'h1;
-    if (M_counter_q[23+0-:1] == 1'h1) begin
-      M_counter_d[23+0-:1] = 1'h0;
-    end
   end
   
   always @(posedge clk) begin

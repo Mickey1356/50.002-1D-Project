@@ -28,12 +28,15 @@ module mojo_top_0 (
     output [27:0] led_p,
     output [27:0] led_g,
     
+    output win_led,
+    output lose_led
+    
     //output r,
     //output g,
     //output b,
     //output vs,
     //output hs
-    output power
+    // output power
   );
 
   wire rst = ~rst_n; // make reset active high
@@ -137,13 +140,15 @@ module mojo_top_0 (
 
     game_loop_1 gl (
       .clk(clk),
-      .rst(rst),
+      .rst(io_button[1]),
       .up(io_button[0]),
       .down(io_button[2]),
       .left(io_button[3]),
       .right(io_button[4]),
       .tiles_g(tiles_g[27:0]),
-      .tiles_p(tiles_p[27:0])
+      .tiles_p(tiles_p[27:0]),
+      .win_led(win_led),
+      .lose_led(lose_led)
     );
         
 //    assign io_led[20:0] = tiles_g[20:0];

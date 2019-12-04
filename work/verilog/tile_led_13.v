@@ -4,7 +4,7 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module tile_led_5 (
+module tile_led_13 (
     input clk,
     input rst,
     input [2:0] type,
@@ -15,13 +15,13 @@ module tile_led_5 (
   
   
   wire [1-1:0] M_lf_out;
-  led_flasher_6 lf (
+  led_flasher_19 lf (
     .clk(clk),
     .rst(rst),
     .out(M_lf_out)
   );
   wire [1-1:0] M_lf2_out;
-  led_flasher_7 lf2 (
+  led_flasher_20 lf2 (
     .clk(clk),
     .rst(rst),
     .out(M_lf2_out)

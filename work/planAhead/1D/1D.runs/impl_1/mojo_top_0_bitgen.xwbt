@@ -1,8 +1,8 @@
 INTSTYLE=pa
-INFILE=H:\1D\work\planAhead\1D\1D.runs\impl_1\mojo_top_0_routed.ncd
-OUTFILE=H:\1D\work\planAhead\1D\1D.runs\impl_1\mojo_top_0.bit
+INFILE=C:\Users\jerem_000\Documents\Stuff\School\SUTD\Term 4\Computational Structures\Projects\1D\work\planAhead\1D\1D.runs\impl_1\mojo_top_0_routed.ncd
+OUTFILE=C:\Users\jerem_000\Documents\Stuff\School\SUTD\Term 4\Computational Structures\Projects\1D\work\planAhead\1D\1D.runs\impl_1\mojo_top_0.bit
 FAMILY=Spartan6
 PART=xc6slx9-2tqg144
-WORKINGDIR=H:\1D\work\planAhead\1D\1D.runs\impl_1
+WORKINGDIR=C:\Users\jerem_000\Documents\Stuff\School\SUTD\Term 4\Computational Structures\Projects\1D\work\planAhead\1D\1D.runs\impl_1
 LICENSE=WebPack
-USER_INFO=210774588_0_0_156
+USER_INFO=211812202_0_0_914

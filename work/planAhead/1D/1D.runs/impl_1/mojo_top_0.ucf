@@ -16,23 +16,23 @@
 #NET "vs" LOC = P57 | IOSTANDARD = LVTTL;
 #NET "hs" LOC = P66 | IOSTANDARD = LVTTL;
 
-NET "power" LOC = P58;
-NET "power" IOSTANDARD = LVTTL;
+#NET "power" LOC = P58 | IOSTANDARD = LVTTL;
 
 # PULLDOWN is needed to prevent floating inputs
-NET "io_button[0]" LOC = P137;
+# up, center, down, left, right
+NET "io_button[0]" LOC = P66;
 NET "io_button[0]" IOSTANDARD = LVTTL;
 NET "io_button[0]" PULLDOWN;
 NET "io_button[1]" LOC = P140;
 NET "io_button[1]" IOSTANDARD = LVTTL;
 NET "io_button[1]" PULLDOWN;
-NET "io_button[2]" LOC = P139;
+NET "io_button[2]" LOC = P67;
 NET "io_button[2]" IOSTANDARD = LVTTL;
 NET "io_button[2]" PULLDOWN;
-NET "io_button[3]" LOC = P142;
+NET "io_button[3]" LOC = P75;
 NET "io_button[3]" IOSTANDARD = LVTTL;
 NET "io_button[3]" PULLDOWN;
-NET "io_button[4]" LOC = P138;
+NET "io_button[4]" LOC = P74;
 NET "io_button[4]" IOSTANDARD = LVTTL;
 NET "io_button[4]" PULLDOWN;
 
@@ -203,6 +203,11 @@ NET "led_p[27]" LOC = P40;
 NET "led_p[27]" IOSTANDARD = LVTTL;
 NET "led_g[27]" LOC = P34;
 NET "led_g[27]" IOSTANDARD = LVTTL;
+
+NET "win_led" LOC = P57;
+NET "win_led" IOSTANDARD = LVTTL;
+NET "lose_led" LOC = P58;
+NET "lose_led" IOSTANDARD = LVTTL;
 
 ####################################################################################
 # Constraints from file : 'mojo.ucf'

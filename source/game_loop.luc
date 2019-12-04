@@ -8,26 +8,38 @@ module game_loop (
     input reset,
         
     output tiles_g[28],
-    output tiles_p[28]
+    output tiles_p[28],
+    output win_led,
+    output lose_led
   ) {
   
   .clk(clk) {
+  
+    button_conditioner up_cond;
+    button_conditioner down_cond;
+    button_conditioner left_cond;
+    button_conditioner right_cond;
+    
     .rst(rst) {
       state_counter sc; // add delay for inputs
-      
-      state_counter sc2 (#DIV(28)); // timer for level 4 - about 5s
-      
+            
       game_controller gc;
       
-      fsm game_states = {START, EXPLORE1, EXPLORE1WIN, EXPLORE2, EXPLORE2WIN, EXPLORE3, EXPLORE3WIN, EXPLORE4, EXPLORE4WIN, WINGAME};
+      fsm game_states = {START, EXPLORE1, EXPLORE1WIN, EXPLORE2, EXPLORE2WIN, EXPLORE3, EXPLORE3WIN, EXPLORE4, EXPLORE4WIN, WINGAME, FAIL};
     }
   }
 
   always {
-    gc.up = up;
-    gc.down = down;
-    gc.left = left;
-    gc.right = right;
+  
+    up_cond.in = up;
+    down_cond.in = down;
+    left_cond.in = left;
+    right_cond.in = right;
+    
+    gc.up = up_cond.out;
+    gc.down = down_cond.out;
+    gc.left = left_cond.out;
+    gc.right = right_cond.out;
     // gc.reset = reset;
     
     tiles_g = gc.tiles_g;
@@ -35,23 +47,34 @@ module game_loop (
     
     gc.level_state = 0;
     
+    win_led = 0;
+    lose_led = 0;
+    
     case (game_states.q) {
       game_states.START:
-        if (up & sc.out) {
+        if (up_cond.out & sc.out) {
           gc.level_state = 0;
           game_states.d = game_states.EXPLORE1;
         }
+      game_states.FAIL:
+        lose_led = 1;
+        if (up_cond.out & sc.out) {
+          gc.level_state = 0;
+          game_states.d = game_states.EXPLORE1;
+        }
+
       game_states.EXPLORE1:
         gc.level_state = 1;
         if(gc.win & sc.out) {
           game_states.d = game_states.EXPLORE1WIN;
         }
         if (gc.lose & sc.out) {
-          game_states.d = game_states.START;
+          game_states.d = game_states.FAIL;
         }
       game_states.EXPLORE1WIN:
+        win_led = 1;
         gc.level_state = 7; // unused number
-        if(up & sc.out) {
+        if(up_cond.out & sc.out) {
           game_states.d = game_states.EXPLORE2;
         }
       game_states.EXPLORE2:
@@ -60,11 +83,12 @@ module game_loop (
           game_states.d = game_states.EXPLORE2WIN;
         }
         if(gc.lose & sc.out) {
-          game_states.d = game_states.START;
+          game_states.d = game_states.FAIL;
         }
       game_states.EXPLORE2WIN:
+        win_led = 1;
         gc.level_state = 7; // unused number
-        if(up & sc.out) {
+        if(up_cond.out & sc.out) {
           game_states.d = game_states.EXPLORE3;
         }
       game_states.EXPLORE3:
@@ -73,29 +97,31 @@ module game_loop (
           game_states.d = game_states.EXPLORE3WIN;
         }
         if(gc.lose & sc.out) {
-          game_states.d = game_states.START;
+          game_states.d = game_states.FAIL;
         }
       game_states.EXPLORE3WIN:
+        win_led = 1;
         gc.level_state = 7; // unused number
-        if(up & sc.out) {
+        if(up_cond.out & sc.out) {
           game_states.d = game_states.EXPLORE4;
         }
       game_states.EXPLORE4:
         gc.level_state = 4;
         if(gc.win & sc.out) {
-          game_states.d = game_states.EXPLORE4WIN;
+          game_states.d = game_states.WINGAME;
         }
         if(gc.lose & sc.out) {
-          game_states.d = game_states.START;
+          game_states.d = game_states.FAIL;
         }
       game_states.EXPLORE4WIN:
         gc.level_state = 7; // unused number
-        if(up & sc.out) {
+        if(up_cond.out & sc.out) {
           game_states.d = game_states.WINGAME;
         }
       game_states.WINGAME:
-        gc.level_state=0;
-        if(up & sc.out) {
+        win_led = 1;
+        gc.level_state=7; // unused number
+        if(up_cond.out & sc.out) {
             game_states.d = game_states.START;
         }
     }

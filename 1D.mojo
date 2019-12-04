@@ -3,18 +3,13 @@
   <files>
     <src>tile_led.luc</src>
     <src>alu.luc</src>
-    <src>tile.luc</src>
     <src top="true">mojo_top.v</src>
     <src>led_flasher.luc</src>
-    <src>square.v</src>
     <src>cmp16.luc</src>
     <src>alu_tester.luc</src>
     <src>manual_tester.luc</src>
     <src>multi_seven_seg.luc</src>
     <src>adder16.luc</src>
-    <src>tiles.luc</src>
-    <src>vga.v</src>
-    <src>tile_bitmap.v</src>
     <src>bool16.luc</src>
     <src>auto_tester.luc</src>
     <src>state_counter.luc</src>
@@ -26,6 +21,8 @@
     <ucf>game.ucf</ucf>
     <ucf>mojo.ucf</ucf>
     <component>decoder.luc</component>
+    <component>pipeline.luc</component>
+    <component>button_conditioner.luc</component>
     <component>counter.luc</component>
   </files>
 </project>

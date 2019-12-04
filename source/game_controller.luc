@@ -17,6 +17,8 @@ module game_controller (
     output tiles_p[28]
 
   ) {
+  
+  alu alu;
 
   .clk(clk) {
     .rst(rst) {
@@ -53,11 +55,22 @@ module game_controller (
   // 21  22  23  24  25  26  27
 
   always {
+  
+    alu.fail = 0;
+    alu.a = step_counter.q;
+    alu.b = req_steps.q;
+    alu.alufn = 110011;
+    
     // tiles.type = 28x{{2d0}};
 
     // tiles_type.d[27:21] = 7x{{2d2}};
 
  case (level_state) {
+        
+      0: // FAIL state / START state
+        tiles_type.d = 28x{{3d3}}; // set everything to be unexplored cell first (all green)
+        init_toggle.d = 0;
+
       1: // obstacles 2,4,9,25
         // set the boundaries
         
@@ -119,12 +132,7 @@ module game_controller (
           init_toggle.d = 1;
         }
         req_steps.d = 15;
-        
-        
-        
-        
-        
-        
+                
       3: // obstacles 15, 10
          // teleport at 8,17
         // set the boundaries
@@ -205,7 +213,7 @@ module game_controller (
         init_toggle.d = 0;
     }
 
-    if (up & sc.out & up_cond.q == 0 & level_state != 5) {
+    if (up & sc.out & up_cond.q == 0) {
       up_cond.d = 1;
       if (player_pos.q > 6) { // ie. not the top row
         if (tiles_type.q[player_pos.q - 7] == 3d0) {
@@ -216,24 +224,19 @@ module game_controller (
           //tiles_type.d[player_pos.q] = 2d3;
         } else if (tiles_type.q[player_pos.q - 7] == 3d4){
           if (level_state == 3) {
-            if(player_pos.q == 15) {
-              tiles_type.d[player_pos.q] = 3d1;
-              player_pos.d = 17;
-              tiles_type.d[17] = 3d3;
-              step_counter.d = step_counter.q + 1;
-            } else if (player_pos.q == 24) {
+            if (player_pos.q == 24) {
               tiles_type.d[player_pos.q] = 3d1;
               player_pos.d = 8;
               tiles_type.d[8] = 3d3;
               step_counter.d = step_counter.q + 1;
             }
           } else if (level_state == 4) {
-            if(player_pos.q == 3) {
+            if(player_pos.q == 10) {
               tiles_type.d[player_pos.q] = 3d1;
               player_pos.d = 15;
               tiles_type.d[15] = 3d3;
               step_counter.d = step_counter.q + 1;
-            } else if (player_pos.q == 15) {
+            } else if (player_pos.q == 22) {
               tiles_type.d[player_pos.q] = 3d1;
               player_pos.d = 3;
               tiles_type.d[3] = 3d3;
@@ -251,7 +254,7 @@ module game_controller (
       up_cond.d = 0;
     }
 
-    if (down & sc.out & down_cond.q == 0 & level_state != 5) {
+    if (down & sc.out & down_cond.q == 0) {
       down_cond.d = 1;
       if (player_pos.q < 21) { // ie. not the bottom row
         if (tiles_type.q[player_pos.q + 7] == 3d0) {
@@ -267,11 +270,6 @@ module game_controller (
               player_pos.d = 17;
               tiles_type.d[17] = 3d3;
               step_counter.d = step_counter.q + 1;
-            } else if (player_pos.q == 10) {
-              tiles_type.d[player_pos.q] = 3d1;
-              player_pos.d = 8;
-              tiles_type.d[8] = 3d3;
-              step_counter.d = step_counter.q + 1;
             }
           }
         } else if (tiles_type.q[player_pos.q + 7] == 3d1) {
@@ -285,7 +283,7 @@ module game_controller (
       down_cond.d = 0;
     }
 
-    if (left & sc.out & left_cond.q == 0 & level_state != 5) {
+    if (left & sc.out & left_cond.q == 0) {
       left_cond.d = 1;
       if (player_pos.q != 0 & player_pos.q != 7 & player_pos.q != 14 & player_pos.q != 21) { // ie. not the left most row
         if (tiles_type.q[player_pos.q - 1] == 3d0) {
@@ -331,7 +329,7 @@ module game_controller (
       left_cond.d = 0;
     }
 
-    if (right & sc.out & right_cond.q == 0 & level_state != 5) {
+    if (right & sc.out & right_cond.q == 0) {
       right_cond.d = 1;
       if (player_pos.q != 6 & player_pos.q != 13 & player_pos.q != 20 & player_pos.q != 27) { // ie. not the left most row
         if (tiles_type.q[player_pos.q + 1] == 3d0) {
@@ -377,7 +375,7 @@ module game_controller (
       right_cond.d = 0;
     }
 
-    if (player_pos.q == 3 & sc.out & step_counter.q == req_steps.q) { // check to see if game has been won
+    if (player_pos.q == 3 & sc.out & alu.out) { // check to see if game has been won
       // win the game
       win_toggle.d = 1;
       lose_toggle.d = 0;

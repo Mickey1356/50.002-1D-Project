@@ -4,7 +4,7 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module game_controller_4 (
+module game_controller_7 (
     input clk,
     input rst,
     input up,
@@ -20,8 +20,27 @@ module game_controller_4 (
   
   
   
+  wire [1-1:0] M_alu_z;
+  wire [1-1:0] M_alu_v;
+  wire [1-1:0] M_alu_n;
+  wire [16-1:0] M_alu_out;
+  reg [16-1:0] M_alu_a;
+  reg [16-1:0] M_alu_b;
+  reg [6-1:0] M_alu_alufn;
+  reg [1-1:0] M_alu_fail;
+  alu_12 alu (
+    .a(M_alu_a),
+    .b(M_alu_b),
+    .alufn(M_alu_alufn),
+    .fail(M_alu_fail),
+    .z(M_alu_z),
+    .v(M_alu_v),
+    .n(M_alu_n),
+    .out(M_alu_out)
+  );
+  
   wire [1-1:0] M_sc_out;
-  state_counter_2 sc (
+  state_counter_6 sc (
     .clk(clk),
     .rst(rst),
     .out(M_sc_out)
@@ -44,7 +63,7 @@ module game_controller_4 (
   genvar GEN_tiles0;
   generate
   for (GEN_tiles0=0;GEN_tiles0<5'h1c;GEN_tiles0=GEN_tiles0+1) begin: tiles_gen_0
-    tile_led_5 tiles (
+    tile_led_13 tiles (
       .clk(clk),
       .rst(rst),
       .type(M_tiles_type[GEN_tiles0*(2'h3)+(2'h3)-1-:(2'h3)]),
@@ -64,11 +83,19 @@ module game_controller_4 (
     M_up_cond_d = M_up_cond_q;
     M_step_counter_d = M_step_counter_q;
     M_left_cond_d = M_left_cond_q;
-    M_init_toggle_d = M_init_toggle_q;
     M_player_pos_d = M_player_pos_q;
+    M_init_toggle_d = M_init_toggle_q;
     
+    M_alu_fail = 1'h0;
+    M_alu_a = M_step_counter_q;
+    M_alu_b = M_req_steps_q;
+    M_alu_alufn = 17'h1adbb;
     
     case (level_state)
+      1'h0: begin
+        M_tiles_type_d = 84'h6db6db6db6db6db6db6db;
+        M_init_toggle_d = 1'h0;
+      end
       1'h1: begin
         M_tiles_type_d[0+8-:9] = 9'h092;
         M_tiles_type_d[21+8-:9] = 9'h092;
@@ -167,7 +194,7 @@ module game_controller_4 (
         M_init_toggle_d = 1'h0;
       end
     endcase
-    if (up & M_sc_out & M_up_cond_q == 1'h0 & level_state != 3'h5) begin
+    if (up & M_sc_out & M_up_cond_q == 1'h0) begin
       M_up_cond_d = 1'h1;
       if (M_player_pos_q > 3'h6) begin
         if (M_tiles_type_q[(M_player_pos_q - 3'h7)*3+2-:3] == 3'h0) begin
@@ -178,28 +205,21 @@ module game_controller_4 (
         end else begin
           if (M_tiles_type_q[(M_player_pos_q - 3'h7)*3+2-:3] == 3'h4) begin
             if (level_state == 2'h3) begin
-              if (M_player_pos_q == 4'hf) begin
+              if (M_player_pos_q == 5'h18) begin
                 M_tiles_type_d[(M_player_pos_q)*3+2-:3] = 3'h1;
-                M_player_pos_d = 5'h11;
-                M_tiles_type_d[51+2-:3] = 3'h3;
+                M_player_pos_d = 4'h8;
+                M_tiles_type_d[24+2-:3] = 3'h3;
                 M_step_counter_d = M_step_counter_q + 1'h1;
-              end else begin
-                if (M_player_pos_q == 5'h18) begin
-                  M_tiles_type_d[(M_player_pos_q)*3+2-:3] = 3'h1;
-                  M_player_pos_d = 4'h8;
-                  M_tiles_type_d[24+2-:3] = 3'h3;
-                  M_step_counter_d = M_step_counter_q + 1'h1;
-                end
               end
             end else begin
               if (level_state == 3'h4) begin
-                if (M_player_pos_q == 2'h3) begin
+                if (M_player_pos_q == 4'ha) begin
                   M_tiles_type_d[(M_player_pos_q)*3+2-:3] = 3'h1;
                   M_player_pos_d = 4'hf;
                   M_tiles_type_d[45+2-:3] = 3'h3;
                   M_step_counter_d = M_step_counter_q + 1'h1;
                 end else begin
-                  if (M_player_pos_q == 4'hf) begin
+                  if (M_player_pos_q == 5'h16) begin
                     M_tiles_type_d[(M_player_pos_q)*3+2-:3] = 3'h1;
                     M_player_pos_d = 2'h3;
                     M_tiles_type_d[9+2-:3] = 3'h3;
@@ -220,7 +240,7 @@ module game_controller_4 (
     if (!up & M_sc_out) begin
       M_up_cond_d = 1'h0;
     end
-    if (down & M_sc_out & M_down_cond_q == 1'h0 & level_state != 3'h5) begin
+    if (down & M_sc_out & M_down_cond_q == 1'h0) begin
       M_down_cond_d = 1'h1;
       if (M_player_pos_q < 5'h15) begin
         if (M_tiles_type_q[(M_player_pos_q + 3'h7)*3+2-:3] == 3'h0) begin
@@ -236,13 +256,6 @@ module game_controller_4 (
                 M_player_pos_d = 5'h11;
                 M_tiles_type_d[51+2-:3] = 3'h3;
                 M_step_counter_d = M_step_counter_q + 1'h1;
-              end else begin
-                if (M_player_pos_q == 4'ha) begin
-                  M_tiles_type_d[(M_player_pos_q)*3+2-:3] = 3'h1;
-                  M_player_pos_d = 4'h8;
-                  M_tiles_type_d[24+2-:3] = 3'h3;
-                  M_step_counter_d = M_step_counter_q + 1'h1;
-                end
               end
             end
           end else begin
@@ -257,7 +270,7 @@ module game_controller_4 (
     if (!down & M_sc_out) begin
       M_down_cond_d = 1'h0;
     end
-    if (left & M_sc_out & M_left_cond_q == 1'h0 & level_state != 3'h5) begin
+    if (left & M_sc_out & M_left_cond_q == 1'h0) begin
       M_left_cond_d = 1'h1;
       if (M_player_pos_q != 1'h0 & M_player_pos_q != 3'h7 & M_player_pos_q != 4'he & M_player_pos_q != 5'h15) begin
         if (M_tiles_type_q[(M_player_pos_q - 1'h1)*3+2-:3] == 3'h0) begin
@@ -310,7 +323,7 @@ module game_controller_4 (
     if (!left & M_sc_out) begin
       M_left_cond_d = 1'h0;
     end
-    if (right & M_sc_out & M_right_cond_q == 1'h0 & level_state != 3'h5) begin
+    if (right & M_sc_out & M_right_cond_q == 1'h0) begin
       M_right_cond_d = 1'h1;
       if (M_player_pos_q != 3'h6 & M_player_pos_q != 4'hd & M_player_pos_q != 5'h14 & M_player_pos_q != 5'h1b) begin
         if (M_tiles_type_q[(M_player_pos_q + 1'h1)*3+2-:3] == 3'h0) begin
@@ -363,7 +376,7 @@ module game_controller_4 (
     if (!right & M_sc_out) begin
       M_right_cond_d = 1'h0;
     end
-    if (M_player_pos_q == 2'h3 & M_sc_out & M_step_counter_q == M_req_steps_q) begin
+    if (M_player_pos_q == 2'h3 & M_sc_out & M_alu_out) begin
       M_win_toggle_d = 1'h1;
       M_lose_toggle_d = 1'h0;
     end

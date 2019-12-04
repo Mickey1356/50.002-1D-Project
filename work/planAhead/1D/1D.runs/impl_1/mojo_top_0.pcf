@@ -1,14 +1,14 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Tue Dec 03 21:32:30 2019
+// Written by: Map P.20131013 on Wed Dec 04 23:01:39 2019
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "clk" LOCATE = SITE "P56" LEVEL 1;
-COMP "io_button(1)" LOCATE = SITE "P140" LEVEL 1;
-COMP "io_button[0]" LOCATE = SITE "P137" LEVEL 1;
-COMP "io_button[2]" LOCATE = SITE "P139" LEVEL 1;
-COMP "io_button[3]" LOCATE = SITE "P142" LEVEL 1;
-COMP "io_button[4]" LOCATE = SITE "P138" LEVEL 1;
+COMP "io_button[0]" LOCATE = SITE "P66" LEVEL 1;
+COMP "io_button[1]" LOCATE = SITE "P140" LEVEL 1;
+COMP "io_button[2]" LOCATE = SITE "P67" LEVEL 1;
+COMP "io_button[3]" LOCATE = SITE "P75" LEVEL 1;
+COMP "io_button[4]" LOCATE = SITE "P74" LEVEL 1;
 COMP "cclk" LOCATE = SITE "P70" LEVEL 1;
 COMP "led_g[10]" LOCATE = SITE "P102" LEVEL 1;
 COMP "led_g[11]" LOCATE = SITE "P98" LEVEL 1;
@@ -46,9 +46,9 @@ COMP "led_p[18]" LOCATE = SITE "P27" LEVEL 1;
 COMP "led_p[26]" LOCATE = SITE "P32" LEVEL 1;
 COMP "led_p[19]" LOCATE = SITE "P33" LEVEL 1;
 COMP "led_p[27]" LOCATE = SITE "P40" LEVEL 1;
-COMP "power" LOCATE = SITE "P58" LEVEL 1;
 COMP "rst_n" LOCATE = SITE "P38" LEVEL 1;
 COMP "spi_sck" LOCATE = SITE "P43" LEVEL 1;
+COMP "win_led" LOCATE = SITE "P57" LEVEL 1;
 COMP "avr_rx_busy" LOCATE = SITE "P39" LEVEL 1;
 COMP "led_g[0]" LOCATE = SITE "P120" LEVEL 1;
 COMP "led_g[1]" LOCATE = SITE "P116" LEVEL 1;
@@ -80,11 +80,11 @@ COMP "led_p[8]" LOCATE = SITE "P115" LEVEL 1;
 COMP "led_p[9]" LOCATE = SITE "P105" LEVEL 1;
 COMP "avr_tx" LOCATE = SITE "P55" LEVEL 1;
 COMP "spi_ss" LOCATE = SITE "P48" LEVEL 1;
+COMP "lose_led" LOCATE = SITE "P58" LEVEL 1;
 COMP "spi_mosi" LOCATE = SITE "P44" LEVEL 1;
 TIMEGRP clk = BEL "gl/M_game_states_q_FSM_FFd4" BEL
         "gl/M_game_states_q_FSM_FFd1" BEL "gl/M_game_states_q_FSM_FFd3" BEL
-        "gl/M_game_states_q_FSM_FFd2" BEL "gl/sc/M_counter_q_23" BEL
-        "gl/sc/M_counter_q_22" BEL "gl/sc/M_counter_q_21" BEL
+        "gl/M_game_states_q_FSM_FFd2" BEL "gl/sc/M_counter_q_21" BEL
         "gl/sc/M_counter_q_20" BEL "gl/sc/M_counter_q_19" BEL
         "gl/sc/M_counter_q_18" BEL "gl/sc/M_counter_q_17" BEL
         "gl/sc/M_counter_q_16" BEL "gl/sc/M_counter_q_15" BEL
@@ -95,12 +95,60 @@ TIMEGRP clk = BEL "gl/M_game_states_q_FSM_FFd4" BEL
         "gl/sc/M_counter_q_6" BEL "gl/sc/M_counter_q_5" BEL
         "gl/sc/M_counter_q_4" BEL "gl/sc/M_counter_q_3" BEL
         "gl/sc/M_counter_q_2" BEL "gl/sc/M_counter_q_1" BEL
-        "gl/sc/M_counter_q_0" BEL "gl/gc/M_lose_toggle_q_0" BEL
-        "gl/gc/M_player_pos_q_0" BEL "gl/gc/M_player_pos_q_1" BEL
+        "gl/sc/M_counter_q_0" BEL "gl/up_cond/M_ctr_q_0" BEL
+        "gl/up_cond/M_ctr_q_1" BEL "gl/up_cond/M_ctr_q_2" BEL
+        "gl/up_cond/M_ctr_q_3" BEL "gl/up_cond/M_ctr_q_4" BEL
+        "gl/up_cond/M_ctr_q_5" BEL "gl/up_cond/M_ctr_q_6" BEL
+        "gl/up_cond/M_ctr_q_7" BEL "gl/up_cond/M_ctr_q_8" BEL
+        "gl/up_cond/M_ctr_q_9" BEL "gl/up_cond/M_ctr_q_10" BEL
+        "gl/up_cond/M_ctr_q_11" BEL "gl/up_cond/M_ctr_q_12" BEL
+        "gl/up_cond/M_ctr_q_13" BEL "gl/up_cond/M_ctr_q_14" BEL
+        "gl/up_cond/M_ctr_q_15" BEL "gl/up_cond/M_ctr_q_16" BEL
+        "gl/up_cond/M_ctr_q_17" BEL "gl/up_cond/M_ctr_q_18" BEL
+        "gl/up_cond/M_ctr_q_19" BEL "gl/up_cond/sync/M_pipe_q_1" BEL
+        "gl/up_cond/sync/Mshreg_M_pipe_q_1" BEL "gl/right_cond/M_ctr_q_0" BEL
+        "gl/right_cond/M_ctr_q_1" BEL "gl/right_cond/M_ctr_q_2" BEL
+        "gl/right_cond/M_ctr_q_3" BEL "gl/right_cond/M_ctr_q_4" BEL
+        "gl/right_cond/M_ctr_q_5" BEL "gl/right_cond/M_ctr_q_6" BEL
+        "gl/right_cond/M_ctr_q_7" BEL "gl/right_cond/M_ctr_q_8" BEL
+        "gl/right_cond/M_ctr_q_9" BEL "gl/right_cond/M_ctr_q_10" BEL
+        "gl/right_cond/M_ctr_q_11" BEL "gl/right_cond/M_ctr_q_12" BEL
+        "gl/right_cond/M_ctr_q_13" BEL "gl/right_cond/M_ctr_q_14" BEL
+        "gl/right_cond/M_ctr_q_15" BEL "gl/right_cond/M_ctr_q_16" BEL
+        "gl/right_cond/M_ctr_q_17" BEL "gl/right_cond/M_ctr_q_18" BEL
+        "gl/right_cond/M_ctr_q_19" BEL "gl/right_cond/sync/M_pipe_q_1" BEL
+        "gl/right_cond/sync/Mshreg_M_pipe_q_1" BEL "gl/down_cond/M_ctr_q_0"
+        BEL "gl/down_cond/M_ctr_q_1" BEL "gl/down_cond/M_ctr_q_2" BEL
+        "gl/down_cond/M_ctr_q_3" BEL "gl/down_cond/M_ctr_q_4" BEL
+        "gl/down_cond/M_ctr_q_5" BEL "gl/down_cond/M_ctr_q_6" BEL
+        "gl/down_cond/M_ctr_q_7" BEL "gl/down_cond/M_ctr_q_8" BEL
+        "gl/down_cond/M_ctr_q_9" BEL "gl/down_cond/M_ctr_q_10" BEL
+        "gl/down_cond/M_ctr_q_11" BEL "gl/down_cond/M_ctr_q_12" BEL
+        "gl/down_cond/M_ctr_q_13" BEL "gl/down_cond/M_ctr_q_14" BEL
+        "gl/down_cond/M_ctr_q_15" BEL "gl/down_cond/M_ctr_q_16" BEL
+        "gl/down_cond/M_ctr_q_17" BEL "gl/down_cond/M_ctr_q_18" BEL
+        "gl/down_cond/M_ctr_q_19" BEL "gl/down_cond/sync/M_pipe_q_1" BEL
+        "gl/down_cond/sync/Mshreg_M_pipe_q_1" BEL "gl/left_cond/M_ctr_q_0" BEL
+        "gl/left_cond/M_ctr_q_1" BEL "gl/left_cond/M_ctr_q_2" BEL
+        "gl/left_cond/M_ctr_q_3" BEL "gl/left_cond/M_ctr_q_4" BEL
+        "gl/left_cond/M_ctr_q_5" BEL "gl/left_cond/M_ctr_q_6" BEL
+        "gl/left_cond/M_ctr_q_7" BEL "gl/left_cond/M_ctr_q_8" BEL
+        "gl/left_cond/M_ctr_q_9" BEL "gl/left_cond/M_ctr_q_10" BEL
+        "gl/left_cond/M_ctr_q_11" BEL "gl/left_cond/M_ctr_q_12" BEL
+        "gl/left_cond/M_ctr_q_13" BEL "gl/left_cond/M_ctr_q_14" BEL
+        "gl/left_cond/M_ctr_q_15" BEL "gl/left_cond/M_ctr_q_16" BEL
+        "gl/left_cond/M_ctr_q_17" BEL "gl/left_cond/M_ctr_q_18" BEL
+        "gl/left_cond/M_ctr_q_19" BEL "gl/left_cond/sync/M_pipe_q_1" BEL
+        "gl/left_cond/sync/Mshreg_M_pipe_q_1" BEL "gl/gc/M_lose_toggle_q_0"
+        BEL "gl/gc/M_player_pos_q_0" BEL "gl/gc/M_player_pos_q_1" BEL
         "gl/gc/M_player_pos_q_2" BEL "gl/gc/M_player_pos_q_3" BEL
         "gl/gc/M_player_pos_q_4" BEL
         "gl/gc/tiles_gen_0[3].tiles/lf2/M_counter_q_23" BEL
+        "gl/gc/tiles_gen_0[3].tiles/lf2/M_counter_q_22" BEL
+        "gl/gc/tiles_gen_0[3].tiles/lf2/M_counter_q_21" BEL
         "gl/gc/tiles_gen_0[17].tiles/lf2/M_counter_q_23" BEL
+        "gl/gc/tiles_gen_0[17].tiles/lf2/M_counter_q_22" BEL
+        "gl/gc/tiles_gen_0[17].tiles/lf2/M_counter_q_21" BEL
         "gl/gc/M_right_cond_q_0" BEL "gl/gc/M_win_toggle_q_0" BEL
         "gl/gc/M_down_cond_q_0" BEL "gl/gc/M_up_cond_q_0" BEL
         "gl/gc/M_step_counter_q_0" BEL "gl/gc/M_step_counter_q_1" BEL
@@ -125,8 +173,8 @@ TIMEGRP clk = BEL "gl/M_game_states_q_FSM_FFd4" BEL
         "gl/gc/M_tiles_type_q_45" BEL "gl/gc/M_tiles_type_q_51" BEL
         "gl/gc/M_tiles_type_q_46" BEL "gl/gc/M_tiles_type_q_52" BEL
         "gl/gc/M_tiles_type_q_47" BEL "gl/gc/M_tiles_type_q_53" BEL
-        "gl/gc/M_tiles_type_q_48" BEL "gl/gc/M_tiles_type_q_49" BEL
-        "gl/gc/M_tiles_type_q_54" BEL "gl/gc/M_tiles_type_q_60" BEL
+        "gl/gc/M_tiles_type_q_48" BEL "gl/gc/M_tiles_type_q_54" BEL
+        "gl/gc/M_tiles_type_q_49" BEL "gl/gc/M_tiles_type_q_60" BEL
         "gl/gc/M_tiles_type_q_55" BEL "gl/gc/M_tiles_type_q_61" BEL
         "gl/gc/M_tiles_type_q_57" BEL "gl/gc/M_tiles_type_q_63" BEL
         "gl/gc/M_tiles_type_q_58" BEL "gl/gc/M_tiles_type_q_64" BEL
@@ -137,20 +185,24 @@ TIMEGRP clk = BEL "gl/M_game_states_q_FSM_FFd4" BEL
         "gl/gc/M_tiles_type_q_76" BEL "gl/gc/M_tiles_type_q_82" BEL
         "gl/gc/M_tiles_type_q_78" BEL "gl/gc/M_tiles_type_q_79" BEL
         "gl/gc/tiles_gen_0[8].tiles/lf2/M_counter_q_23" BEL
+        "gl/gc/tiles_gen_0[8].tiles/lf2/M_counter_q_22" BEL
+        "gl/gc/tiles_gen_0[8].tiles/lf2/M_counter_q_21" BEL
         "gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_25" BEL
         "gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_24" BEL
         "gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_23" BEL
+        "gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_22" BEL
+        "gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_21" BEL
         "gl/gc/tiles_gen_0[15].tiles/lf2/M_counter_q_23" BEL
+        "gl/gc/tiles_gen_0[15].tiles/lf2/M_counter_q_22" BEL
+        "gl/gc/tiles_gen_0[15].tiles/lf2/M_counter_q_21" BEL
         "gl/gc/M_left_cond_q_0" BEL "gl/gc/M_player_pos_q_0_1" BEL
         "gl/gc/M_player_pos_q_0_2" BEL "gl/gc/M_player_pos_q_0_3" BEL
-        "gl/gc/M_player_pos_q_0_4" BEL "gl/gc/M_player_pos_q_0_5" BEL
-        "gl/gc/M_player_pos_q_0_6" BEL "gl/gc/M_player_pos_q_0_7" BEL
-        "gl/gc/M_player_pos_q_0_8" BEL "gl/gc/M_player_pos_q_1_1" BEL
-        "gl/gc/M_player_pos_q_1_2" BEL "gl/gc/M_player_pos_q_2_1" BEL
-        "gl/gc/M_player_pos_q_2_2" BEL "gl/gc/M_player_pos_q_2_3" BEL
+        "gl/gc/M_player_pos_q_0_4" BEL "gl/gc/M_player_pos_q_1_1" BEL
+        "gl/gc/M_player_pos_q_1_2" BEL "gl/gc/M_player_pos_q_1_3" BEL
+        "gl/gc/M_player_pos_q_2_1" BEL "gl/gc/M_player_pos_q_2_2" BEL
         "gl/gc/M_player_pos_q_3_1" BEL "gl/gc/M_player_pos_q_3_2" BEL
         "gl/gc/M_player_pos_q_4_1" BEL "gl/gc/M_player_pos_q_4_2" BEL
-        "gl/gc/M_req_steps_q_2" BEL "gl/gc/M_req_steps_q_3" BEL
+        "gl/gc/M_req_steps_q_0" BEL "gl/gc/M_req_steps_q_3" BEL
         "gl/gc/M_req_steps_q_4" BEL "clk_BUFGP/BUFG";
 TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 SCHEMATIC END;

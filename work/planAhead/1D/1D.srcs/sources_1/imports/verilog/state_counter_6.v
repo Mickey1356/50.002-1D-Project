@@ -6,24 +6,27 @@
 
 /*
    Parameters:
-     DIV = 26
+     DIV = 22
 */
-module led_flasher_6 (
+module state_counter_6 (
     input clk,
     input rst,
     output reg out
   );
   
-  localparam DIV = 5'h1a;
+  localparam DIV = 5'h16;
   
   
-  reg [25:0] M_counter_d, M_counter_q = 1'h0;
+  reg [21:0] M_counter_d, M_counter_q = 1'h0;
   
   always @* begin
     M_counter_d = M_counter_q;
     
-    out = M_counter_q[25+0-:1];
+    out = M_counter_q[21+0-:1];
     M_counter_d = M_counter_q + 1'h1;
+    if (M_counter_q[21+0-:1] == 1'h1) begin
+      M_counter_d[21+0-:1] = 1'h0;
+    end
   end
   
   always @(posedge clk) begin

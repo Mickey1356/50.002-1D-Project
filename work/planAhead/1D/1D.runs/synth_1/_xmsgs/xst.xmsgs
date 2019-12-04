@@ -5,25 +5,34 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"H:/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 138: Port <arg fmt="%s" index="1">reset</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 141: Port <arg fmt="%s" index="1">reset</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"H:/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/game_loop_1.v" Line 31: Assignment to <arg fmt="%s" index="1">M_sc2_out</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 50: Assignment to <arg fmt="%s" index="1">power</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="552" delta="new" >"H:/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 138: Input port <arg fmt="%s" index="1">reset</arg> is not connected on this instance
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/game_controller_7.v" Line 36: Assignment to <arg fmt="%s" index="1">M_alu_z</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">H:/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/game_loop_1.v</arg>&quot; line <arg fmt="%d" index="2">28</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">sc2</arg>&gt; of block &lt;<arg fmt="%s" index="4">state_counter_3</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">game_loop_1</arg>&gt;. Underlying logic will be removed.
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/game_controller_7.v" Line 37: Assignment to <arg fmt="%s" index="1">M_alu_v</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/game_controller_7.v" Line 38: Assignment to <arg fmt="%s" index="1">M_alu_n</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/game_controller_7.v" Line 92: Result of <arg fmt="%d" index="1">17</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">6</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="552" delta="new" >"C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 141: Input port <arg fmt="%s" index="1">reset</arg> is not connected on this instance
 </msg>
 
 <msg type="warning" file="Xst" num="2898" delta="new" >Port &apos;<arg fmt="%s" index="1">reset</arg>&apos;, unconnected in block instance &apos;<arg fmt="%s" index="2">gl</arg>&apos;, is tied to GND.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">io_button&lt;1:1&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">io_button&lt;5:5&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">io_button&lt;5:5&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rst_n</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">cclk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -47,7 +56,46 @@
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">reset</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">H:/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/game_loop_1.v</arg>&quot; line <arg fmt="%s" index="2">28</arg>: Output port &lt;<arg fmt="%s" index="3">out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">sc2</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/game_controller_7.v</arg>&quot; line <arg fmt="%s" index="2">31</arg>: Output port &lt;<arg fmt="%s" index="3">z</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">alu</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/game_controller_7.v</arg>&quot; line <arg fmt="%s" index="2">31</arg>: Output port &lt;<arg fmt="%s" index="3">v</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">alu</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/game_controller_7.v</arg>&quot; line <arg fmt="%s" index="2">31</arg>: Output port &lt;<arg fmt="%s" index="3">n</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">alu</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/alu_12.v</arg>&quot; line <arg fmt="%d" index="2">41</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">bool16</arg>&gt; of block &lt;<arg fmt="%s" index="4">bool16_15</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">alu_12</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/alu_12.v</arg>&quot; line <arg fmt="%d" index="2">52</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">shift16</arg>&gt; of block &lt;<arg fmt="%s" index="4">shift16_16</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">alu_12</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/jerem_000/Documents/Stuff/School/SUTD/Term 4/Computational Structures/Projects/1D/work/planAhead/1D/1D.srcs/sources_1/imports/verilog/alu_12.v</arg>&quot; line <arg fmt="%d" index="2">79</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">muldiv16</arg>&gt; of block &lt;<arg fmt="%s" index="4">muldiv16_18</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">alu_12</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">alufn&lt;5:1&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">alufn&lt;5:4&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">alufn&lt;5:2&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">alufn&lt;0:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">alufn&lt;5:3&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">alufn&lt;0:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">alufn&lt;5:3&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">M_req_steps_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">game_controller_7</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;M_req_steps_q_1&gt; &lt;M_req_steps_q_2&gt; </arg>
 </msg>
 
 <msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gl/gc/M_tiles_type_q_2</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mojo_top_0</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -1880,9 +1928,6 @@
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">33 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/sc/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[26].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[25].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[24].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[23].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[22].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[21].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[20].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[19].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[18].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf2/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[16].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf2/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[14].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[13].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[12].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[11].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[10].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[9].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf2/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[7].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[6].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[5].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[4].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf2/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[2].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[1].tiles/lf/M_counter_q_9&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_9&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/gc/M_req_steps_q_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/M_req_steps_q_1&gt; &lt;gl/gc/M_req_steps_q_0&gt; </arg>
-</msg>
-
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_24</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">27 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/tiles_gen_0[26].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[25].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[24].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[23].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[22].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[21].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[20].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[19].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[18].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[16].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[14].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[13].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[12].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[11].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[10].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[9].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[7].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[6].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[5].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[4].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[2].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[1].tiles/lf/M_counter_q_24&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_24&gt; </arg>
 </msg>
 
@@ -1913,19 +1958,13 @@
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">33 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/sc/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[26].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[25].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[24].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[23].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[22].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[21].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[20].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[19].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[18].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf2/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[16].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf2/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[14].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[13].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[12].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[11].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[10].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[9].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf2/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[7].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[6].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[5].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[4].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf2/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[2].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[1].tiles/lf/M_counter_q_16&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_16&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_21</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">33 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/sc/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[26].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[25].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[24].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[23].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[22].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[21].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[20].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[19].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[18].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf2/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[16].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf2/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[14].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[13].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[12].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[11].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[10].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[9].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf2/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[7].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[6].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[5].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[4].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf2/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[2].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[1].tiles/lf/M_counter_q_21&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_21&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_21</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/sc/M_counter_q_21&gt; </arg>
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_17</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">33 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/sc/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[26].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[25].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[24].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[23].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[22].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[21].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[20].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[19].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[18].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf2/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[16].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf2/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[14].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[13].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[12].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[11].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[10].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[9].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf2/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[7].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[6].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[5].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[4].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf2/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[2].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[1].tiles/lf/M_counter_q_17&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_17&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_22</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">33 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/sc/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[26].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[25].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[24].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[23].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[22].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[21].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[20].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[19].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[18].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf2/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[16].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf2/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[14].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[13].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[12].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[11].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[10].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[9].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf2/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[7].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[6].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[5].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[4].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf2/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[2].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[1].tiles/lf/M_counter_q_22&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_22&gt; </arg>
-</msg>
-
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_18</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">33 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/sc/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[26].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[25].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[24].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[23].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[22].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[21].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[20].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[19].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[18].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf2/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[16].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf2/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[14].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[13].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[12].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[11].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[10].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[9].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf2/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[7].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[6].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[5].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[4].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf2/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[2].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[1].tiles/lf/M_counter_q_18&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_18&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_23</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/sc/M_counter_q_23&gt; </arg>
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">gl/sc/M_counter_q_19</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">33 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;gl/gc/sc/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[27].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[26].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[25].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[24].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[23].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[22].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[21].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[20].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[19].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[18].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf2/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[17].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[16].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf2/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[15].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[14].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[13].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[12].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[11].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[10].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[9].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf2/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[8].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[7].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[6].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[5].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[4].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf2/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[3].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[2].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[1].tiles/lf/M_counter_q_19&gt; &lt;gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_19&gt; </arg>
@@ -1934,82 +1973,244 @@
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[26].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[26].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[26].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[25].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[25].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[25].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[24].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[24].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[24].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[23].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[23].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[23].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[22].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[22].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[22].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[21].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[21].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[21].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[20].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[20].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[20].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[19].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[19].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[19].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[18].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[18].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[18].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[17].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[17].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[17].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[16].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[16].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[16].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[15].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[15].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[15].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[14].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[14].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[14].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[13].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[13].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[13].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[12].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[12].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[12].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[11].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[11].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[11].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[10].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[10].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[10].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[9].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[9].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[9].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[8].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[8].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[8].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[7].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[7].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[7].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[6].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[6].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[6].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[5].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[5].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[5].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[4].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[4].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[4].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[3].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[3].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[3].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[2].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[2].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[2].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[1].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[1].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[1].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gl/gc/tiles_gen_0[0].tiles/lf/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
 </messages>

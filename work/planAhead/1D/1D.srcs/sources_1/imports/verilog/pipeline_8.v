@@ -6,32 +6,33 @@
 
 /*
    Parameters:
-     DIV = 24
+     DEPTH = NUM_SYNC
 */
-module led_flasher_7 (
+module pipeline_8 (
     input clk,
-    input rst,
+    input in,
     output reg out
   );
   
-  localparam DIV = 5'h18;
+  localparam DEPTH = 2'h2;
   
   
-  reg [23:0] M_counter_d, M_counter_q = 1'h0;
+  reg [1:0] M_pipe_d, M_pipe_q = 1'h0;
+  
+  integer i;
   
   always @* begin
-    M_counter_d = M_counter_q;
+    M_pipe_d = M_pipe_q;
     
-    out = M_counter_q[23+0-:1];
-    M_counter_d = M_counter_q + 1'h1;
+    M_pipe_d[0+0-:1] = in;
+    out = M_pipe_q[1+0-:1];
+    for (i = 1'h1; i < 2'h2; i = i + 1) begin
+      M_pipe_d[(i)*1+0-:1] = M_pipe_q[(i - 1'h1)*1+0-:1];
+    end
   end
   
   always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_counter_q <= 1'h0;
-    end else begin
-      M_counter_q <= M_counter_d;
-    end
+    M_pipe_q <= M_pipe_d;
   end
   
 endmodule
