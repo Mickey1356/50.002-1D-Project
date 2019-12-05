@@ -11,45 +11,52 @@ module game_loop_1 (
     input down,
     input left,
     input right,
-    input reset,
     output reg [27:0] tiles_g,
     output reg [27:0] tiles_p,
     output reg win_led,
-    output reg lose_led
+    output reg lose_led,
+    output reg [7:0] seven_seg
   );
   
   
   
+  wire [8-1:0] M_ss_segs;
+  reg [5-1:0] M_ss_char;
+  seven_seg_2 ss (
+    .char(M_ss_char),
+    .segs(M_ss_segs)
+  );
+  
   wire [1-1:0] M_up_cond_out;
   reg [1-1:0] M_up_cond_in;
-  button_conditioner_2 up_cond (
+  button_conditioner_3 up_cond (
     .clk(clk),
     .in(M_up_cond_in),
     .out(M_up_cond_out)
   );
   wire [1-1:0] M_down_cond_out;
   reg [1-1:0] M_down_cond_in;
-  button_conditioner_2 down_cond (
+  button_conditioner_3 down_cond (
     .clk(clk),
     .in(M_down_cond_in),
     .out(M_down_cond_out)
   );
   wire [1-1:0] M_left_cond_out;
   reg [1-1:0] M_left_cond_in;
-  button_conditioner_2 left_cond (
+  button_conditioner_3 left_cond (
     .clk(clk),
     .in(M_left_cond_in),
     .out(M_left_cond_out)
   );
   wire [1-1:0] M_right_cond_out;
   reg [1-1:0] M_right_cond_in;
-  button_conditioner_2 right_cond (
+  button_conditioner_3 right_cond (
     .clk(clk),
     .in(M_right_cond_in),
     .out(M_right_cond_out)
   );
   wire [1-1:0] M_sc_out;
-  state_counter_6 sc (
+  state_counter_7 sc (
     .clk(clk),
     .rst(rst),
     .out(M_sc_out)
@@ -63,7 +70,7 @@ module game_loop_1 (
   reg [1-1:0] M_gc_left;
   reg [1-1:0] M_gc_right;
   reg [3-1:0] M_gc_level_state;
-  game_controller_7 gc (
+  game_controller_8 gc (
     .clk(clk),
     .rst(rst),
     .up(M_gc_up),
@@ -106,6 +113,8 @@ module game_loop_1 (
     M_gc_level_state = 1'h0;
     win_led = 1'h0;
     lose_led = 1'h0;
+    M_ss_char = 5'h1f;
+    seven_seg = M_ss_segs;
     
     case (M_game_states_q)
       START_game_states: begin
@@ -122,6 +131,7 @@ module game_loop_1 (
         end
       end
       EXPLORE1_game_states: begin
+        M_ss_char = 1'h1;
         M_gc_level_state = 1'h1;
         if (M_gc_win & M_sc_out) begin
           M_game_states_d = EXPLORE1WIN_game_states;
@@ -138,6 +148,7 @@ module game_loop_1 (
         end
       end
       EXPLORE2_game_states: begin
+        M_ss_char = 2'h2;
         M_gc_level_state = 2'h2;
         if (M_gc_win & M_sc_out) begin
           M_game_states_d = EXPLORE2WIN_game_states;
@@ -154,6 +165,7 @@ module game_loop_1 (
         end
       end
       EXPLORE3_game_states: begin
+        M_ss_char = 2'h3;
         M_gc_level_state = 2'h3;
         if (M_gc_win & M_sc_out) begin
           M_game_states_d = EXPLORE3WIN_game_states;
@@ -170,6 +182,7 @@ module game_loop_1 (
         end
       end
       EXPLORE4_game_states: begin
+        M_ss_char = 3'h4;
         M_gc_level_state = 3'h4;
         if (M_gc_win & M_sc_out) begin
           M_game_states_d = WINGAME_game_states;

@@ -9,7 +9,7 @@
 #NET "power" LOC = P58 | IOSTANDARD = LVTTL;
 
 # PULLDOWN is needed to prevent floating inputs
-# up, center, down, left, right
+# up, center, down, left, right (nicholas)
 NET "io_button<0>" LOC = P66 | IOSTANDARD = LVTTL | PULLDOWN;
 NET "io_button<1>" LOC = P140 | IOSTANDARD = LVTTL | PULLDOWN;
 NET "io_button<2>" LOC = P67 | IOSTANDARD = LVTTL | PULLDOWN;
@@ -102,3 +102,12 @@ NET "led_g<27>" LOC = P34 | IOSTANDARD = LVTTL;
 
 NET "win_led" LOC = P57 | IOSTANDARD = LVTTL;
 NET "lose_led" LOC = P58 | IOSTANDARD = LVTTL;
+
+NET "segs<0>" LOC = P137 | IOSTANDARD = LVTTL;
+NET "segs<1>" LOC = P133 | IOSTANDARD = LVTTL;
+NET "segs<2>" LOC = P131 | IOSTANDARD = LVTTL;
+NET "segs<3>" LOC = P126 | IOSTANDARD = LVTTL;
+NET "segs<4>" LOC = P138 | IOSTANDARD = LVTTL;
+NET "segs<5>" LOC = P134 | IOSTANDARD = LVTTL;
+NET "segs<6>" LOC = P132 | IOSTANDARD = LVTTL;
+NET "segs<7>" LOC = P127 | IOSTANDARD = LVTTL;

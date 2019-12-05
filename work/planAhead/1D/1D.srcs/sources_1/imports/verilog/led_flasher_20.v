@@ -6,7 +6,7 @@
 
 /*
    Parameters:
-     DIV = 24
+     DIV = 26
 */
 module led_flasher_20 (
     input clk,
@@ -14,15 +14,15 @@ module led_flasher_20 (
     output reg out
   );
   
-  localparam DIV = 5'h18;
+  localparam DIV = 5'h1a;
   
   
-  reg [23:0] M_counter_d, M_counter_q = 1'h0;
+  reg [25:0] M_counter_d, M_counter_q = 1'h0;
   
   always @* begin
     M_counter_d = M_counter_q;
     
-    out = M_counter_q[23+0-:1];
+    out = M_counter_q[25+0-:1];
     M_counter_d = M_counter_q + 1'h1;
   end
   

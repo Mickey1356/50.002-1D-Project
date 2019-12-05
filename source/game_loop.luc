@@ -5,13 +5,15 @@ module game_loop (
     input down,
     input left,
     input right,
-    input reset,
         
     output tiles_g[28],
     output tiles_p[28],
     output win_led,
-    output lose_led
+    output lose_led,
+    output seven_seg[8]
   ) {
+  
+  seven_seg ss;
   
   .clk(clk) {
   
@@ -50,6 +52,9 @@ module game_loop (
     win_led = 0;
     lose_led = 0;
     
+    ss.char = 31;
+    seven_seg = ss.segs;
+    
     case (game_states.q) {
       game_states.START:
         if (up_cond.out & sc.out) {
@@ -64,6 +69,7 @@ module game_loop (
         }
 
       game_states.EXPLORE1:
+        ss.char = 1; // set 7-seg to display 1
         gc.level_state = 1;
         if(gc.win & sc.out) {
           game_states.d = game_states.EXPLORE1WIN;
@@ -78,6 +84,7 @@ module game_loop (
           game_states.d = game_states.EXPLORE2;
         }
       game_states.EXPLORE2:
+        ss.char = 2; // set 7-seg to display 2
         gc.level_state = 2;
         if(gc.win & sc.out) {
           game_states.d = game_states.EXPLORE2WIN;
@@ -92,6 +99,7 @@ module game_loop (
           game_states.d = game_states.EXPLORE3;
         }
       game_states.EXPLORE3:
+        ss.char = 3; // set 7-seg to display 3
         gc.level_state = 3;
         if(gc.win & sc.out) {
           game_states.d = game_states.EXPLORE3WIN;
@@ -106,6 +114,7 @@ module game_loop (
           game_states.d = game_states.EXPLORE4;
         }
       game_states.EXPLORE4:
+        ss.char = 4; // set 7-seg to display 4
         gc.level_state = 4;
         if(gc.win & sc.out) {
           game_states.d = game_states.WINGAME;

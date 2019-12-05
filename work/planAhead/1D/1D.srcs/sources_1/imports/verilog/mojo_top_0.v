@@ -28,6 +28,8 @@ module mojo_top_0 (
     output [27:0] led_p,
     output [27:0] led_g,
     
+    output [7:0] segs,
+    
     output win_led,
     output lose_led
     
@@ -51,6 +53,7 @@ module mojo_top_0 (
   
   assign led_p = tiles_p;
   assign led_g = tiles_g;
+  assign segs = seven_segs;
   //assign io_led[23:1] = 23'b0;
   
   //assign r = rval;
@@ -68,6 +71,8 @@ module mojo_top_0 (
   
   wire [27:0] tiles_g;
   wire [27:0] tiles_p;
+  
+  wire [7:0] seven_segs;
   
 //  wire [7:0] iseg;
 //  wire [3:0] isel;
@@ -148,7 +153,8 @@ module mojo_top_0 (
       .tiles_g(tiles_g[27:0]),
       .tiles_p(tiles_p[27:0]),
       .win_led(win_led),
-      .lose_led(lose_led)
+      .lose_led(lose_led),
+      .seven_seg(seven_segs[7:0])
     );
         
 //    assign io_led[20:0] = tiles_g[20:0];
